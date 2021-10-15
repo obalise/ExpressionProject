@@ -1,6 +1,6 @@
 # ExpressionProject
 
-Bienvenu jeune programmeur!!
+Bienvenue jeune programmeur !!
 Tu viens d'integrer le projet "Expression"!
 
 
