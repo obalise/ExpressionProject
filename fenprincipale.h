@@ -7,13 +7,14 @@
 class FenPrincipale : public QMainWindow
 {
     Q_OBJECT
-public:
+    public:
     //explicit FenPrincipale(QWidget *parent = nullptr);
     FenPrincipale(int x, int y);
 
+    public slots:
+    void saisie();
 
-
-signals:
+    signals:
 
 };
 

@@ -18,3 +18,5 @@ HEADERS += \
     Operateur.h
 
 QT += widgets
+
+CONFIG += console

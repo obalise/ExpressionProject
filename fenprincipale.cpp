@@ -1,4 +1,7 @@
 #include "fenprincipale.h"
+#include <windows.h>
+#include <stdio.h>
+
 
 //FenPrincipale::FenPrincipale(QWidget *parent) : QMainWindow(parent)
 FenPrincipale::FenPrincipale(int x, int y)
@@ -35,4 +38,32 @@ FenPrincipale::FenPrincipale(int x, int y)
      menuOutils->addAction(actionSimplification);
 
      connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
+     connect(actionSaisie, SIGNAL(triggered()), this, SLOT(saisie()));
+}
+
+void FenPrincipale::saisie()
+{
+    // detach from the current console window
+    // if launched from a console window, that will still run waiting for the new console (below) to close
+    // it is useful to detach from Qt Creator's <Application output> panel
+    FreeConsole();
+
+    // create a separate new console window
+    AllocConsole();
+
+    // attach the new console to this application's process
+    AttachConsole(GetCurrentProcessId());
+
+    // reopen the std I/O streams to redirect I/O to the new console
+    freopen("CON", "w", stdout);
+    freopen("CON", "w", stderr);
+    freopen("CON", "r", stdin);
+
+    QWidget w;
+
+    puts("Saisissez l'expression:");
+    getchar();
+    w.show();
+
+
 }
