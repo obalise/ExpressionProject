@@ -72,6 +72,7 @@ FenPrincipale::FenPrincipale(int x, int y)
 
      connect(actionSaisie, SIGNAL(triggered()), this, SLOT(saisie()));
      connect(actionAffichageNC, SIGNAL(triggered()), this, SLOT(affichageNC()));
+     connect(actionAffichageNPI, SIGNAL(triggered()), this, SLOT(affichageNPI()));
 }
 
 void FenPrincipale::saisie()
@@ -217,9 +218,74 @@ void FenPrincipale::affichageNC()
         //Création d'une addition
         Addition add1(&tab[0], &tab[1]);
 
-        cout << add1 << endl;
+        //cout << add1 << endl;
 
-        out << add1;
+        out << "Affichage NC addition" << endl<< add1;
+        test = QString::fromStdString(out.str());
+        textEdit->setPlainText(test);
+
+    }
+    else if (op == '-')
+    {
+        cout << "Soustraction" << endl;
+    }
+    else if (op == '*')
+    {
+        cout << "Multiplication" << endl;
+    }
+    else
+    {
+        cout << "Division" << endl;
+    }
+
+
+}
+
+void FenPrincipale::affichageNPI()
+{
+
+    bool ok;
+    int i(0);
+    vector<Constante> tab(2, 0);
+    vector<Constante> tabDyn; //Crée un tableau dynamique de x nombre à virgule
+
+    QString op, test;
+    stringstream out;
+
+    QFile fichier(*fileName);
+    fichier.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream flux(&fichier);
+
+    while(! flux.atEnd())
+    {
+        flux >> mot;
+
+        float flo = mot.toFloat(&ok);
+        if(ok)
+        {
+            Constante c1(flo);
+            cout << c1 << endl;
+
+            tab[i] = flo;
+            cout << tab[i] << endl;
+
+            tabDyn.push_back(flo);
+            cout << tabDyn[i] << endl;
+
+            i++;
+        }
+        else
+        {
+            op = mot;
+        }
+    }
+
+    if (op == '+')
+    {
+        //Création d'une addition
+        Addition add1(&tab[0], &tab[1]);
+
+        add1.afficherNPI(out << "Affichage NPI addition" << endl);
         test = QString::fromStdString(out.str());
         textEdit->setPlainText(test);
 
