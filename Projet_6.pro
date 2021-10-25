@@ -5,6 +5,7 @@ SOURCES += \
     Multiplication.cpp \
     Division.cpp \
     Expression.cpp \
+    Constante.cpp \
     Operateur.cpp \
     main.cpp
 
@@ -15,8 +16,10 @@ HEADERS += \
     Multiplication.h \
     Division.h \
     Expression.h \
+    Constante.h \
     Operateur.h
 
 QT += widgets
 
 CONFIG += console
+CONFIG+=c++11

@@ -3,6 +3,13 @@
 
 #include <QMainWindow>
 #include <QtWidgets>
+#include <QList>
+
+QT_BEGIN_NAMESPACE
+class QAction;
+class QMenu;
+class QTextEdit;
+QT_END_NAMESPACE
 
 class FenPrincipale : public QMainWindow
 {
@@ -11,8 +18,20 @@ class FenPrincipale : public QMainWindow
     //explicit FenPrincipale(QWidget *parent = nullptr);
     FenPrincipale(int x, int y);
 
+    private:
+    QString *fileName;
+    QTextEdit *textEdit;
+    QString mot;
+    QString texte;
+    QString curFile;
+
     public slots:
+    bool sauvegarder();
+    bool saveFile(const QString &fileName);
+    void charger();
     void saisie();
+    void affichageNC();
+
 
     signals:
 
