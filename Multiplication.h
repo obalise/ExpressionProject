@@ -14,6 +14,7 @@ public:
     Multiplication(const Multiplication& other);
 
     float calculer() override;
+    Expression* simplifier() override;
     void afficher(ostream &os) const override;
     void afficherNPI(ostream &os) const override;
 

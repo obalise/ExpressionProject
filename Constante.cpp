@@ -9,7 +9,7 @@ Constante::Constante(float x) { _valeur = x; /*cout << "Constante" << endl;*/ }
 
 Constante::~Constante()
 {
-    cout << "Destruction Constante" << endl;
+    //cout << "Destruction Constante" << endl;
 }
 
 Constante::Constante(const Constante& other)
@@ -30,6 +30,11 @@ void Constante::afficherNPI(ostream &os) const
 float Constante::calculer()
 {
     return _valeur;
+}
+
+Expression* Constante::simplifier()
+{
+
 }
 
 ostream &operator<<( ostream &os, const Constante& c1)

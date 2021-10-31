@@ -11,7 +11,7 @@ Expression::Expression()
 
 Expression::~Expression()
 {
-    cout << "Destruction Expression" << endl;
+    //cout << "Destruction Expression" << endl;
 }
 
 Expression::Expression(const Expression& other)

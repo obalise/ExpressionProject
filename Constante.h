@@ -14,10 +14,10 @@ public:
     virtual ~Constante();
     Constante(const Constante& other);
 
-    //void afficher() override;
+    void afficher(ostream &os) const override;
     void afficherNPI(ostream &os) const override;
     float calculer() override;
-    void afficher(ostream &os) const override;
+    Expression* simplifier() override;
 
     float GetValeur()
     {

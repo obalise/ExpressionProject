@@ -14,6 +14,7 @@ public:
     Soustraction(const Soustraction& other);
 
     float calculer() override;
+    Expression* simplifier() override;
     void afficher(ostream &os) const override;
     void afficherNPI(ostream &os) const override;
 
