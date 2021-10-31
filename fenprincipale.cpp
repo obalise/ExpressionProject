@@ -1,5 +1,7 @@
 #include <vector>
 #include <sstream>
+#include <string>
+#include <iostream>
 
 #include "fenprincipale.h"
 #include "Constante.h"
@@ -31,12 +33,12 @@ FenPrincipale::FenPrincipale(int x, int y)
     fileName = new QString();
     textEdit = new QTextEdit(this);
 
-    //zone centrale : SDI
-    QWidget *zoneCentrale = new QWidget;
-    setCentralWidget(zoneCentrale);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(textEdit);
-    zoneCentrale->setLayout(layout);
+    QPixmap bkgnd("Images/icone.png");
+    bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
+    QPalette palette;
+    palette.setBrush(QPalette::Background, bkgnd);
+    this->setPalette(palette);
+
 
     QMenu *menuFichier = menuBar()->addMenu("&Fichier");
     QMenu *menuEdition = menuBar()->addMenu("&Edition");
@@ -73,6 +75,7 @@ FenPrincipale::FenPrincipale(int x, int y)
      connect(actionSaisie, SIGNAL(triggered()), this, SLOT(saisie()));
      connect(actionAffichageNC, SIGNAL(triggered()), this, SLOT(affichageNC()));
      connect(actionAffichageNPI, SIGNAL(triggered()), this, SLOT(affichageNPI()));
+
 }
 
 void FenPrincipale::saisie()
@@ -80,6 +83,14 @@ void FenPrincipale::saisie()
 
     /* Le groupe 8 doit fournir à l’aide du « design pattern » singleton un accès simplifié à l’expression gérée par le programme. */
     /* Utiliser et Appeler par ex. la sauvegarde de l'expression lorsque l'entrée du menu correspondante est sélectionnée.*/
+
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
 
 #ifdef DEBUG
     // detach from the current console window
@@ -144,16 +155,20 @@ bool FenPrincipale::saveFile(const QString &fileName)
         return false;
     }
 
-    //setCurrentFile(fileName);
-    //statusBar()->showMessage(tr("File saved"), 2000);
     return true;
 }
 
 void FenPrincipale::charger()
 {
 
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
     *fileName = QFileDialog::getOpenFileName(this, "Ouvrir un fichier", QString(), "Fichier textes (*.txt)");
-    //QMessageBox::information(this, "Fichier", "Vous avez sélectionné :\n" + *fileName);
 
 
     QFile file(*fileName);
@@ -169,21 +184,17 @@ void FenPrincipale::charger()
     textEdit->setPlainText(in.readAll());
     QGuiApplication::restoreOverrideCursor();
 
-    //setCurrentFile(*fileName);
-    //statusBar()->showMessage(tr("File loaded"), 2000);
-
 }
 
 void FenPrincipale::affichageNC()
 {
-
     bool ok;
     int i(0);
-    vector<Constante> tab(2, 0);
-    vector<Constante> tabDyn; //Crée un tableau dynamique de x nombre à virgule
+    vector<Constante> tab(10,0);
 
     QString op, test;
     stringstream out;
+    ostringstream fx;
 
     QFile fichier(*fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -194,51 +205,68 @@ void FenPrincipale::affichageNC()
         flux >> mot;
 
         float flo = mot.toFloat(&ok);
+
         if(ok)
         {
-            Constante c1(flo);
-            cout << c1 << endl;
-
             tab[i] = flo;
-            cout << tab[i] << endl;
-
-            tabDyn.push_back(flo);
-            cout << tabDyn[i] << endl;
-
+            //cout << tab[i] << endl;
             i++;
         }
         else
         {
-            op = mot;
+           if (mot == "+" || mot == "-" || mot == "*" || mot == "/")
+           op = mot;
+        }
+
+        if (op == '+' && i > 1)
+        {
+            //Création d'une addition
+            Addition add1(&tab[0], &tab[1]);
+
+            fx << "Affichage NC addition" << endl<< add1;
+
+            test = QString::fromStdString(fx.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '-' && i > 1)
+        {
+            //Création d'une soustraction
+            Soustraction sous1(&tab[0], &tab[1]);
+
+            fx << "Affichage NC soustraction" << endl<< sous1;
+
+            test = QString::fromStdString(fx.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '*' && i > 1)
+        {
+            //Création d'une multiplication
+            Multiplication mux1(&tab[0], &tab[1]);
+
+            fx << "Affichage NC multiplication" << endl<< mux1;
+
+            test = QString::fromStdString(fx.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '/' && i > 1)
+        {
+            //Création d'une division
+            Division div1(&tab[0], &tab[1]);
+
+            fx << "Affichage NC division" << endl<< div1;
+
+            test = QString::fromStdString(fx.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else
+        {
+           cout << "N/A" << endl;
         }
     }
-
-    if (op == '+')
-    {
-        //Création d'une addition
-        Addition add1(&tab[0], &tab[1]);
-
-        //cout << add1 << endl;
-
-        out << "Affichage NC addition" << endl<< add1;
-        test = QString::fromStdString(out.str());
-        textEdit->setPlainText(test);
-
-    }
-    else if (op == '-')
-    {
-        cout << "Soustraction" << endl;
-    }
-    else if (op == '*')
-    {
-        cout << "Multiplication" << endl;
-    }
-    else
-    {
-        cout << "Division" << endl;
-    }
-
-
 }
 
 void FenPrincipale::affichageNPI()
@@ -247,10 +275,10 @@ void FenPrincipale::affichageNPI()
     bool ok;
     int i(0);
     vector<Constante> tab(2, 0);
-    vector<Constante> tabDyn; //Crée un tableau dynamique de x nombre à virgule
 
     QString op, test;
     stringstream out;
+    ostringstream fx;
 
     QFile fichier(*fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -263,45 +291,63 @@ void FenPrincipale::affichageNPI()
         float flo = mot.toFloat(&ok);
         if(ok)
         {
-            Constante c1(flo);
-            cout << c1 << endl;
-
             tab[i] = flo;
             cout << tab[i] << endl;
-
-            tabDyn.push_back(flo);
-            cout << tabDyn[i] << endl;
-
             i++;
         }
         else
         {
+            if (mot == "+" || mot == "-" || mot == "*" || mot == "/")
             op = mot;
         }
-    }
 
-    if (op == '+')
-    {
-        //Création d'une addition
-        Addition add1(&tab[0], &tab[1]);
+        if (op == '+' && i > 1)
+        {
+            //Création d'une addition
+            Addition add1(&tab[0], &tab[1]);
 
-        add1.afficherNPI(out << "Affichage NPI addition" << endl);
-        test = QString::fromStdString(out.str());
-        textEdit->setPlainText(test);
+            add1.afficherNPI(out <<"Affichage NPI addition"<< endl);
 
-    }
-    else if (op == '-')
-    {
-        cout << "Soustraction" << endl;
-    }
-    else if (op == '*')
-    {
-        cout << "Multiplication" << endl;
-    }
-    else
-    {
-        cout << "Division" << endl;
-    }
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '-' && i > 1)
+        {
+            //Création d'une soustraction
+            Soustraction sous1(&tab[0], &tab[1]);
 
+            sous1.afficherNPI(out <<"Affichage NPI soustraction"<< endl);
 
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '*' && i > 1)
+        {
+            //Création d'une multiplication
+            Multiplication mux1(&tab[0], &tab[1]);
+
+            mux1.afficherNPI(out <<"Affichage NPI multiplication"<< endl);
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '/' && i > 1)
+        {
+            //Création d'une division
+            Division div1(&tab[0], &tab[1]);
+
+            div1.afficherNPI(out <<"Affichage NPI division"<< endl);
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else
+        {
+           cout << "N/A" << endl;
+        }
+    }
 }

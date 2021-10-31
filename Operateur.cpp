@@ -11,7 +11,7 @@ Operateur::Operateur()
 
 Operateur::~Operateur()
 {
-    cout << "Destruction Operateur" << endl;
+    //cout << "Destruction Operateur" << endl;
 }
 
 Operateur::Operateur(const Operateur& other)

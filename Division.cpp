@@ -4,7 +4,7 @@ Division::Division(Expression* a, Expression* b) : _operandeGauche(a) , _operand
 
 Division::~Division()
 {
-    cout << endl <<  "Destruction Division" << endl;
+   // cout << endl <<  "Destruction Division" << endl;
 }
 
 Division::Division(const Division& other)

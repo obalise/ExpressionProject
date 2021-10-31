@@ -24,6 +24,7 @@ class FenPrincipale : public QMainWindow
     QString mot;
     QString texte;
     QString curFile;
+    QLabel* imageLabel;
 
     public slots:
     bool sauvegarder();

@@ -11,7 +11,7 @@ Addition::Addition(Expression* a, Expression* b) : _operandeGauche(a), _operande
 
 Addition::~Addition()
 {
-    cout <<  "Destruction Addition" << endl;
+    //cout <<  "Destruction Addition" << endl;
 }
 
 Addition::Addition(const Addition& other)
