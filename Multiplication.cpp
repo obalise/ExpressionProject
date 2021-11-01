@@ -37,6 +37,7 @@ float Multiplication::calculer()
 
 Expression* Multiplication::simplifier()
 {
+<<<<<<< Updated upstream
     float res=0;
     Expression *E;
         if (typeid(*_operandeGauche) == typeid(Constante))
@@ -52,16 +53,40 @@ Expression* Multiplication::simplifier()
             {
                 cout<<"Else Multi droite"<<endl;
                 _operandeDroite->simplifier();
+=======
+    float mult=0;
+        if (typeid(*_operandeGauche) == typeid(Constante))
+        {
+            if (typeid(*_operandeDroite) == typeid(Constante))
+            {
+                Multiplication res2(_operandeGauche,_operandeDroite);
+                mult=res2.calculer();
+            }
+            else
+            {
+                Multiplication res2(_operandeGauche,_operandeDroite->simplifier());
+                mult=res2.calculer();
+>>>>>>> Stashed changes
             }
         }
         else
         {
+<<<<<<< Updated upstream
             cout<<"Else Multi gauche"<<endl;
             _operandeGauche->simplifier();
         }
 
     cout<< "Resultat fct Multi simplifier res ="<<res<<endl;
     return E;
+=======
+            Multiplication res2(_operandeGauche->simplifier(),_operandeDroite);
+            mult=res2.calculer();
+        }
+
+    cout<< "Resultat fct mult simplifier res final="<<mult<<endl;
+    return this;
+
+>>>>>>> Stashed changes
 
 }
 
