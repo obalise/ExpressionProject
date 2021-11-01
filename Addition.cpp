@@ -46,14 +46,6 @@ float Addition::calculer()
    return _operandeGauche->calculer()+ _operandeDroite->calculer();
 }
 
-/*Expression* Addition::simplifier()
-{
-    Expression *res2;
-    res2=(_operandeGauche->simplifier(),_operandeDroite->simplifier());
-    res2.afficher(cout);
-    cout<< "Resultat fct add simplifier res2="<<res2<<endl;
- return res2;
-}*/
 
 Expression* Addition::simplifier()
 {
@@ -82,52 +74,6 @@ Expression* Addition::simplifier()
 
 }
 
-Expression* Addition::simplifier()
-{
-    float res1=0;
-    Expression *E;
-        if (typeid(*_operandeGauche) != typeid(Constante))
-            _operandeGauche->simplifier();
-        else
-            if (typeid(*_operandeDroite) != typeid(Constante))
-                _operandeDroite->simplifier();
-            else
-            {
-                res1=_operandeGauche->calculer()+_operandeDroite->calculer();
-                E=new Constante(res1);
-            }
-    cout<< "Resultat fct add simplifier res1="<<res1<<endl;
-    return E;
-}
-
-/*Expression* Addition::simplifier()
-{
-    float res1=0;
-    Expression *E;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            cout<<"If Addition cte gauche"<<endl;
-            if (typeid(*_operandeDroite) == typeid(Constante))
-            {
-                res1=_operandeGauche->calculer()+_operandeDroite->calculer();
-                cout<<"If Addition cte droite"<<endl;
-                E= new Constante(res1);
-            }
-            else
-            {
-                cout<<"Else Addition droite"<<endl;
-                E=new Expression(_operandeDroite->simplifier());
-            }
-        }
-        else
-        {
-            cout<<"Else Addition gauche"<<endl;
-            _operandeGauche->simplifier();
-        }
-
-    cout<< "Resultat fct add simplifier res1="<<res1<<endl;
-    return E;
-}*/
 
 ostream &operator<<(ostream &os, const Addition& op)
 {
