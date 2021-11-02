@@ -26,9 +26,7 @@ Dans cette première partie, les expressions que l'on souhaite traiter sont comp
 
 ORGANISATION :
 
-Chaque mendre de ce projet à été affecter à un groupe de projet qui sera représenter par une branche qui représente votre environnement de travai.
-
-J'esserai par la suite en tant que owner de vous donner les droits d'écriture et de "merge" dans vos environements.
+Chaque membre de ce projet a été affecté à un groupe de projet qui sera représenté par une branche qui représente votre environnement de travail.
+J'essaierai par la suite en tant que modérateur de vous donner les droits d'écriture et de "merge" dans vos environnements.
 Pour l'instant vous devrez me consulter avant de merger!
-
-Bon courage à tous et très bientot dans le code. 
+Bon courage à tous est très bientôt dans le code.

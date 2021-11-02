@@ -11,7 +11,7 @@ Expression::Expression()
 
 Expression::~Expression()
 {
-    cout << "Destruction Expression" << endl;
+    //cout << "Destruction Expression" << endl;
 }
 
 Expression::Expression(const Expression& other)
@@ -19,15 +19,6 @@ Expression::Expression(const Expression& other)
     //copy ctor
 }
 
-void Expression::afficher(ostream &os) const
-{
-
-}
-
-void Expression::afficherNPI(ostream &os) const
-{
-
-}
 ostream &operator<<( ostream &os, const Expression& exp)
 {
     exp.afficher(os);

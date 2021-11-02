@@ -1,9 +1,17 @@
 #include <iostream>
+#include <QApplication>
+#include <QtWidgets>
+#include "fenprincipale.h"
 
-using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-    std::cout << "Hello, World!" << std::endl;
-    return 0;
+
+    QApplication app(argc, argv);
+
+    FenPrincipale fenetre(900, 450);
+
+    fenetre.show();
+
+    return app.exec();
 }
