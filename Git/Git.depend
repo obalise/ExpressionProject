@@ -1,0 +1,74 @@
+# depslib dependency file v1.0
+1635695579 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\addition.cpp
+	<iostream>
+	"Addition.h"
+	"Constante.h"
+	"Expression.h"
+
+1635688042 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\addition.h
+	<iostream>
+	"Operateur.h"
+
+1635604960 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\operateur.h
+	"Expression.h"
+
+1635688042 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\expression.h
+	<iostream>
+	<string>
+
+1635693724 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\constante.cpp
+	"Constante.h"
+	<iostream>
+
+1635688042 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\constante.h
+	<iostream>
+	"Expression.h"
+
+1635693724 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\division.cpp
+	<iostream>
+	"Division.h"
+	"Constante.h"
+
+1635688992 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\division.h
+	<iostream>
+	"Operateur.h"
+	"Constante.h"
+
+1635693742 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\expression.cpp
+	<iostream>
+	"Expression.h"
+
+1635694299 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\main.cpp
+	<iostream>
+	"Addition.h"
+	"Soustraction.h"
+	"Multiplication.h"
+	"Division.h"
+	"Constante.h"
+	"Expression.h"
+
+1635693724 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\operateur.cpp
+	<iostream>
+	"Operateur.h"
+
+1635693724 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\soustraction.cpp
+	<iostream>
+	"Soustraction.h"
+	"Constante.h"
+
+1635689043 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\soustraction.h
+	<iostream>
+	"Operateur.h"
+
+1584205420 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\git\main.cpp
+	<iostream>
+
+1635695025 source:d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\multiplication.cpp
+	<iostream>
+	"Multiplication.h"
+	"Constante.h"
+
+1635688042 d:\documents\onedrive - yncréa\semestre 3\3- poo\projet\git\expressionproject\multiplication.h
+	<iostream>
+	"Operateur.h"
+

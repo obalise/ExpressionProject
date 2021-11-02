@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "Operateur.h"
-
+#include "Constante.h"
 
 class Division : public Operateur
 {
@@ -16,6 +16,7 @@ public:
     float calculer() override;
     void afficher(ostream &os) const override;
     void afficherNPI(ostream &os) const override;
+    Expression* simplifier() override;
 
 protected:
 

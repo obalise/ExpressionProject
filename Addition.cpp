@@ -1,6 +1,8 @@
 #include <iostream>
 
 #include "Addition.h"
+#include "Constante.h"
+#include "Expression.h"
 
 using namespace std;
 
@@ -41,10 +43,37 @@ void Addition::afficherNPI(ostream &os) const
 
 float Addition::calculer()
 {
-
    return _operandeGauche->calculer()+ _operandeDroite->calculer();
+}
+
+
+Expression* Addition::simplifier()
+{
+    float add=0;
+        if (typeid(*_operandeGauche) == typeid(Constante))
+        {
+            if (typeid(*_operandeDroite) == typeid(Constante))
+            {
+                Addition res2(_operandeGauche,_operandeDroite);
+                add=res2.calculer();
+            }
+            else
+            {
+                Addition res2(_operandeGauche,_operandeDroite->simplifier());
+                add=res2.calculer();
+            }
+        }
+        else
+        {
+            Addition res2(_operandeGauche->simplifier(),_operandeDroite);
+            add=res2.calculer();
+        }
+
+    cout<< "Resultat fct add simplifier add final="<<add<<endl;
+    return this;
 
 }
+
 
 ostream &operator<<(ostream &os, const Addition& op)
 {
