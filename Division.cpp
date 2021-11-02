@@ -42,8 +42,7 @@ float Division::calculer()
 
 Expression* Division::simplifier()
 {
-<<<<<<< Updated upstream
-    float res;
+    float res = 0.0;
         if (typeid(*_operandeGauche) == typeid(Constante))
         {
             cout<<"If Division"<<endl;
@@ -56,7 +55,6 @@ Expression* Division::simplifier()
             {
                 cout<<"Else Division droite"<<endl;
                 _operandeDroite->simplifier();
-=======
     float div=0;
         if (typeid(*_operandeGauche) == typeid(Constante))
         {
@@ -69,24 +67,21 @@ Expression* Division::simplifier()
             {
                 Division res2(_operandeGauche,_operandeDroite->simplifier());
                 div=res2.calculer();
->>>>>>> Stashed changes
             }
         }
         else
         {
-<<<<<<< Updated upstream
             cout<<"Else Division gauche"<<endl;
             _operandeGauche->simplifier();
         }
     cout<< "Resultat fct Division simplifier="<<res<<endl;
-=======
             Division res2(_operandeGauche->simplifier(),_operandeDroite);
             div=res2.calculer();
         }
 
-    cout<< "Resultat fct div simplifier final="<<div<<endl;
+    //cout<< "Resultat fct div simplifier final="<<div<<endl;
     return this;
->>>>>>> Stashed changes
+    }
 }
 
 ostream &operator<<( ostream &os, const Division& op)

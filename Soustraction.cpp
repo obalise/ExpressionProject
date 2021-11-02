@@ -41,7 +41,6 @@ float Soustraction::calculer()
 
 Expression* Soustraction::simplifier()
 {
-<<<<<<< Updated upstream
     float res;
         if (typeid(*_operandeGauche) == typeid(Constante))
         {
@@ -55,7 +54,6 @@ Expression* Soustraction::simplifier()
             {
                 cout<<"Else Soustraction droite"<<endl;
                 _operandeDroite->simplifier();
-=======
     float sous=0;
         if (typeid(*_operandeGauche) == typeid(Constante))
         {
@@ -68,25 +66,22 @@ Expression* Soustraction::simplifier()
             {
                 Soustraction res2(_operandeGauche,_operandeDroite->simplifier());
                 sous=res2.calculer();
->>>>>>> Stashed changes
             }
         }
         else
         {
-<<<<<<< Updated upstream
             cout<<"Else Soustraction gauche"<<endl;
             _operandeGauche->simplifier();
         }
 
     cout<< "Resultat fct Soustraire simplifier="<<res<<endl;
-=======
             Soustraction res2(_operandeGauche->simplifier(),_operandeDroite);
             sous=res2.calculer();
         }
 
-    cout<< "Resultat fct sous simplifier final="<<sous<<endl;
+    //cout<< "Resultat fct sous simplifier final="<<sous<<endl;
     return this;
->>>>>>> Stashed changes
+    }
 }
 
 ostream &operator<<( ostream &os, const Soustraction& op)

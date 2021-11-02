@@ -1,4 +1,5 @@
 SOURCES += \
+    Simplifier.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Soustraction.cpp \
@@ -10,6 +11,7 @@ SOURCES += \
     main.cpp
 
 HEADERS += \
+    Simplifier.h \
     fenprincipale.h \
     Addition.h \
     Soustraction.h \
