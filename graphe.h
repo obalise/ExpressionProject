@@ -30,9 +30,9 @@ public:
     ~Graphe();
 
     void calculerPointsGrapheDUR();
-    void calculerPointsGraphe(Expression* arnaud);
+    void calculerPointsGraphe(Expression* expression);
 
-    int tracerGraphe(int argc, char *argv[]); //voir si on a pas de problème quand on intégrera au main
+    int tracerGraphe(int argc, char *argv[], QString qstr); //voir si on a pas de problème quand on intégrera au main
 
 
 };

@@ -8,6 +8,8 @@
 #include <QtCharts/QLineSeries>
 
 #include <iostream>
+#include <sstream>
+#include <string>
 
 #include "graphe.h"
 #include "Expression.h"
@@ -44,10 +46,30 @@ int main(int argc, char *argv[])
     Variable florentv2('y');
     Multiplication mult2(&div1, &florentv2);
 
+    /*
+    cout << endl << "Affichage: " << mult2 << endl;
+
+
+    std::stringstream chaine;
+    chaine << endl << "Affichage: " << mult2 << endl;
+
+    std::string s = chaine.str();
+
+    cout << endl << "Affichage de la mort qui tue: " << s << endl; */
+
+    std::stringstream chaine;
+    chaine << mult2;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    //QString qstr = "Oui oui";
+
+
+
     Graphe arnaud(0, 45, 0.5);
 
     arnaud.calculerPointsGraphe(&mult2);
-    arnaud.tracerGraphe(argc, argv);
+    arnaud.tracerGraphe(argc, argv, qstr);
 
     QApplication a(argc, argv);
     MainWindow w;
