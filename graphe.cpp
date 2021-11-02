@@ -1,5 +1,10 @@
+#include <iostream>
+#include <sstream>
+#include <string>
+
 #include "graphe.h"
 #include "Variable.h"
+
 
 Graphe::Graphe()
 {
@@ -33,7 +38,7 @@ void Graphe::calculerPointsGrapheDUR()
 }
 
 
-void Graphe::calculerPointsGraphe(Expression* arnaud)
+void Graphe::calculerPointsGraphe(Expression* expression)
 {
 
     //Je chope mon expression passé en paramètre
@@ -42,7 +47,7 @@ void Graphe::calculerPointsGraphe(Expression* arnaud)
     variableglobaldemoncul = _plageBasseX;
     while (variableglobaldemoncul <= _plageHauteX)
     {
-        float y = arnaud->calculer();
+        float y = expression->calculer();
 
         _series->append(variableglobaldemoncul, y);
         variableglobaldemoncul += _pas;
@@ -50,14 +55,15 @@ void Graphe::calculerPointsGraphe(Expression* arnaud)
     }
 }
 
-int Graphe::tracerGraphe(int argc, char *argv[])
+int Graphe::tracerGraphe(int argc, char *argv[], QString qstr)
 {
     QApplication a(argc, argv);
     QChart *chart = new QChart();
     chart->legend()->hide();
     chart->addSeries(_series);
     chart->createDefaultAxes();
-    chart->setTitle("Simple line chart example");
+
+    chart->setTitle(qstr);
 //![3]
 
 //![4]
