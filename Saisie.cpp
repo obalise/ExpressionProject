@@ -15,43 +15,47 @@ Saisie::~Saisie()
     //dtor
 }
 
-void Saisie::saisir()
+void Saisie::saisir(istream &is, ostream &os)
 {
     string truc_saisie = "2";
-	int i = 0;
+	std::vector<std::string> exp_str;
 
-    cout << endl << "**Veuillez entrer votre expression, nombre par nombre, operande par operande, en notation polonaise inversee**" << endl;
-    cout << "Appuyer sur entree entre chaque saisi, entrez 'P' pour terminer" << endl;
-    cout << endl <<" : " << endl;
+    os << endl << "**Veuillez entrer votre expression, nombre par nombre, operande par operande, en notation polonaise inversee**" << endl;
+    os << "Appuyer sur entree entre chaque saisi, entrez 'p' pour terminer" << endl;
+    os << endl <<" : " << endl;
 
 	while (truc_saisie != "p")
 	{
-		cin >> truc_saisie;
-		m_exp_str.push_back(truc_saisie);
+		is >> truc_saisie;
+		exp_str.push_back(truc_saisie);
 	}
 
-    //while(((m_exp_str[i] == "+") || (m_exp_str[i] == "-") || (m_exp_str[i] == "*") || (m_exp_str[i] == "/")) && (i < m_exp_str.size()))
-    /*while((m_exp_str[i] == "+") || (m_exp_str[i] == "-"))
-	{
-        cout << "   l'element : "<< i <<"est : "<<m_exp_str[i]<<endl;
-        i ++;
-	}*/
+	this->vector_to_exp(exp_str, os);
+}
 
-	for(i = 0; i < m_exp_str.size(); i ++)
+
+void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
+{
+    int i = 0;
+
+    /*for(i = 0; i < vector_str.size(); i ++)
 	{
-        cout << "   l'element : "<< i <<"est : "<<m_exp_str[i]<<endl;
-        if ((m_exp_str[i] == "+") || (m_exp_str[i] == "-"))
+        cout << "   l'element : "<< i <<" est : "<<vector_str[i]<<endl;
+    }*/
+	for(i = 0; i < vector_str.size(); i ++)
+	{
+        if ((vector_str[i] == "+") || (vector_str[i] == "-"))
         {
             break;
         }
-        if ((m_exp_str[i] == "*") || (m_exp_str[i] == "/"))
+        if ((vector_str[i] == "*") || (vector_str[i] == "/"))
         {
             break;
         }
 	}
-	//cout << "le nombre de chiffre dans ton expression est : " << i << "le dernier chiffre est" << m_exp_str[i-1]<< endl;
+	os << endl << "le nombre de chiffre dans ton expression est : " << i << " le dernier chiffre est : " << vector_str[i-1]<< endl;
 
-    int taille_exp = m_exp_str.size();
+    int taille_exp = vector_str.size();
 	if((taille_exp-i != taille_exp/2) || (taille_exp%2 != 0))
 	{
         cout << "Erreur dans l'expression, nombre d'operande ne correspond pas au nombre de constante" << endl;
@@ -59,26 +63,26 @@ void Saisie::saisir()
 
 	int deb_operande = i;
 
-	this->m_exp_saisi = new Constante(stof(m_exp_str[0]));
+	this->m_exp_saisi = new Constante(stof(vector_str[0]));
 	//new Constante(4.4);
 
 	for(i = deb_operande; i < taille_exp-1; i ++)
 	{
-        if (m_exp_str[i] == "+")
+        if (vector_str[i] == "+")
         {
-            this->m_exp_saisi = new Addition(this->m_exp_saisi, new Constante(stof(m_exp_str[i-(taille_exp/2)])));
+            this->m_exp_saisi = new Addition(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
         }
-        if (m_exp_str[i] == "-")
+        if (vector_str[i] == "-")
         {
-            this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Constante(stof(m_exp_str[i-(taille_exp/2)])));
+            this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
         }
-        if (m_exp_str[i] == "*")
+        if (vector_str[i] == "*")
         {
-            this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Constante(stof(m_exp_str[i-(taille_exp/2)])));
+            this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
         }
-        if (m_exp_str[i] == "/")
+        if (vector_str[i] == "/")
         {
-            this->m_exp_saisi = new Division(this->m_exp_saisi, new Constante(stof(m_exp_str[i-(taille_exp/2)])));
+            this->m_exp_saisi = new Division(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
         }
 	}
 }

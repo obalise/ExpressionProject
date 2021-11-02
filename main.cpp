@@ -1,17 +1,84 @@
 #include <iostream>
-#include <QApplication>
-#include <QtWidgets>
-#include "fenprincipale.h"
+#include "Saisie.h"
 
+using namespace std;
 
-int main(int argc, char *argv[])
+int main()
 {
+    int choix2;
+	int thend = 0;
+	Saisie la_saisie;
 
-    QApplication app(argc, argv);
+    cout << "\n\n***Bienvenue sur Expression project le programme calculatrice du futur***\n\n";
 
-    FenPrincipale fenetre(900, 450);
+	while(thend!=1)
+	{
+        if(la_saisie.GetExpSaisie() == NULL)
+        {
+            cout << "Aucune expression n'a encore été saisie, veuillez en saisir une" << endl << endl;
+        }
+        else
+        {
+            cout << "L'Expression actuellement saisie est : " << endl;
 
-    fenetre.show();
+            la_saisie.GetExpSaisie()->afficher(cout << endl << "L'Expression actuellement saisie est : " << endl);
+            cout << " = " << la_saisie.GetExpSaisie()->calculer() << endl;
+            cout << endl;
+        }
 
-    return app.exec();
+        int choix2;
+        cout << "Voulez vous :\n\n";
+
+        cout << "	0 - Quitter.\n";
+        cout << "	1 - Saisir une expression\n";
+        cout << "	2 - Enregistrer l'expression\n";
+        cout << "	3 - Sauvegarder l'expression\n";
+        cout << "	4 - Regarder un clip de JuL\n";
+
+        cout << "\n";
+        cin >> choix2;
+
+        //while (getchar () != '\n');
+
+		switch(choix2)
+		{
+			case 1:
+			{
+                la_saisie.saisir(cin, cout << "");
+				break;
+			}
+
+			case 2:
+			{
+
+				break;
+			}
+
+			case 3:
+			{
+
+				break;
+			}
+
+			case 4:
+			{
+
+				break;
+			}
+
+			case 0:
+			{
+                thend = 1;
+				break;
+			}
+
+			default :
+			{
+
+				break;
+			}
+		}
+    }
+
+    return 0;
 }
