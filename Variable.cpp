@@ -5,7 +5,7 @@
 
 using namespace std;
 
-float variableglobaldemoncul = 0;
+float vGlobValVar = 0;
 
 Variable::Variable(char x)
 {
@@ -43,7 +43,7 @@ void Variable::afficherNPI(ostream &os) const
 
 float Variable::calculer()
 {
-    this->attribution(variableglobaldemoncul);
+    this->attribution(vGlobValVar);
     return _valeur;
 }
 

@@ -62,10 +62,6 @@ int main(int argc, char *argv[])
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    //QString qstr = "Oui oui";
-
-
-
     Graphe arnaud(0, 45, 0.5);
 
     arnaud.calculerPointsGraphe(&mult2);

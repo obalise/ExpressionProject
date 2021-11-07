@@ -8,7 +8,7 @@
 
 using namespace std;
 
-extern float variableglobaldemoncul;
+extern float vGlobValVar;
 
 class Variable : public Expression
 {

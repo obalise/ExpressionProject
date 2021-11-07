@@ -44,13 +44,13 @@ void Graphe::calculerPointsGraphe(Expression* expression)
     //Je chope mon expression passé en paramètre
     //Il faut que j'identifie ma variable dedans
 
-    variableglobaldemoncul = _plageBasseX;
-    while (variableglobaldemoncul <= _plageHauteX)
+    vGlobValVar = _plageBasseX;
+    while (vGlobValVar <= _plageHauteX)
     {
         float y = expression->calculer();
 
-        _series->append(variableglobaldemoncul, y);
-        variableglobaldemoncul += _pas;
+        _series->append(vGlobValVar, y);
+        vGlobValVar += _pas;
 
     }
 }
