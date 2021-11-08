@@ -1,5 +1,24 @@
 # ExpressionProject
 
+
+***************************************************************************************************************
+Guide PROJET 6:
+
+Pas de signleton (design pattern) pour la partie saisie, affichage 2D et simplification.
+
+Fonction charger/sauvegarder fonctionnelles depuis l'envirronement Qt5.
+Fonction affichage NC /NPI & calculer fonctionnelles (pour une expression simple) depuis l'environnement Qt5.
+
+Pour tester il faut charger un fichier texte pour appeler les fonctions.
+
+format attendu ( 5 + 2 ) (respecter les espaces entre chaque caractère).
+
+Image background:
+Ajouter le dossier Image dans le reprtoire de debug (obtenu après la première compilation) 
+
+***************************************************************************************************************
+
+
 Bienvenue jeune programmeur !!
 Tu viens d'integrer le projet "Expression"!
 
