@@ -6,6 +6,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
+#include <QThread>
 
 #include <iostream>
 #include <sstream>
@@ -28,6 +29,7 @@ using namespace std;
 
 int main(int argc, char *argv[])
 {
+
 
     //Faire une fonction d'entrer de l'expression -> ITERATION2 avec Groupe 1
 
@@ -65,7 +67,7 @@ int main(int argc, char *argv[])
     Graphe arnaud(0, 45, 0.5);
 
     arnaud.calculerPointsGraphe(&mult2);
-    arnaud.tracerGraphe(argc, argv, qstr);
+    arnaud.tracerGraphe(qstr, argc, argv);
 
     QApplication a(argc, argv);
     MainWindow w;

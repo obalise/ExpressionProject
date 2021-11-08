@@ -55,7 +55,7 @@ void Graphe::calculerPointsGraphe(Expression* expression)
     }
 }
 
-int Graphe::tracerGraphe(int argc, char *argv[], QString qstr)
+int Graphe::tracerGraphe(QString qstr, int argc, char *argv[])
 {
     QApplication a(argc, argv);
     QChart *chart = new QChart();
@@ -70,10 +70,12 @@ int Graphe::tracerGraphe(int argc, char *argv[], QString qstr)
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
-    QMainWindow window;
-    window.setCentralWidget(chartView);
-    window.resize(400, 300);
-    window.show();
+    QMainWindow windowchart;
+    windowchart.setCentralWidget(chartView);
+    windowchart.resize(400, 300);
+    windowchart.show();
+    //windowchart.raise();
+    //windowchart.activateWindow();
 
     return a.exec();
 }
