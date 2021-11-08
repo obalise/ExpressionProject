@@ -53,6 +53,38 @@ void Graphe::calculerPointsGraphe(Expression* expression)
         vGlobValVar += _pas;
 
     }
+
+}
+
+
+QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression)
+{
+
+    //Je chope mon expression passé en paramètre
+    //Il faut que j'identifie ma variable dedans
+
+    vGlobValVar = _plageBasseX;
+    while (vGlobValVar <= _plageHauteX)
+    {
+        float y = expression->calculer();
+
+        _series->append(vGlobValVar, y);
+        vGlobValVar += _pas;
+
+    }
+
+    QChart *chart = new QChart();
+    chart->legend()->hide();
+    chart->addSeries(_series);
+    chart->createDefaultAxes();
+
+    chart->setTitle("salut");
+
+    QChartView *chartView = new QChartView(chart);
+    chartView->setRenderHint(QPainter::Antialiasing);
+
+    return chartView;
+
 }
 
 int Graphe::tracerGraphe(QString qstr, int argc, char *argv[])
@@ -64,9 +96,7 @@ int Graphe::tracerGraphe(QString qstr, int argc, char *argv[])
     chart->createDefaultAxes();
 
     chart->setTitle(qstr);
-//![3]
 
-//![4]
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);
 
@@ -74,8 +104,6 @@ int Graphe::tracerGraphe(QString qstr, int argc, char *argv[])
     windowchart.setCentralWidget(chartView);
     windowchart.resize(400, 300);
     windowchart.show();
-    //windowchart.raise();
-    //windowchart.activateWindow();
 
     return a.exec();
 }

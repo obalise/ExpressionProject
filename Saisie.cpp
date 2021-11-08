@@ -1,13 +1,13 @@
 #include "Saisie.h"
-#include "ui_mainwindow.h"
+#include "ui_Saisie.h"
 
+NewMainWindow *newWin = 0;
 
 Saisie::Saisie(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
 }
 
 Saisie::~Saisie()
@@ -113,9 +113,55 @@ void Saisie::on_pushButton_7_clicked() //Tracer le graphe
 {
     QMessageBox::information(this, "Tracer graphe", "Vous avez cliqué sur tracer le graphe");
 
-    Window* settingsWindow = new Window("Settings","icon.png");
-    settingsWindow->setAttribute(Qt::WA_DeleteOnClose);
-    settingsWindow->show();
+  /*  Dialog fenetre;
+    fenetre.setModal(true);
+    fenetre.exec();
+
+        QLineSeries *series = new QLineSeries();
+
+        series->append(0, 6);
+        series->append(2, 4);
+        series->append(3, 8);
+        series->append(7, 4);
+        series->append(10, 5);
+        *series << QPointF(11, 1) << QPointF(13, 3) << QPointF(17, 6) << QPointF(18, 3) << QPointF(20, 2);
+
+        QChart *chart = new QChart();
+        chart->legend()->hide();
+        chart->addSeries(series);
+        chart->createDefaultAxes();
+        chart->setTitle("Simple line chart example");
+
+        QChartView *chartView = new QChartView(chart);
+        chartView->setRenderHint(QPainter::Antialiasing);
+
+
+    newWin = new NewMainWindow();
+    newWin->setCentralWidget(chartView);
+    newWin->resize(400, 300);
+    newWin->show(); */
+
+
+    Expression* expression = pileExpression.top();
+
+
+    std::stringstream chaine;
+    chaine << expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    Graphe arnaud(0, 45, 0.5);
+
+
+
+    QChartView* florent = arnaud.calculerPointsGrapheTEST(expression);
+
+
+    newWin = new NewMainWindow();
+    newWin->setCentralWidget(florent);
+    newWin->resize(400, 300);
+    newWin->show();
+
 
 }
 

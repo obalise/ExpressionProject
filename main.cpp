@@ -12,7 +12,7 @@
 #include <sstream>
 #include <string>
 
-#include "graphe.h"
+#include "Graphe.h"
 #include "Expression.h"
 #include "Constante.h"
 #include "Multiplication.h"

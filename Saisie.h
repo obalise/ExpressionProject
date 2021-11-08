@@ -10,6 +10,8 @@
 
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
+#include <QtWidgets/QLabel>
+#include <QtWidgets/QLayout>
 #include <QtCharts/QChartView>
 #include <QtCharts/QLineSeries>
 
@@ -19,7 +21,7 @@
 #include <vector>
 #include <stack>
 
-#include "graphe.h"
+#include "Graphe.h"
 #include "Expression.h"
 #include "Constante.h"
 #include "Multiplication.h"
@@ -29,6 +31,8 @@
 #include "Constante.h"
 #include "Variable.h"
 
+#include "dialog.h"
+#include "newmainwindow.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -44,13 +48,16 @@ public:
     ~Saisie();
     int _nombreConstante;
 
+    QGridLayout* gridLayot;
+    QChart *chart;
+    QChartView *chartView;
+
+
 
 private:
     Ui::MainWindow *ui;
-
-    //std::vector<Expression*> vecExpression;
-
     std::stack<Expression*> pileExpression;
+
 
 
 
