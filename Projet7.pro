@@ -16,11 +16,11 @@ SOURCES += \
     Expression.cpp \
     Multiplication.cpp \
     Operateur.cpp \
+    Saisie.cpp \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
-    main.cpp \
-    mainwindow.cpp
+    main.cpp
 
 HEADERS += \
     Addition.h \
@@ -29,13 +29,13 @@ HEADERS += \
     Expression.h \
     Multiplication.h \
     Operateur.h \
+    Saisie.h \
     Soustraction.h \
     Variable.h \
-    graphe.h \
-    mainwindow.h
+    graphe.h
 
 FORMS += \
-    mainwindow.ui
+    Saisie.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

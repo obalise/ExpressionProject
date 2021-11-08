@@ -1,8 +1,8 @@
-#include "mainwindow.h"
+#include "Saisie.h"
 #include "ui_mainwindow.h"
 
 
-MainWindow::MainWindow(QWidget *parent)
+Saisie::Saisie(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -10,13 +10,13 @@ MainWindow::MainWindow(QWidget *parent)
 
 }
 
-MainWindow::~MainWindow()
+Saisie::~Saisie()
 {
     delete ui;
 }
 
 
-void MainWindow::on_pushButton_clicked()   //Constante
+void Saisie::on_pushButton_clicked()   //Constante
 {
     QMessageBox::information(this, "Constante", "Vous avez cliqué sur constante");
     //Ici qu'on va mettre qui traite les constante
@@ -34,7 +34,7 @@ void MainWindow::on_pushButton_clicked()   //Constante
 }
 
 
-void MainWindow::on_pushButton_6_clicked() //Variable
+void Saisie::on_pushButton_6_clicked() //Variable
 {
     QMessageBox::information(this, "Variable", "Vous avez cliqué sur variable");
 
@@ -46,7 +46,7 @@ void MainWindow::on_pushButton_6_clicked() //Variable
 }
 
 
-void MainWindow::on_pushButton_2_clicked() //Addition
+void Saisie::on_pushButton_2_clicked() //Addition
 {
     QMessageBox::information(this, "Addition", "Vous avez cliqué sur addition");
 
@@ -61,7 +61,7 @@ void MainWindow::on_pushButton_2_clicked() //Addition
 }
 
 
-void MainWindow::on_pushButton_4_clicked() //Soustraction
+void Saisie::on_pushButton_4_clicked() //Soustraction
 {
     QMessageBox::information(this, "Soustraction", "Vous avez cliqué sur soustraction");
 
@@ -75,7 +75,7 @@ void MainWindow::on_pushButton_4_clicked() //Soustraction
 }
 
 
-void MainWindow::on_pushButton_3_clicked() //Multiplication
+void Saisie::on_pushButton_3_clicked() //Multiplication
 {
     QMessageBox::information(this, "Multiplication", "Vous avez cliqué sur multiplication");
 
@@ -89,7 +89,7 @@ void MainWindow::on_pushButton_3_clicked() //Multiplication
 }
 
 
-void MainWindow::on_pushButton_5_clicked() //Division
+void Saisie::on_pushButton_5_clicked() //Division
 {
     QMessageBox::information(this, "Division", "Vous avez cliqué sur division");
 
@@ -103,23 +103,26 @@ void MainWindow::on_pushButton_5_clicked() //Division
 }
 
 
-void MainWindow::on_spinBox_valueChanged(int arg1) //Changement de valeur pour la constante
+void Saisie::on_spinBox_valueChanged(int arg1) //Changement de valeur pour la constante
 {
     _nombreConstante = arg1;
 }
 
 
-void MainWindow::on_pushButton_7_clicked() //Tracer le graphe
+void Saisie::on_pushButton_7_clicked() //Tracer le graphe
 {
+    QMessageBox::information(this, "Tracer graphe", "Vous avez cliqué sur tracer le graphe");
 
-
+    Window* settingsWindow = new Window("Settings","icon.png");
+    settingsWindow->setAttribute(Qt::WA_DeleteOnClose);
+    settingsWindow->show();
 
 }
 
 
-void MainWindow::on_pushButton_8_clicked() //Afficher l'expression saisie
+void Saisie::on_pushButton_8_clicked() //Afficher l'expression saisie
 {
-    QMessageBox::information(this, "Division", "Vous avez cliqué sur division");
+    QMessageBox::information(this, "Afficher expression saisie", "Vous avez cliqué sur afficher exp saisie");
 
     Expression* yolesang = pileExpression.top();
 

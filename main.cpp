@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+#include "Saisie.h"
 
 #include <QApplication>
 
@@ -70,7 +70,7 @@ int main(int argc, char *argv[])
     arnaud.tracerGraphe(qstr, argc, argv);
 
     QApplication a(argc, argv);
-    MainWindow w;
+    Saisie w;
     w.show();
     return a.exec();
 
