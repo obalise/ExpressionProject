@@ -57,7 +57,7 @@ void Graphe::calculerPointsGraphe(Expression* expression)
 }
 
 
-QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression)
+QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression, QString qstr)
 {
 
     //Je chope mon expression passé en paramètre
@@ -78,7 +78,7 @@ QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression)
     chart->addSeries(_series);
     chart->createDefaultAxes();
 
-    chart->setTitle("salut");
+    chart->setTitle(qstr);
 
     QChartView *chartView = new QChartView(chart);
     chartView->setRenderHint(QPainter::Antialiasing);

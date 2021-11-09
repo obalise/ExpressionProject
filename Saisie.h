@@ -46,11 +46,11 @@ class Saisie : public QMainWindow
 public:
     Saisie(QWidget *parent = nullptr);
     ~Saisie();
-    int _nombreConstante;
+    int _nombreConstanteSaisie;
 
-    QGridLayout* gridLayot;
-    QChart *chart;
-    QChartView *chartView;
+ //   QGridLayout* gridLayot;
+ //   QChart *chart;
+ //   QChartView *chartView;
 
 
 

@@ -31,7 +31,7 @@ public:
 
     void calculerPointsGrapheDUR();
     void calculerPointsGraphe(Expression* expression);
-    QChartView* calculerPointsGrapheTEST(Expression* expression);
+    QChartView* calculerPointsGrapheTEST(Expression* expression, QString qstr);
 
     int tracerGraphe(QString qstr, int argc, char *argv[]); //voir si on a pas de problÃƒÂ¨me quand on intÃƒÂ©grera au main
 
