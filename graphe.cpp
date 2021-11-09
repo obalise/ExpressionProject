@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 
-#include "graphe.h"
+#include "Graphe.h"
 #include "Variable.h"
 
 
@@ -11,7 +11,7 @@ Graphe::Graphe()
     //Constructor
 }
 
-Graphe::Graphe(float plageBasseX, float plageHauteX, float pas)
+Graphe::Graphe(float plageBasseX, float plageHauteX, float pas) //Constructeur prenant la plage des abscisses et le pas pour le calcul des points
 {
     //Constructor
     _plageBasseX = plageBasseX;
@@ -24,26 +24,31 @@ Graphe::~Graphe()
    //Destructor
 }
 
-void Graphe::calculerPointsGrapheDUR()
+void Graphe::set_pas(float pas){
+    _pas = pas;
+}
+void Graphe::set_plageBasseX(float plageBasseX){
+    _plageBasseX = plageBasseX;
+}
+void Graphe::set_plageHauteX(float plageHauteX){
+    _plageHauteX = plageHauteX;
+}
+
+void Graphe::calculerPointsGrapheDUR() // [FONCTION ITERATION 1]
 {
 
     float i = _plageBasseX;
     while (i <= _plageHauteX)
     {
-      float y = 3 * i * i + 5;       //Là ou on devra exploiter la fonction du groupe  -> ITERATION1
-     //spéciale à faire
+      float y = 3 * i * i + 5;
       _series->append(i, y);
       i += _pas;
     }
 }
 
 
-void Graphe::calculerPointsGraphe(Expression* expression)
+void Graphe::calculerPointsGraphe(Expression* expression) // [FONCTION ITERATION 1]
 {
-
-    //Je chope mon expression passé en paramètre
-    //Il faut que j'identifie ma variable dedans
-
     vGlobValVar = _plageBasseX;
     while (vGlobValVar <= _plageHauteX)
     {
@@ -51,18 +56,16 @@ void Graphe::calculerPointsGraphe(Expression* expression)
 
         _series->append(vGlobValVar, y);
         vGlobValVar += _pas;
-
     }
-
 }
 
 
-QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression, QString qstr)
+QChartView* Graphe::calculerTracerGraphe(Expression* expression, QString qstr) // [FONCTION ITERATION 2]
+/* A partir de notre équation (expression) et du titre du graphe (qstr, ce sera simplement notre équation en chaines de caractères)
+ * La fonction retourne un pointeur vers un objet QChartView qui nous permettra par la suite de tracer le graphe
+ * Note d'amélioration: il doit être possible de ne pas passer par vGlobValVar !
+ */
 {
-
-    //Je chope mon expression passé en paramètre
-    //Il faut que j'identifie ma variable dedans
-
     vGlobValVar = _plageBasseX;
     while (vGlobValVar <= _plageHauteX)
     {
@@ -70,14 +73,13 @@ QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression, QString qst
 
         _series->append(vGlobValVar, y);
         vGlobValVar += _pas;
-
     }
 
+    //Création de l'objet QChart et de ses différents paramètres
     QChart *chart = new QChart();
     chart->legend()->hide();
     chart->addSeries(_series);
     chart->createDefaultAxes();
-
     chart->setTitle(qstr);
 
     QChartView *chartView = new QChartView(chart);
@@ -87,7 +89,7 @@ QChartView* Graphe::calculerPointsGrapheTEST(Expression* expression, QString qst
 
 }
 
-int Graphe::tracerGraphe(QString qstr, int argc, char *argv[])
+int Graphe::tracerGraphe(QString qstr, int argc, char *argv[]) // [FONCTION ITERATION 1] Recréer une QApplication qui doit être unique. A prohiber.
 {
     QApplication a(argc, argv);
     QChart *chart = new QChart();

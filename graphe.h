@@ -6,6 +6,7 @@
 #include <QtCharts/QLineSeries>
 #include "Expression.h"
 
+
 QT_CHARTS_USE_NAMESPACE
 
 class Graphe
@@ -18,22 +19,22 @@ private:
 
     QLineSeries *_series = new QLineSeries();
 
-    //Expression _fonction1Variable;
-
-    //Comment on fait rentrer l'expression dans ce bordel de merde.
-
-
 
 public:
     Graphe();
     Graphe(float, float, float);
     ~Graphe();
 
+    void set_pas(float);
+    void set_plageBasseX(float);
+    void set_plageHauteX(float);
+
+
     void calculerPointsGrapheDUR();
     void calculerPointsGraphe(Expression* expression);
-    QChartView* calculerPointsGrapheTEST(Expression* expression, QString qstr);
+    int tracerGraphe(QString qstr, int argc, char *argv[]);
 
-    int tracerGraphe(QString qstr, int argc, char *argv[]); //voir si on a pas de problÃƒÂ¨me quand on intÃƒÂ©grera au main
+    QChartView* calculerTracerGraphe(Expression* expression, QString qstr);
 
 
 };

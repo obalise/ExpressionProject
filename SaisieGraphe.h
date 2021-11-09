@@ -1,10 +1,9 @@
-#ifndef SAISIE_H
-#define SAISIE_H
+#ifndef SAISIEGRAPHE_H
+#define SAISIEGRAPHE_H
 
 #include <QMainWindow>
 #include <QPushButton>
 #include <QMessageBox>
-
 
 #include <QApplication>
 
@@ -18,7 +17,6 @@
 #include <iostream>
 #include <sstream>
 #include <string>
-#include <vector>
 #include <stack>
 
 #include "Graphe.h"
@@ -31,8 +29,7 @@
 #include "Constante.h"
 #include "Variable.h"
 
-#include "dialog.h"
-#include "newmainwindow.h"
+#include "FenetreGraphe.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -46,18 +43,15 @@ class Saisie : public QMainWindow
 public:
     Saisie(QWidget *parent = nullptr);
     ~Saisie();
-    int _nombreConstanteSaisie;
-
- //   QGridLayout* gridLayot;
- //   QChart *chart;
- //   QChartView *chartView;
-
-
+//    int _nombreConstanteSaisie;
 
 private:
     Ui::MainWindow *ui;
     std::stack<Expression*> pileExpression;
-
+    double _nombreConstanteSaisie;
+    double _nombrePasSaisie;
+    double _nombrePlageBasseSaisie;
+    double _nombrePlageHauteSaisie;
 
 
 
@@ -68,8 +62,11 @@ private slots:
     void on_pushButton_4_clicked();
     void on_pushButton_3_clicked();
     void on_pushButton_5_clicked();
-    void on_spinBox_valueChanged(int arg1);
     void on_pushButton_7_clicked();
-    void on_pushButton_8_clicked();
+
+    void on_doubleSpinBox_valueChanged(double arg1);
+    void on_doubleSpinBox_2_valueChanged(double arg1);
+    void on_doubleSpinBox_3_valueChanged(double arg1);
+    void on_doubleSpinBox_4_valueChanged(double arg1);
 };
-#endif // SAISIE_H
+#endif // SAISIEGRAPHE_H

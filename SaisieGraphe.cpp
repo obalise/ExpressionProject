@@ -1,5 +1,5 @@
-#include "Saisie.h"
-#include "ui_Saisie.h"
+#include "SaisieGraphe.h"
+#include "ui_SaisieGraphe.h"
 
 NewMainWindow *newWin = 0; //utilisé pour créé une nouvelle fenêtre
 
@@ -20,7 +20,6 @@ Saisie::~Saisie()
 
 void Saisie::on_pushButton_clicked()   //Constante
 {
-   // QMessageBox::information(this, "Constante", "Vous avez cliqué sur constante");
     Expression* pConstante = new Constante(_nombreConstanteSaisie);
     pileExpression.push(pConstante);
 
@@ -33,7 +32,6 @@ void Saisie::on_pushButton_clicked()   //Constante
        ui->lineEdit->setText(valeurEcran + " " + valeurAjout);
     }
 
-    //cout << *pConstante << "  " << endl;
     Expression* expression = pileExpression.top();
 
     std::stringstream chaine;
@@ -41,7 +39,6 @@ void Saisie::on_pushButton_clicked()   //Constante
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -52,8 +49,6 @@ void Saisie::on_pushButton_clicked()   //Constante
 
 void Saisie::on_pushButton_6_clicked() //Variable
 {
-    //QMessageBox::information(this, "Variable", "Vous avez cliqué sur variable");
-
     Expression *pVariable = new Variable('y');
     pileExpression.push(pVariable);
 
@@ -73,7 +68,6 @@ void Saisie::on_pushButton_6_clicked() //Variable
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -83,8 +77,6 @@ void Saisie::on_pushButton_6_clicked() //Variable
 
 void Saisie::on_pushButton_2_clicked() //Addition
 {
-   // QMessageBox::information(this, "Addition", "Vous avez cliqué sur addition");
-
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
     Expression *pOperande1 = pileExpression.top();
@@ -109,7 +101,6 @@ void Saisie::on_pushButton_2_clicked() //Addition
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -119,8 +110,6 @@ void Saisie::on_pushButton_2_clicked() //Addition
 
 void Saisie::on_pushButton_4_clicked() //Soustraction
 {
-    //QMessageBox::information(this, "Soustraction", "Vous avez cliqué sur soustraction");
-
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
     Expression *pOperande1 = pileExpression.top();
@@ -145,7 +134,6 @@ void Saisie::on_pushButton_4_clicked() //Soustraction
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -154,8 +142,6 @@ void Saisie::on_pushButton_4_clicked() //Soustraction
 
 void Saisie::on_pushButton_3_clicked() //Multiplication
 {
-    //QMessageBox::information(this, "Multiplication", "Vous avez cliqué sur multiplication");
-
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
     Expression *pOperande1 = pileExpression.top();
@@ -180,7 +166,6 @@ void Saisie::on_pushButton_3_clicked() //Multiplication
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -190,8 +175,6 @@ void Saisie::on_pushButton_3_clicked() //Multiplication
 
 void Saisie::on_pushButton_5_clicked() //Division
 {
-    QMessageBox::information(this, "Division", "Vous avez cliqué sur division");
-
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
     Expression *pOperande1 = pileExpression.top();
@@ -217,7 +200,6 @@ void Saisie::on_pushButton_5_clicked() //Division
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
@@ -225,57 +207,54 @@ void Saisie::on_pushButton_5_clicked() //Division
 }
 
 
-void Saisie::on_spinBox_valueChanged(int arg1) //Changement de valeur pour la constante
-{
-    _nombreConstanteSaisie = arg1;
-}
-
 
 void Saisie::on_pushButton_7_clicked() //Tracer le graphe
 {
-    //QMessageBox::information(this, "Tracer graphe", "Vous avez cliqué sur tracer le graphe");
-
-
     Expression* expression = pileExpression.top();
 
+    //Gestion du titre du graphe => une chaine de caractere de l'expression
     std::stringstream chaine;
     chaine << *expression;
     std::string s = chaine.str();
     QString qstr = QString::fromStdString(s);
 
-    QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
     ui->lineEdit_2->setText(valeurAjout2);
 
-    Graphe graphe(0, 45, 0.5);
+    Graphe graphe(_nombrePlageBasseSaisie , _nombrePlageHauteSaisie, _nombrePasSaisie);
 
-    QChartView* florent = graphe.calculerPointsGrapheTEST(expression, qstr);
+    QChartView* florent = graphe.calculerTracerGraphe(expression, qstr);
 
     newWin = new NewMainWindow();
     newWin->setCentralWidget(florent);
     newWin->resize(400, 300);
     newWin->show();
 
-
 }
 
 
-void Saisie::on_pushButton_8_clicked() //Afficher l'expression saisie
+
+void Saisie::on_doubleSpinBox_valueChanged(double arg1) //Pas
 {
-    QMessageBox::information(this, "Afficher expression saisie", "Vous avez cliqué sur afficher exp saisie");
+    _nombrePasSaisie = arg1;
+}
 
-    Expression* yolesang = pileExpression.top();
 
-    //float y = yolesang->calculer();
+void Saisie::on_doubleSpinBox_2_valueChanged(double arg1) //Minimum
+{
+    _nombrePlageBasseSaisie = arg1;
+}
 
-    cout << "Expression: " << *yolesang <<endl;
 
-    //affichage de la pile et vidage de la pile
-/*    while(!pileExpression.empty()) {
-        cout << "Hello les amis ! " << *pileExpression.top() << endl;
-        pileExpression.pop();
-    } */
+void Saisie::on_doubleSpinBox_3_valueChanged(double arg1) //Maximum
+{
+    _nombrePlageHauteSaisie = arg1;
+}
 
+
+void Saisie::on_doubleSpinBox_4_valueChanged(double arg1) //Constante
+{
+    _nombreConstanteSaisie = arg1;
 }
 

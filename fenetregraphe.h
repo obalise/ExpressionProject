@@ -1,22 +1,25 @@
 #ifndef FENETREGRAPHE_H
 #define FENETREGRAPHE_H
 
-#include <QWidget>
+#include <QMainWindow>
 
 namespace Ui {
-class FenetreGraphe;
+class NewMainWindow;
 }
 
-class FenetreGraphe : public QWidget
+class NewMainWindow : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit FenetreGraphe(QWidget *parent = nullptr);
-    ~FenetreGraphe();
+    explicit NewMainWindow(QWidget *parent = nullptr);
+    ~NewMainWindow();
 
 private:
-    Ui::FenetreGraphe *ui;
+    Ui::NewMainWindow *ui;
 };
 
 #endif // FENETREGRAPHE_H
+
+
+//Permet d'avoir la nouvelle fenêtre pour afficher notre courbe
