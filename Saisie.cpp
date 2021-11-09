@@ -34,6 +34,18 @@ void Saisie::on_pushButton_clicked()   //Constante
     }
 
     //cout << *pConstante << "  " << endl;
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
+
 
 }
 
@@ -53,6 +65,18 @@ void Saisie::on_pushButton_6_clicked() //Variable
     } else{
        ui->lineEdit->setText(valeurEcran + " " + valeurAjout);
     }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
 
 }
 
@@ -78,6 +102,18 @@ void Saisie::on_pushButton_2_clicked() //Addition
        ui->lineEdit->setText(valeurEcran + " " + valeurAjout);
     }
 
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
+
 }
 
 
@@ -101,6 +137,18 @@ void Saisie::on_pushButton_4_clicked() //Soustraction
     } else{
        ui->lineEdit->setText(valeurEcran + " " + valeurAjout);
     }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
 }
 
 
@@ -124,6 +172,19 @@ void Saisie::on_pushButton_3_clicked() //Multiplication
     } else{
        ui->lineEdit->setText(valeurEcran + " " + valeurAjout);
     }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
+
 }
 
 
@@ -149,6 +210,18 @@ void Saisie::on_pushButton_5_clicked() //Division
     }
 
 
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurEcran2 = ui->lineEdit_2->text();
+    QString valeurAjout2 = qstr;
+
+    ui->lineEdit_2->setText(valeurAjout2);
+
 }
 
 
@@ -173,12 +246,7 @@ void Saisie::on_pushButton_7_clicked() //Tracer le graphe
     QString valeurEcran2 = ui->lineEdit_2->text();
     QString valeurAjout2 = qstr;
 
-    if((valeurEcran2 == "Ici s'affichera l'expression en NC")){
-       ui->lineEdit_2->setText(valeurAjout2);
-    } else{
-       ui->lineEdit_2->setText(valeurEcran2 + " " + valeurAjout2);
-    }
-
+    ui->lineEdit_2->setText(valeurAjout2);
 
     Graphe graphe(0, 45, 0.5);
 
