@@ -20,6 +20,9 @@ public:
     float calculer() override;
     void afficher(ostream &os) const override;
     float attribution();
+    void afficherVariable(char var);
+    float getValeur(char var);
+    void afficherTableSymboles();
 
     float GetVariable()
     {

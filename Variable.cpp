@@ -5,7 +5,10 @@
 
 using namespace std;
 
-Variable::Variable(char x) { _variable = x; /*cout << "Variable" << endl;*/ }
+Variable::Variable(char x) 
+{ 
+    _variable = x; /cout << "Variable" << endl;/ 
+}
 
 
 Variable::~Variable()
@@ -53,4 +56,26 @@ float Variable::attribution()
     }
 
     return _valeur;
+}
+
+void Variable::afficherVariable(char var)
+{
+    if (_symbole.find(var)->second == NULL)
+        cout << "Aucune valeur attribuée pour => " << var;
+    else
+        cout << var << " = " << _symbole.find(var)->second;
+}
+
+float Variable::getValeur(char var)
+{
+    return _symbole.find(var)->second;
+}
+
+void Variable::afficherTableSymboles()
+{
+    map<char,float>::reverse_iterator i;
+    for (i=_symbole.rbegin(); i!=_symbole.rend(); ++i)
+    {
+        cout << i->first << " => " << i->second << '\n';
+    }
 }
