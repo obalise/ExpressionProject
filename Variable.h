@@ -14,11 +14,10 @@ public:
     Variable(char _variable);
     virtual ~Variable();
     Variable(const Variable& other);
-
-    //void afficher() override;
     void afficherNPI(ostream &os) const override;
     float calculer() override;
     void afficher(ostream &os) const override;
+    Expression* simplifier() override;
     float attribution();
 
     float GetVariable()

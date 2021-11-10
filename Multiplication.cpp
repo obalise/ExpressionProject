@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "Variable.h"
 #include "Multiplication.h"
 #include "Constante.h"
 
@@ -37,51 +37,46 @@ float Multiplication::calculer()
 
 Expression* Multiplication::simplifier()
 {
-    float res=0;
-    Expression *E;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            cout<<"If Multi Cte gauche"<<endl;
-            if (typeid(*_operandeDroite) == typeid(Constante))
+    Expression *temp;
+    Constante mult=0;
+        if ((typeid(*_operandeGauche) == typeid(Variable)) || (typeid(*_operandeDroite) == typeid(Variable)))
             {
-                res=_operandeGauche->calculer()*_operandeDroite->calculer();
-                cout<<"If Multi Cte droite"<<endl;
-                E= new Constante(res);
+                //cout<< "OpD ou OpD=Var "<<endl;
+                return this;
             }
-            else
-            {
-                cout<<"Else Multi droite"<<endl;
-                _operandeDroite->simplifier();
-    float mult=0;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            if (typeid(*_operandeDroite) == typeid(Constante))
-            {
-                Multiplication res2(_operandeGauche,_operandeDroite);
-                mult=res2.calculer();
-            }
-            else
-            {
-                Multiplication res2(_operandeGauche,_operandeDroite->simplifier());
-                mult=res2.calculer();
-            }
-        }
-        else
-        {
-            cout<<"Else Multi gauche"<<endl;
-            _operandeGauche->simplifier();
-        }
+            else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                {
+                    //cout<< "OpG & D=Cte :"<<endl;
+                    Multiplication res2(_operandeGauche,_operandeDroite);
+                    mult=res2.calculer();
+                }
+                else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) != typeid(Constante)))
+                    {
+                        //cout<< "OpG=Cte & OPD=Exp :"<<endl;
+                        Multiplication res2(_operandeGauche,_operandeDroite->simplifier());
+                        mult=res2.calculer();
+                    }
+                    else if ((typeid(*_operandeGauche) != typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                    {
+                        //cout<< "OpG=Exp & OpD=Cte :"<<endl;
+                        Multiplication res2(_operandeGauche->simplifier(),_operandeDroite);
+                        mult=res2.calculer();
+                    }
+                        else
+                            {
+                                //cout<< "OpG=Exp & OPD=Exp :"<<endl;
+                                Multiplication res2(_operandeGauche->simplifier(),_operandeDroite->simplifier());
+                                mult=res2.calculer();
+                            }
 
-    cout<< "Resultat fct Multi simplifier res ="<<res<<endl;
-    return E;
-            Multiplication res2(_operandeGauche->simplifier(),_operandeDroite);
-            mult=res2.calculer();
-        }
+    temp=&mult;
 
-    //cout<< "Resultat fct mult simplifier res final="<<mult<<endl;
+    cout<< "Resultat fct mult simplifier final="<<mult<<endl;
+    cout<< "Resultat fct addr Tempo mult simplifier final="<<&temp<<endl;
+    cout<< "Resultat fct contenu Tempo mult simplifier final="<<temp<<endl;
     return this;
-    }
 }
+
 ostream &operator<<( ostream &os, const Multiplication& op)
 {
     op.afficher(os);
