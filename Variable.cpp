@@ -67,3 +67,8 @@ float Variable::attribution()
     }
     return _valeur;
 }
+
+Expression* Variable::simplifier()
+{
+
+}

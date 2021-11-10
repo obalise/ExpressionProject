@@ -6,8 +6,6 @@
 
 using namespace std;
 
-//enum { "+", "-", "*", "/"};
-
 Saisie::Saisie()
 {
     //ctor
@@ -41,10 +39,6 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
 {
     int i = 0;
 
-    /*for(i = 0; i < vector_str.size(); i ++)
-	{
-        cout << "   l'element : "<< i <<" est : "<<vector_str[i]<<endl;
-    }*/
 	for(i = 0; i < vector_str.size(); i ++)
 	{
         if ((vector_str[i] == "+") || (vector_str[i] == "-"))
@@ -56,33 +50,24 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
             break;
         }
 	}
-	os << endl << "le nombre de chiffre dans ton expression est : " << i << " le dernier chiffre est : " << vector_str[i-1]<< endl;
 
     int taille_exp = vector_str.size();
 	if((taille_exp-i != taille_exp/2) || (taille_exp%2 != 0))
 	{
-        cout << "Erreur dans l'expression, nombre d'operande ne correspond pas au nombre de constante" << endl;
+        os << "Erreur dans l'expression, nombre d'operande ne correspond pas au nombre de constante" << endl;
 	}
 
 	int deb_operande = i;
 
 	this->m_exp_saisi = new Constante(stof(vector_str[0]));
-	//new Constante(4.4);
 
 	for(i = deb_operande; i < taille_exp-1; i ++)
 	{
         if (vector_str[i] == "+")
         {
-            if((vector_str[i-(taille_exp/2)+1].length() == 1) && (isdigit(vector_str[i-(taille_exp/2)+1][0])))
+            if((vector_str[i-(taille_exp/2)+1].length() == 1) && !(isdigit(vector_str[i-(taille_exp/2)+1][0])))
             {
-                //Variable unepetitevariable(4);
-                //Expression *p_unepetitevariable = new Variable('y');
-
-                Constante maconstante(4);
-                Variable unepetitevariable('p');
-
-                //this->m_exp_saisi = new Addition(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1]));
-                //this->m_exp_saisi = new Addition(this->m_exp_saisi, unepetitevariable);
+                this->m_exp_saisi = new Addition(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1][0]));
             }
             else
             {
@@ -91,15 +76,36 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
         }
         if (vector_str[i] == "-")
         {
-            this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            if((vector_str[i-(taille_exp/2)+1].length() == 1) && !(isdigit(vector_str[i-(taille_exp/2)+1][0])))
+            {
+                this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1][0]));
+            }
+            else
+            {
+                this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            }
         }
         if (vector_str[i] == "*")
         {
-            this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            if((vector_str[i-(taille_exp/2)+1].length() == 1) && !(isdigit(vector_str[i-(taille_exp/2)+1][0])))
+            {
+                this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1][0]));
+            }
+            else
+            {
+                this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            }
         }
         if (vector_str[i] == "/")
         {
-            this->m_exp_saisi = new Division(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            if((vector_str[i-(taille_exp/2)+1].length() == 1) && !(isdigit(vector_str[i-(taille_exp/2)+1][0])))
+            {
+                this->m_exp_saisi = new Division(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1][0]));
+            }
+            else
+            {
+                this->m_exp_saisi = new Division(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            }
         }
 	}
 }

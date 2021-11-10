@@ -24,6 +24,7 @@ public:
     void afficher(ostream &os) const override;
     float attribution();
     void attribution(float valeur);
+    Expression* simplifier() override;
 
     char GetVariable()
     {

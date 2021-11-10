@@ -76,6 +76,22 @@ int TerminalMenu::main_boucle()
                 break;
             }
 
+            case 5:
+            {
+                cout << "    Expression en notation classique : " << endl << "        ";
+                la_saisie.GetExpSaisie()->afficher(cout << "");
+                cout << endl;
+                break;
+            }
+
+            case 6:
+            {
+                cout << "    Expression en notation polonaise inversee : " << endl << "        ";
+                la_saisie.GetExpSaisie()->afficherNPI(cout << "");
+                cout << endl;
+                break;
+            }
+
             case 0:
             {
                 thend = 1;
