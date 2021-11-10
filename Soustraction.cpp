@@ -7,11 +7,6 @@ Soustraction::~Soustraction()
     //cout << endl <<  "Destruction Soustraction" << endl;
 }
 
-Soustraction::Soustraction(const Soustraction& other)
-{
-    //copy ctor
-}
-
 void Soustraction::afficher(ostream &os) const
 {
 

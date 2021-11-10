@@ -14,7 +14,4 @@ Operateur::~Operateur()
     //cout << "Destruction Operateur" << endl;
 }
 
-Operateur::Operateur(const Operateur& other)
-{
-    //copy ctor
-}
+

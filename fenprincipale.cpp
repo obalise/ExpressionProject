@@ -218,9 +218,11 @@ void FenPrincipale::affichageNC()
         if (op == '+' && i > 1)
         {
             //Création d'une addition
-            Addition add1(&tab[0], &tab[1]);
+            //Addition::GetInstance add1(&tab[0], &tab[1]);
 
-            out << "Affichage NC addition" << endl<< add1;
+           myAdd = Addition::GetInstance(tab[0], tab[1]);
+
+            out << "Affichage NC addition" << endl<< *myAdd;
 
             test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
@@ -300,9 +302,10 @@ void FenPrincipale::affichageNPI()
         if (op == '+' && i > 1)
         {
             //Création d'une addition
-            Addition add1(&tab[0], &tab[1]);
+            //Addition add1(&tab[0], &tab[1]);
+            //myAdd = Addition::GetInstance(tab[0], tab[1]);
 
-            add1.afficherNPI(out <<"Affichage NPI addition"<< endl);
+            myAdd->afficherNPI(out <<"Affichage NPI addition"<< endl);
 
             test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
@@ -381,9 +384,13 @@ void FenPrincipale::affichageVal()
         if (op == '+' && i > 1)
         {
             //Création d'une addition
-            Addition add1(&tab[0], &tab[1]);
+            //Addition add1(&tab[0], &tab[1]);
 
-            float resultat = add1.calculer();
+            //myAdd = Addition::GetInstance(tab[0], tab[1]);
+
+            float resultat = myAdd->calculer();
+
+            //float resultat = add1.calculer();
 
             out << resultat << endl;
 
@@ -440,7 +447,7 @@ void FenPrincipale::affichageVal()
 void FenPrincipale::affichageGraph()
 {
 
-    QString op, test;
+    QString test;
     ostringstream out;
 
     //zone centrale : SDI
@@ -450,7 +457,7 @@ void FenPrincipale::affichageGraph()
     layout->addWidget(textEdit);
     zoneCentrale->setLayout(layout);
 
-    out << "Design pattern - singleton non disponible" << endl;
+    out << "Voir code porjet 7" << endl;
 
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);
@@ -472,7 +479,7 @@ void FenPrincipale::affichageGraph()
 void FenPrincipale::affichageSimplification()
 {
 
-    QString op, test;
+    QString test;
     ostringstream out;
 
     //zone centrale : SDI

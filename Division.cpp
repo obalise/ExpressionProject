@@ -7,11 +7,6 @@ Division::~Division()
    // cout << endl <<  "Destruction Division" << endl;
 }
 
-Division::Division(const Division& other)
-{
-    //copy ctor
-}
-
 void Division::afficher(ostream &os) const
 {
 

@@ -9,11 +9,6 @@ Multiplication::~Multiplication()
     //cout << endl <<  "Destruction Multiplication" << endl;
 }
 
-Multiplication::Multiplication(const Multiplication& other)
-{
-    //copy ctor
-}
-
 void Multiplication::afficher(ostream &os) const
 {
 

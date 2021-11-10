@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include <QtWidgets>
 #include <QList>
+#include "Addition.h"
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -25,6 +26,7 @@ class FenPrincipale : public QMainWindow
     QString texte;
     QString curFile;
     QLabel* imageLabel;
+    Addition* myAdd;
 
     public slots:
     bool sauvegarder();
