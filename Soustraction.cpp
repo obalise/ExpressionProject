@@ -1,7 +1,8 @@
 #include <iostream>
-
+#include "Variable.h"
 #include "Soustraction.h"
 #include "Constante.h"
+#include "Expression.h"
 
 Soustraction::Soustraction(Expression* a, Expression* b) : _operandeGauche(a) , _operandeDroite(b){ /*cout <<  "Soustraction" << endl;*/ }
 
@@ -22,7 +23,7 @@ void Soustraction::afficher(ostream &os) const
     _operandeGauche->afficher(os);
     os << "-";
     _operandeDroite->afficher(os);
-    os << ")";
+    os << ")"<<endl;
 
 }
 
@@ -41,47 +42,44 @@ float Soustraction::calculer()
 
 Expression* Soustraction::simplifier()
 {
-    float res;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            cout<<"If Soustraction"<<endl;
-            if (typeid(*_operandeDroite) == typeid(Constante))
+    Expression *temp;
+    Constante sous=0;
+        if ((typeid(*_operandeGauche) == typeid(Variable)) || (typeid(*_operandeDroite) == typeid(Variable)))
             {
-                res=_operandeGauche->calculer()-_operandeDroite->calculer();
-                cout<<"If Soustraction"<<endl;
+                //cout<< "OpD ou OpD=Var "<<endl;
+                return this;
             }
-            else
-            {
-                cout<<"Else Soustraction droite"<<endl;
-                _operandeDroite->simplifier();
-    float sous=0;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            if (typeid(*_operandeDroite) == typeid(Constante))
-            {
-                Soustraction res2(_operandeGauche,_operandeDroite);
-                sous=res2.calculer();
-            }
-            else
-            {
-                Soustraction res2(_operandeGauche,_operandeDroite->simplifier());
-                sous=res2.calculer();
-            }
-        }
-        else
-        {
-            cout<<"Else Soustraction gauche"<<endl;
-            _operandeGauche->simplifier();
-        }
+            else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                {
+                    //cout<< "OpG & D=Cte :"<<endl;
+                    Soustraction res2(_operandeGauche,_operandeDroite);
+                    sous=res2.calculer();
+                }
+                else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) != typeid(Constante)))
+                    {
+                        //cout<< "OpG=Cte & OPD=Exp :"<<endl;
+                        Soustraction res2(_operandeGauche,_operandeDroite->simplifier());
+                        sous=res2.calculer();
+                    }
+                    else if ((typeid(*_operandeGauche) != typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                    {
+                        //cout<< "OpG=Exp & OpD=Cte :"<<endl;
+                        Soustraction res2(_operandeGauche->simplifier(),_operandeDroite);
+                        sous=res2.calculer();
+                    }
+                        else
+                            {
+                                //cout<< "OpG=Exp & OPD=Exp :"<<endl;
+                                Soustraction res2(_operandeGauche->simplifier(),_operandeDroite->simplifier());
+                                sous=res2.calculer();
+                            }
 
-    cout<< "Resultat fct Soustraire simplifier="<<res<<endl;
-            Soustraction res2(_operandeGauche->simplifier(),_operandeDroite);
-            sous=res2.calculer();
-        }
+    temp=&sous;
 
-    //cout<< "Resultat fct sous simplifier final="<<sous<<endl;
+    cout<< "Resultat fct sous simplifier final="<<sous<<endl;
+    cout<< "Resultat fct addr Tempo sous simplifier final="<<&temp<<endl;
+    cout<< "Resultat fct contenu Tempo sous simplifier final="<<temp<<endl;
     return this;
-    }
 }
 
 ostream &operator<<( ostream &os, const Soustraction& op)

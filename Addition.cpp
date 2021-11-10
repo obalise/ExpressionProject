@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include "Variable.h"
 #include "Addition.h"
 #include "Constante.h"
 #include "Expression.h"
@@ -49,31 +49,45 @@ float Addition::calculer()
 
 Expression* Addition::simplifier()
 {
-    float add=0;
-        if (typeid(*_operandeGauche) == typeid(Constante))
-        {
-            if (typeid(*_operandeDroite) == typeid(Constante))
+    Expression *temp;
+    Constante add=0;
+        if ((typeid(*_operandeGauche) == typeid(Variable)) || (typeid(*_operandeDroite) == typeid(Variable)))
             {
-                Addition res2(_operandeGauche,_operandeDroite);
-                add=res2.calculer();
+                //cout<< "OpD ou OpD=Var "<<endl;
+                return this;
             }
-            else
-            {
-                Addition res2(_operandeGauche,_operandeDroite->simplifier());
-                add=res2.calculer();
-            }
-        }
-        else
-        {
-            Addition res2(_operandeGauche->simplifier(),_operandeDroite);
-            add=res2.calculer();
-        }
+            else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                {
+                    //cout<< "OpG & D=Cte :"<<endl;
+                    Addition res2(_operandeGauche,_operandeDroite);
+                    add=res2.calculer();
+                }
+                else if ((typeid(*_operandeGauche) == typeid(Constante)) && (typeid(*_operandeDroite) != typeid(Constante)))
+                    {
+                        //cout<< "OpG=Cte & OPD=Exp :"<<endl;
+                        Addition res2(_operandeGauche,_operandeDroite->simplifier());
+                        add=res2.calculer();
+                    }
+                    else if ((typeid(*_operandeGauche) != typeid(Constante)) && (typeid(*_operandeDroite) == typeid(Constante)))
+                    {
+                        //cout<< "OpG=Exp & OpD=Cte :"<<endl;
+                        Addition res2(_operandeGauche->simplifier(),_operandeDroite);
+                        add=res2.calculer();
+                    }
+                        else
+                            {
+                                //cout<< "OpG=Exp & OPD=Exp :"<<endl;
+                                Addition res2(_operandeGauche->simplifier(),_operandeDroite->simplifier());
+                                add=res2.calculer();
+                            }
 
-    cout<< "Resultat fct add simplifier add final="<<add<<endl;
+    temp=&add;
+
+    cout<< "Resultat fct add simplifier final="<<add<<endl;
+    cout<< "Resultat fct addr Tempo add simplifier final="<<&temp<<endl;
+    cout<< "Resultat fct contenu Tempo add simplifier final="<<temp<<endl;
     return this;
-
 }
-
 
 ostream &operator<<(ostream &os, const Addition& op)
 {

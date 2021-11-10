@@ -13,7 +13,7 @@ Variable::Variable(char x)
 
 Variable::~Variable()
 {
-    cout << "Destruction Variable" << endl;
+    //cout << "Destruction Variable" << endl;
 }
 
 Variable::Variable(const Variable& other)
@@ -29,6 +29,11 @@ void Variable::afficher(ostream &os ) const
 void Variable::afficherNPI(ostream &os) const
 {
      os << _variable;
+}
+
+Expression* Variable::simplifier()
+{
+
 }
 
 float Variable::calculer()
