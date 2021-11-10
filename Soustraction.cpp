@@ -4,7 +4,7 @@ Soustraction::Soustraction(Expression* a, Expression* b) : _operandeGauche(a) , 
 
 Soustraction::~Soustraction()
 {
-    cout << endl <<  "Destruction Soustraction" << endl;
+    //cout << endl <<  "Destruction Soustraction" << endl;
 }
 
 Soustraction::Soustraction(const Soustraction& other)

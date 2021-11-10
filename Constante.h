@@ -36,5 +36,4 @@ private:
 };
 
 ostream &operator<<(ostream &os, const Constante& c1);
-
 #endif // CONSTANTE_H

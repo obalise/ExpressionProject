@@ -6,7 +6,7 @@ Multiplication::Multiplication(Expression* a, Expression* b) : _operandeGauche(a
 
 Multiplication::~Multiplication()
 {
-    cout << endl <<  "Destruction Multiplication" << endl;
+    //cout << endl <<  "Destruction Multiplication" << endl;
 }
 
 Multiplication::Multiplication(const Multiplication& other)
