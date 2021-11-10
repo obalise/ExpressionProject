@@ -6,36 +6,19 @@
 #include "Constante.h"
 #include "Expression.h"
 #include "Variable.h"
+#include <QApplication>
+#include <QtWidgets>
+#include "fenprincipale.h"
 
-using namespace std;
 
-int main()
+int main(int argc, char *argv[])
 {
-Expression* test;
 
-cout << "Hello world!" << endl;
-Constante c1(10);
-Constante c2(2);
-Constante c3(4);
-char x='a';
-Variable toto(x);
+    QApplication app(argc, argv);
 
-Division div0(&c2,&c3);
-Multiplication mult1(&c1,&c3);
-Soustraction sous0(&mult1,&div0);
+    FenPrincipale fenetre(900, 450);
 
-cout <<"Addr C2 = "<< &c2<<endl;
-cout <<"Addr C3 = "<< &c3<<endl;
-cout <<"&Test Sous = "<< &test<<endl;
-//cout <<"&Test Sous = "<< *test<<endl;
-test=sous0.simplifier();
-sous0.afficher(cout);
-cout <<"Sous0 = "<< &sous0<<endl;
-cout <<"Test Sous = "<< test<<endl;
-cout <<"&Test Sous = "<< &test<<endl;
-cout <<"*Test Sous = "<< *test<<endl;
-sous0.afficherNPI(cout);
+    fenetre.show();
 
-
-return 0;
+    return app.exec();
 }
