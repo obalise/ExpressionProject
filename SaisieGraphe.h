@@ -36,13 +36,13 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
-class Saisie : public QMainWindow
+class SaisieGraphe : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    Saisie(QWidget *parent = nullptr);
-    ~Saisie();
+    SaisieGraphe(QWidget *parent = nullptr);
+    ~SaisieGraphe();
 //    int _nombreConstanteSaisie;
 
 private:

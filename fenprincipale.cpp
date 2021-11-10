@@ -24,7 +24,7 @@
 #include <QtWidgets>
 
 
-Saisie *saisieGraphe = 0;
+SaisieGraphe *saisieGraphe = 0;
 
 
 using namespace std;
@@ -460,7 +460,7 @@ void FenPrincipale::affichageGraph()
     textEdit->setPlainText(test);    */
 
 
-    saisieGraphe = new Saisie();
+    saisieGraphe = new SaisieGraphe();
     saisieGraphe->show();
 
 
