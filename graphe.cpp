@@ -2,7 +2,7 @@
 #include <sstream>
 #include <string>
 
-#include "Graphe.h"
+#include "graphe.h"
 #include "Variable.h"
 
 

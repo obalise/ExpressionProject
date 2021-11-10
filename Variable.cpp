@@ -55,7 +55,7 @@ ostream &operator<<( ostream &os, const Variable& c1) //Surcharge d'op�rateurs
 
 float Variable::attribution()
 {
-    if (_symbole.find(_variable)->second == NULL)
+    if (_symbole.find(_variable)->second == 0)
     {
         cout << "Entrer la valeur de " << _variable << " :" << endl;
         cin >> _valeur;
