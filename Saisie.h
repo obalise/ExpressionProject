@@ -8,6 +8,7 @@
 #include "Soustraction.h"
 #include "Multiplication.h"
 #include "Division.h"
+#include "Variable.h"
 
 class Saisie
 {

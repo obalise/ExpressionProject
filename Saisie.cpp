@@ -1,5 +1,8 @@
 #include "Saisie.h"
 #include <iostream>
+#include <stdio.h>
+#include <stdlib.h>
+#include <ctype.h>
 
 using namespace std;
 
@@ -70,7 +73,21 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
 	{
         if (vector_str[i] == "+")
         {
-            this->m_exp_saisi = new Addition(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            if((vector_str[i-(taille_exp/2)+1].length() == 1) && (isdigit(vector_str[i-(taille_exp/2)+1][0])))
+            {
+                //Variable unepetitevariable(4);
+                //Expression *p_unepetitevariable = new Variable('y');
+
+                Constante maconstante(4);
+                Variable unepetitevariable('p');
+
+                //this->m_exp_saisi = new Addition(this->m_exp_saisi, new Variable(vector_str[i-(taille_exp/2)+1]));
+                //this->m_exp_saisi = new Addition(this->m_exp_saisi, unepetitevariable);
+            }
+            else
+            {
+                this->m_exp_saisi = new Addition(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
+            }
         }
         if (vector_str[i] == "-")
         {

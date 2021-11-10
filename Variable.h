@@ -8,6 +8,8 @@
 
 using namespace std;
 
+extern float vGlobValVar;
+
 class Variable : public Expression
 {
 public:
@@ -18,16 +20,27 @@ public:
     //void afficher() override;
     void afficherNPI(ostream &os) const override;
     float calculer() override;
+   // float calculer(float val) override;
     void afficher(ostream &os) const override;
     float attribution();
+    void attribution(float valeur);
 
-    float GetVariable()
+    char GetVariable()
     {
         return _variable;
     }
     void SetVariable(char val)
     {
         _variable = val;
+    }
+
+    float GetValeur()
+    {
+        return _valeur;
+    }
+    void SetValeur(float val)
+    {
+        _valeur = val;
     }
 
 protected:
@@ -38,6 +51,7 @@ private:
     float _valeur;
     map <char, float> _symbole;
 };
+
 
 ostream &operator<<(ostream &os, const Variable& c1);
 
