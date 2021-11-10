@@ -28,7 +28,7 @@ using namespace std;
 int main(int argc, char *argv[])
 {
 
-    int mode = 0; //mode 0 : terminal, mode 1 : graphique
+    int mode = 1; //mode 0 : terminal, mode 1 : graphique
 
     if(mode == 1)
     {

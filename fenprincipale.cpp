@@ -443,6 +443,7 @@ void FenPrincipale::affichageVal()
 
 void FenPrincipale::affichageGraph()
 {
+
 /*
     QString op, test;
     ostringstream out;
