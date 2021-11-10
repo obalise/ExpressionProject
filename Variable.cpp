@@ -6,10 +6,11 @@
 using namespace std;
 
 float vGlobValVar = 0;
+/*
 Variable::Variable(char x) 
 { 
     _variable = x; /cout << "Variable" << endl;/ 
-}
+}*/
 
 Variable::Variable(char x)
 {

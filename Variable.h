@@ -26,7 +26,6 @@ public:
     float getValeur(char var);
     void afficherTableSymboles();
     void attribution(float valeur);
-    Expression* simplifier() override;
 
     char GetVariable()
     {
