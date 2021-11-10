@@ -8,6 +8,7 @@
 #include "Soustraction.h"
 #include "Multiplication.h"
 #include "Division.h"
+#include "Variable.h"
 
 class Saisie
 {
@@ -19,13 +20,13 @@ class Saisie
         void SetCounter(int val) { m_Counter = val; }
         Expression* GetExpSaisie() { return m_exp_saisi; }
 
-        void saisir();
+        void saisir(istream &is, ostream &os);
+        void vector_to_exp(std::vector<std::string> vector_str, ostream &os);
 
     protected:
 
     private:
         int m_Counter;
-        std::vector<std::string> m_exp_str;
 		Expression *m_exp_saisi = NULL;
 };
 

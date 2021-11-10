@@ -9,16 +9,27 @@
 #include <QApplication>
 #include <QtWidgets>
 #include "fenprincipale.h"
+#include "terminalmenu.h"
 
 
 int main(int argc, char *argv[])
 {
 
-    QApplication app(argc, argv);
+    int mode = 0; //mode 0 : terminal, mode 1 : graphique
 
-    FenPrincipale fenetre(900, 450);
+    if(mode == 1)
+    {
+        QApplication app(argc, argv);
 
-    fenetre.show();
+        FenPrincipale fenetre(900, 450);
 
-    return app.exec();
+        fenetre.show();
+
+        return app.exec();
+    }
+    else
+    {
+        TerminalMenu t_menu;
+        t_menu.main_boucle();
+    }
 }

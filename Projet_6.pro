@@ -1,5 +1,7 @@
 SOURCES += \
+    Saisie.cpp \
     Simplifier.cpp \
+    Variable.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Soustraction.cpp \
@@ -8,10 +10,13 @@ SOURCES += \
     Expression.cpp \
     Constante.cpp \
     Operateur.cpp \
-    main.cpp
+    main.cpp \
+    terminalmenu.cpp
 
 HEADERS += \
+    Saisie.h \
     Simplifier.h \
+    Variable.h \
     fenprincipale.h \
     Addition.h \
     Soustraction.h \
@@ -19,7 +24,8 @@ HEADERS += \
     Division.h \
     Expression.h \
     Constante.h \
-    Operateur.h
+    Operateur.h \
+    terminalmenu.h
 
 QT += widgets
 
