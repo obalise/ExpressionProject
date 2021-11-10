@@ -10,6 +10,13 @@
 #include "Division.h"
 #include "Variable.h"
 
+typedef enum
+{
+    FILE_OK,
+    FILE_NO_OPEN,
+    FILE_ERROR,
+}Fichier_Report;
+
 class Saisie
 {
     public:
@@ -21,6 +28,8 @@ class Saisie
         Expression* GetExpSaisie() { return m_exp_saisi; }
 
         void saisir(istream &is, ostream &os);
+        Fichier_Report sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save);
+        Fichier_Report charger(istream &is, ostream &os, std::string nom_de_fichier);
         void vector_to_exp(std::vector<std::string> vector_str, ostream &os);
 
     protected:

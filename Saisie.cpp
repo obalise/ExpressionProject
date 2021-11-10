@@ -1,5 +1,7 @@
 #include "Saisie.h"
 #include <iostream>
+#include <fstream>
+#include <string>
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
@@ -108,4 +110,73 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
             }
         }
 	}
+}
+
+Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save)
+{
+    ofstream flux_fichier(nom_de_fichier.c_str());
+
+    if(flux_fichier)
+    {
+        exp_to_save->afficherNPI(flux_fichier);
+        exp_to_save->afficherNPI(os);
+
+        flux_fichier.close();
+
+        return FILE_OK;
+    }
+
+    else
+    {
+        return FILE_ERROR;
+    }
+}
+
+Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fichier)
+{
+    ifstream flux_fichier(nom_de_fichier.c_str());
+
+    string buffer;
+
+    vector <string> gollum;
+
+    gollum.push_back("");
+
+    int i, j = 0;
+
+    char character;
+
+    if(flux_fichier)
+    {
+        getline(flux_fichier, buffer);
+
+        for(i = 0; i < buffer.length(); i++)
+        {
+            //character = buffer.at(i);
+
+            character = buffer[i];
+
+            if(character == ' ')
+            {
+                gollum.push_back("");
+                j++;
+            }
+
+            else
+            {
+                gollum[j].push_back(character);
+            }
+        }
+
+        flux_fichier.close();
+
+        this->vector_to_exp(gollum, os);
+
+        return FILE_OK;
+    }
+
+    else
+    {
+        return FILE_ERROR;
+    }
 }
