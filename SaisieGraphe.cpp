@@ -3,7 +3,7 @@
 
 NewMainWindow *newWin = 0; //utilisé pour créé une nouvelle fenêtre
 
-Saisie::Saisie(QWidget *parent)
+SaisieGraphe::SaisieGraphe(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
@@ -12,13 +12,13 @@ Saisie::Saisie(QWidget *parent)
     ui->lineEdit_2->setText("Ici s'affichera l'expression en NC");
 }
 
-Saisie::~Saisie()
+SaisieGraphe::~SaisieGraphe()
 {
     delete ui;
 }
 
 
-void Saisie::on_pushButton_clicked()   //Constante
+void SaisieGraphe::on_pushButton_clicked()   //Constante
 {
     Expression* pConstante = new Constante(_nombreConstanteSaisie);
     pileExpression.push(pConstante);
@@ -47,7 +47,7 @@ void Saisie::on_pushButton_clicked()   //Constante
 }
 
 
-void Saisie::on_pushButton_6_clicked() //Variable
+void SaisieGraphe::on_pushButton_6_clicked() //Variable
 {
     Expression *pVariable = new Variable('y');
     pileExpression.push(pVariable);
@@ -75,7 +75,7 @@ void Saisie::on_pushButton_6_clicked() //Variable
 }
 
 
-void Saisie::on_pushButton_2_clicked() //Addition
+void SaisieGraphe::on_pushButton_2_clicked() //Addition
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -108,7 +108,7 @@ void Saisie::on_pushButton_2_clicked() //Addition
 }
 
 
-void Saisie::on_pushButton_4_clicked() //Soustraction
+void SaisieGraphe::on_pushButton_4_clicked() //Soustraction
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -140,7 +140,7 @@ void Saisie::on_pushButton_4_clicked() //Soustraction
 }
 
 
-void Saisie::on_pushButton_3_clicked() //Multiplication
+void SaisieGraphe::on_pushButton_3_clicked() //Multiplication
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -173,7 +173,7 @@ void Saisie::on_pushButton_3_clicked() //Multiplication
 }
 
 
-void Saisie::on_pushButton_5_clicked() //Division
+void SaisieGraphe::on_pushButton_5_clicked() //Division
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -208,7 +208,7 @@ void Saisie::on_pushButton_5_clicked() //Division
 
 
 
-void Saisie::on_pushButton_7_clicked() //Tracer le graphe
+void SaisieGraphe::on_pushButton_7_clicked() //Tracer le graphe
 {
     Expression* expression = pileExpression.top();
 
@@ -235,25 +235,25 @@ void Saisie::on_pushButton_7_clicked() //Tracer le graphe
 
 
 
-void Saisie::on_doubleSpinBox_valueChanged(double arg1) //Pas
+void SaisieGraphe::on_doubleSpinBox_valueChanged(double arg1) //Pas
 {
     _nombrePasSaisie = arg1;
 }
 
 
-void Saisie::on_doubleSpinBox_2_valueChanged(double arg1) //Minimum
+void SaisieGraphe::on_doubleSpinBox_2_valueChanged(double arg1) //Minimum
 {
     _nombrePlageBasseSaisie = arg1;
 }
 
 
-void Saisie::on_doubleSpinBox_3_valueChanged(double arg1) //Maximum
+void SaisieGraphe::on_doubleSpinBox_3_valueChanged(double arg1) //Maximum
 {
     _nombrePlageHauteSaisie = arg1;
 }
 
 
-void Saisie::on_doubleSpinBox_4_valueChanged(double arg1) //Constante
+void SaisieGraphe::on_doubleSpinBox_4_valueChanged(double arg1) //Constante
 {
     _nombreConstanteSaisie = arg1;
 }
