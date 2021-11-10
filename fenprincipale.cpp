@@ -11,7 +11,7 @@
 #include "Division.h"
 #include "Expression.h"
 #include "Constante.h"
-
+#include "SaisieGraphe.h"
 
 
 //#define DEBUG
@@ -22,6 +22,10 @@
 #endif
 
 #include <QtWidgets>
+
+
+Saisie *saisieGraphe = 0;
+
 
 using namespace std;
 
@@ -439,7 +443,7 @@ void FenPrincipale::affichageVal()
 
 void FenPrincipale::affichageGraph()
 {
-
+/*
     QString op, test;
     ostringstream out;
 
@@ -453,7 +457,11 @@ void FenPrincipale::affichageGraph()
     out << "Design pattern - singleton non disponible" << endl;
 
     test = QString::fromStdString(out.str());
-    textEdit->setPlainText(test);
+    textEdit->setPlainText(test);    */
+
+
+    saisieGraphe = new Saisie();
+    saisieGraphe->show();
 
 
 #ifdef DEBUG
