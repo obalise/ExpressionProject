@@ -1,3 +1,13 @@
+#include "SaisieGraphe.h"
+
+#include <QApplication>
+
+#include <QtWidgets/QApplication>
+#include <QtWidgets/QMainWindow>
+#include <QtCharts/QChartView>
+#include <QtCharts/QLineSeries>
+#include <QThread>
+
 #include <iostream>
 #include "Addition.h"
 #include "Soustraction.h"
@@ -10,7 +20,10 @@
 #include <QtWidgets>
 #include "fenprincipale.h"
 #include "terminalmenu.h"
+#include <sstream>
+#include <string>
 
+using namespace std;
 
 int main(int argc, char *argv[])
 {
@@ -33,3 +46,4 @@ int main(int argc, char *argv[])
         t_menu.main_boucle();
     }
 }
+

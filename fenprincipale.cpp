@@ -11,7 +11,7 @@
 #include "Division.h"
 #include "Expression.h"
 #include "Constante.h"
-
+#include "SaisieGraphe.h"
 
 
 //#define DEBUG
@@ -22,6 +22,10 @@
 #endif
 
 #include <QtWidgets>
+
+
+Saisie *saisieGraphe = 0;
+
 
 using namespace std;
 
@@ -75,6 +79,10 @@ FenPrincipale::FenPrincipale(int x, int y)
      connect(actionSaisie, SIGNAL(triggered()), this, SLOT(saisie()));
      connect(actionAffichageNC, SIGNAL(triggered()), this, SLOT(affichageNC()));
      connect(actionAffichageNPI, SIGNAL(triggered()), this, SLOT(affichageNPI()));
+     connect(actionAffichageVal, SIGNAL(triggered()), this, SLOT(affichageVal()));
+     connect(actionAffichageGraph, SIGNAL(triggered()), this, SLOT(affichageGraph()));
+
+     connect(actionSimplification, SIGNAL(triggered()), this, SLOT(affichageSimplification()));
 
 }
 
@@ -84,6 +92,9 @@ void FenPrincipale::saisie()
     /* Le groupe 8 doit fournir à l’aide du « design pattern » singleton un accès simplifié à l’expression gérée par le programme. */
     /* Utiliser et Appeler par ex. la sauvegarde de l'expression lorsque l'entrée du menu correspondante est sélectionnée.*/
 
+    QString op, test;
+    ostringstream out;
+
     //zone centrale : SDI
     QWidget *zoneCentrale = new QWidget;
     setCentralWidget(zoneCentrale);
@@ -91,29 +102,21 @@ void FenPrincipale::saisie()
     layout->addWidget(textEdit);
     zoneCentrale->setLayout(layout);
 
+    out << "Design pattern - singleton non disponible" << endl;
+
+    test = QString::fromStdString(out.str());
+    textEdit->setPlainText(test);
+
 
 #ifdef DEBUG
-    // detach from the current console window
-    // if launched from a console window, that will still run waiting for the new console (below) to close
-    // it is useful to detach from Qt Creator's <Application output> panel
-    FreeConsole();
 
-    // create a separate new console window
-    AllocConsole();
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
 
-    // attach the new console to this application's process
-    AttachConsole(GetCurrentProcessId());
-
-    // reopen the std I/O streams to redirect I/O to the new console
-    freopen("CON", "w", stdout);
-    freopen("CON", "w", stderr);
-    freopen("CON", "r", stdin);
-
-    QWidget w;
-
-    puts("Saisissez l'expression:");
-    getchar();
-    w.show();
 #endif
 
 
@@ -193,8 +196,7 @@ void FenPrincipale::affichageNC()
     vector<Constante> tab(10,0);
 
     QString op, test;
-    stringstream out;
-    ostringstream fx;
+    ostringstream out;
 
     QFile fichier(*fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -209,7 +211,6 @@ void FenPrincipale::affichageNC()
         if(ok)
         {
             tab[i] = flo;
-            //cout << tab[i] << endl;
             i++;
         }
         else
@@ -223,9 +224,9 @@ void FenPrincipale::affichageNC()
             //Création d'une addition
             Addition add1(&tab[0], &tab[1]);
 
-            fx << "Affichage NC addition" << endl<< add1;
+            out << "Affichage NC addition" << endl<< add1;
 
-            test = QString::fromStdString(fx.str());
+            test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
             i=0;
         }
@@ -234,9 +235,9 @@ void FenPrincipale::affichageNC()
             //Création d'une soustraction
             Soustraction sous1(&tab[0], &tab[1]);
 
-            fx << "Affichage NC soustraction" << endl<< sous1;
+            out << "Affichage NC soustraction" << endl<< sous1;
 
-            test = QString::fromStdString(fx.str());
+            test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
             i=0;
         }
@@ -245,9 +246,9 @@ void FenPrincipale::affichageNC()
             //Création d'une multiplication
             Multiplication mux1(&tab[0], &tab[1]);
 
-            fx << "Affichage NC multiplication" << endl<< mux1;
+            out << "Affichage NC multiplication" << endl<< mux1;
 
-            test = QString::fromStdString(fx.str());
+            test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
             i=0;
         }
@@ -256,9 +257,9 @@ void FenPrincipale::affichageNC()
             //Création d'une division
             Division div1(&tab[0], &tab[1]);
 
-            fx << "Affichage NC division" << endl<< div1;
+            out << "Affichage NC division" << endl<< div1;
 
-            test = QString::fromStdString(fx.str());
+            test = QString::fromStdString(out.str());
             textEdit->setPlainText(test);
             i=0;
         }
@@ -277,8 +278,7 @@ void FenPrincipale::affichageNPI()
     vector<Constante> tab(2, 0);
 
     QString op, test;
-    stringstream out;
-    ostringstream fx;
+    ostringstream out;
 
     QFile fichier(*fileName);
     fichier.open(QIODevice::ReadOnly | QIODevice::Text);
@@ -350,4 +350,161 @@ void FenPrincipale::affichageNPI()
            cout << "N/A" << endl;
         }
     }
+}
+
+void FenPrincipale::affichageVal()
+{
+
+    bool ok;
+    int i(0);
+    vector<Constante> tab(2, 0);
+
+    QString op, test;
+    ostringstream out;
+
+    QFile fichier(*fileName);
+    fichier.open(QIODevice::ReadOnly | QIODevice::Text);
+    QTextStream flux(&fichier);
+
+    while(! flux.atEnd())
+    {
+        flux >> mot;
+
+        float flo = mot.toFloat(&ok);
+        if(ok)
+        {
+            tab[i] = flo;
+            i++;
+        }
+        else
+        {
+            if (mot == "+" || mot == "-" || mot == "*" || mot == "/")
+            op = mot;
+        }
+
+        if (op == '+' && i > 1)
+        {
+            //Création d'une addition
+            Addition add1(&tab[0], &tab[1]);
+
+            float resultat = add1.calculer();
+
+            out << resultat << endl;
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '-' && i > 1)
+        {
+            //Création d'une soustraction
+            Soustraction sous1(&tab[0], &tab[1]);
+
+            float resultat = sous1.calculer();
+
+            out << resultat << endl;
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '*' && i > 1)
+        {
+            //Création d'une multiplication
+            Multiplication mux1(&tab[0], &tab[1]);
+
+            float resultat = mux1.calculer();
+
+            out << resultat << endl;
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else if (op == '/' && i > 1)
+        {
+            //Création d'une division
+            Division div1(&tab[0], &tab[1]);
+
+            float resultat = div1.calculer();
+
+            out << resultat << endl;
+
+            test = QString::fromStdString(out.str());
+            textEdit->setPlainText(test);
+            i=0;
+        }
+        else
+        {
+           cout << "N/A" << endl;
+        }
+    }
+}
+
+void FenPrincipale::affichageGraph()
+{
+/*
+    QString op, test;
+    ostringstream out;
+
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
+    out << "Design pattern - singleton non disponible" << endl;
+
+    test = QString::fromStdString(out.str());
+    textEdit->setPlainText(test);    */
+
+
+    saisieGraphe = new Saisie();
+    saisieGraphe->show();
+
+
+#ifdef DEBUG
+
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
+#endif
+
+}
+
+void FenPrincipale::affichageSimplification()
+{
+
+    QString op, test;
+    ostringstream out;
+
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
+    out << "Design pattern - singleton non disponible" << endl;
+
+    test = QString::fromStdString(out.str());
+    textEdit->setPlainText(test);
+
+
+#ifdef DEBUG
+
+    //zone centrale : SDI
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
+
+#endif
+
 }

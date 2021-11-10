@@ -33,6 +33,9 @@ class FenPrincipale : public QMainWindow
     void saisie();
     void affichageNC();
     void affichageNPI();
+    void affichageVal();
+    void affichageGraph();
+    void affichageSimplification();
 
 
     signals:
