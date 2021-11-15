@@ -1,4 +1,4 @@
-#include "../include/Saisie.h"
+#include "Saisie.h"
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -109,27 +109,6 @@ Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_
 		return FILE_ERROR;
 	}
 }
-
-Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save)
-{
-	ofstream flux_fichier(nom_de_fichier.c_str());
-
-	if(flux_fichier)
-	{
-		exp_to_save->afficherNPI(flux_fichier);
-		exp_to_save->afficherNPI(os);
-
-		flux_fichier.close();
-
-		return FILE_OK;
-	}
-
-	else
-	{
-		return FILE_ERROR;
-	}
-}
-
 
 Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fichier)
 {

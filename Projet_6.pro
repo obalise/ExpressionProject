@@ -8,6 +8,7 @@ CONFIG += c++11
 SOURCES += \
     Saisie.cpp \
     Simplifier.cpp \
+    Singleton.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Constante.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     Saisie.h \
     Simplifier.h \
+    Singleton.h \
     fenprincipale.h \
     Addition.h \
     Constante.h \
