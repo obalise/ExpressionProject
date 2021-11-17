@@ -7,6 +7,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 SOURCES += \
     Saisie.cpp \
+    SaisieExpressionGraphique.cpp \
     Simplifier.cpp \
     Singleton.cpp \
     fenetregraphe.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
     main.cpp
 HEADERS += \
     Saisie.h \
+    SaisieExpressionGraphique.h \
     Simplifier.h \
     Singleton.h \
     fenetregraphe.h \
@@ -42,6 +44,7 @@ HEADERS += \
     Variable.h
 FORMS += \
     FenetreGraphe.ui \
+    SaisieExpressionGraphique.ui \
     SaisieGraphe.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

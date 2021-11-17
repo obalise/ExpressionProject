@@ -3,6 +3,10 @@
 #include <string>
 #include <iostream>
 
+#include "SaisieGraphe.h"
+#include "SaisieExpressionGraphique.h"
+
+
 #include "fenprincipale.h"
 #include "Constante.h"
 #include "Multiplication.h"
@@ -11,7 +15,7 @@
 #include "Division.h"
 #include "Expression.h"
 #include "Constante.h"
-#include "SaisieGraphe.h"
+
 
 
 //#define DEBUG
@@ -23,9 +27,10 @@
 
 #include <QtWidgets>
 
-
+/*
 SaisieGraphe *saisieGraphe = 0;
-
+SaisieExpressionGraphique *saisieExpressionGraphique = 0;
+*/
 
 using namespace std;
 
@@ -92,6 +97,7 @@ void FenPrincipale::saisie()
     /* Le groupe 8 doit fournir à l’aide du « design pattern » singleton un accès simplifié à l’expression gérée par le programme. */
     /* Utiliser et Appeler par ex. la sauvegarde de l'expression lorsque l'entrée du menu correspondante est sélectionnée.*/
 
+ /*
     QString op, test;
     ostringstream out;
 
@@ -105,7 +111,10 @@ void FenPrincipale::saisie()
     out << "Design pattern - singleton non disponible" << endl;
 
     test = QString::fromStdString(out.str());
-    textEdit->setPlainText(test);
+    textEdit->setPlainText(test); */
+
+    saisieExpressionGraphique = new SaisieExpressionGraphique();
+    saisieExpressionGraphique->show();
 
 
 #ifdef DEBUG

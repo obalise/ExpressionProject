@@ -25,6 +25,9 @@
 
 using namespace std;
 
+SaisieGraphe *saisieGraphe = 0;
+SaisieExpressionGraphique *saisieExpressionGraphique = 0;
+
 int main(int argc, char *argv[])
 {
 
@@ -45,5 +48,7 @@ int main(int argc, char *argv[])
         TerminalMenu t_menu;
         t_menu.main_boucle();
     }
+
+    return 0;
 }
 
