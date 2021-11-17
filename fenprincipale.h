@@ -5,6 +5,8 @@
 #include <QtWidgets>
 #include <QList>
 
+#include "Expression.h"
+
 QT_BEGIN_NAMESPACE
 class QAction;
 class QMenu;
@@ -17,6 +19,7 @@ class FenPrincipale : public QMainWindow
     public:
     //explicit FenPrincipale(QWidget *parent = nullptr);
     FenPrincipale(int x, int y);
+    Expression* _monExpression;
 
     private:
     QString *fileName;

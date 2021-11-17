@@ -22,6 +22,7 @@ SOURCES += \
     Variable.cpp \
     graphe.cpp \
     saisieexpressiongraphe.cpp \
+    singletontestflorent.cpp \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
@@ -40,6 +41,7 @@ HEADERS += \
     Soustraction.h \
     graphe.h \
     saisieexpressiongraphe.h \
+    singletontestflorent.h \
     terminalmenu.h \
     Variable.h
 FORMS += \
