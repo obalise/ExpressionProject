@@ -1,7 +1,7 @@
 #include "SaisieGraphe.h"
 #include "ui_SaisieGraphe.h"
 
-NewMainWindow *newWin = 0; //utilisé pour créé une nouvelle fenêtre
+//NewMainWindow *newWin = 0; //utilisé pour créé une nouvelle fenêtre
 
 SaisieGraphe::SaisieGraphe(QWidget *parent)
     : QMainWindow(parent)
@@ -226,6 +226,7 @@ void SaisieGraphe::on_pushButton_7_clicked() //Tracer le graphe
 
     QChartView* florent = graphe.calculerTracerGraphe(expression, qstr);
 
+    NewMainWindow *newWin = 0;
     newWin = new NewMainWindow();
     newWin->setCentralWidget(florent);
     newWin->resize(400, 300);

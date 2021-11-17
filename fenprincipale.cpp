@@ -31,7 +31,9 @@
 SaisieGraphe *saisieGraphe = 0;
 SaisieExpressionGraphique *saisieExpressionGraphique = 0;
 */
-SaisieGraphe *saisieGraphe = 0;
+
+
+//SaisieGraphe *saisieGraphe = 0;
 //SaisieExpressionGraphique *saisieExpressionGraphique = 0;
 
 using namespace std;
@@ -471,7 +473,7 @@ void FenPrincipale::affichageGraph()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);    */
 
-
+    SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
     saisieGraphe->show();
 
