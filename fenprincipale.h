@@ -19,6 +19,8 @@ class FenPrincipale : public QMainWindow
     public:
     //explicit FenPrincipale(QWidget *parent = nullptr);
     FenPrincipale(int x, int y);
+    Expression* getExpression();
+    void setExpression(Expression*);
     Expression* _monExpression;
 
     private:
@@ -28,6 +30,7 @@ class FenPrincipale : public QMainWindow
     QString texte;
     QString curFile;
     QLabel* imageLabel;
+    //Expression* _monExpression;
 
     public slots:
     bool sauvegarder();

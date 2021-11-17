@@ -1,8 +1,8 @@
-#include "saisieexpressiongraphe.h"
-#include "ui_saisieexpressiongraphe.h"
+#include "saisieexpressionIHM.h"
+#include "ui_saisieexpressionIHM.h"
 
 
-SaisieExpressionGraphe::SaisieExpressionGraphe(QWidget *parent) :
+SaisieExpressionIHM::SaisieExpressionIHM(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SaisieExpressionGraphe)
 {
@@ -11,12 +11,24 @@ SaisieExpressionGraphe::SaisieExpressionGraphe(QWidget *parent) :
     ui->AffichageNC->setText("Ici s'affichera l'expression en NC");
 }
 
-SaisieExpressionGraphe::~SaisieExpressionGraphe()
+SaisieExpressionIHM::~SaisieExpressionIHM()
 {
     delete ui;
 }
 
-void SaisieExpressionGraphe::on_Bouton_Constante_clicked()
+void SaisieExpressionIHM::setExpressionSaisie(Expression* expressionsaisie)
+{
+
+    _monExpression = expressionsaisie;
+}
+
+Expression* SaisieExpressionIHM::retourExpression()
+{
+    return _monExpression;
+}
+
+
+void SaisieExpressionIHM::on_Bouton_Constante_clicked()
 {
     Expression* pConstante = new Constante(_nombreConstanteSaisie);
     pileExpression.push(pConstante);
@@ -43,7 +55,7 @@ void SaisieExpressionGraphe::on_Bouton_Constante_clicked()
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Variable_clicked()
+void SaisieExpressionIHM::on_Bouton_Variable_clicked()
 {
     Expression *pVariable = new Variable('y');
     pileExpression.push(pVariable);
@@ -72,7 +84,7 @@ void SaisieExpressionGraphe::on_Bouton_Variable_clicked()
 
 
 
-void SaisieExpressionGraphe::on_Bouton_Addition_clicked()
+void SaisieExpressionIHM::on_Bouton_Addition_clicked()
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -104,7 +116,7 @@ void SaisieExpressionGraphe::on_Bouton_Addition_clicked()
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Multiplication_clicked()
+void SaisieExpressionIHM::on_Bouton_Multiplication_clicked()
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -136,13 +148,13 @@ void SaisieExpressionGraphe::on_Bouton_Multiplication_clicked()
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Puissance_clicked()
+void SaisieExpressionIHM::on_Bouton_Puissance_clicked()
 {
 
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Soustraction_clicked()
+void SaisieExpressionIHM::on_Bouton_Soustraction_clicked()
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -175,13 +187,13 @@ void SaisieExpressionGraphe::on_Bouton_Soustraction_clicked()
 
 
 
-void SaisieExpressionGraphe::on_Bouton_Inverse_clicked()
+void SaisieExpressionIHM::on_Bouton_Inverse_clicked()
 {
 
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Division_clicked()
+void SaisieExpressionIHM::on_Bouton_Division_clicked()
 {
     Expression *pOperande2 = pileExpression.top();
     pileExpression.pop();
@@ -202,6 +214,7 @@ void SaisieExpressionGraphe::on_Bouton_Division_clicked()
 
 
     Expression* expression = pileExpression.top();
+    //setExpressionSaisie(expression);
 
     std::stringstream chaine;
     chaine << *expression;
@@ -214,26 +227,37 @@ void SaisieExpressionGraphe::on_Bouton_Division_clicked()
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_ValAbs_clicked()
+void SaisieExpressionIHM::on_Bouton_ValAbs_clicked()
 {
 
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Simplifier_clicked()
+void SaisieExpressionIHM::on_Bouton_Simplifier_clicked()
 {
 
 }
 
 
-void SaisieExpressionGraphe::on_Bouton_Carre_clicked()
+void SaisieExpressionIHM::on_Bouton_Carre_clicked()
 {
 
 }
 
 
-void SaisieExpressionGraphe::on_SpinBox_Constante_valueChanged(double arg1)
+void SaisieExpressionIHM::on_SpinBox_Constante_valueChanged(double arg1)
 {
     _nombreConstanteSaisie = arg1;
+}
+
+
+void SaisieExpressionIHM::on_Bouton_Memoriser_clicked()
+{
+
+    Expression* expression = pileExpression.top();
+    //setExpressionSaisie(expression);
+    _monExpression = expression;
+    //_pointeurExpressionGlobal = &expression;
+
 }
 

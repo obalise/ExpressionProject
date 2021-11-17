@@ -4,8 +4,7 @@
 #include <iostream>
 
 #include "SaisieGraphe.h"
-//#include "SaisieExpressionGraphique.h"
-#include "saisieexpressiongraphe.h"
+#include "saisieexpressionIHM.h"
 
 
 #include "fenprincipale.h"
@@ -27,15 +26,6 @@
 #endif
 
 #include <QtWidgets>
-
-/*
-SaisieGraphe *saisieGraphe = 0;
-SaisieExpressionGraphique *saisieExpressionGraphique = 0;
-*/
-
-
-//SaisieGraphe *saisieGraphe = 0;
-//SaisieExpressionGraphique *saisieExpressionGraphique = 0;
 
 using namespace std;
 
@@ -96,6 +86,18 @@ FenPrincipale::FenPrincipale(int x, int y)
 
 }
 
+Expression* FenPrincipale::getExpression()
+{
+    return _monExpression;
+}
+
+void FenPrincipale::setExpression(Expression* expression)
+{
+
+    _monExpression = expression;
+
+}
+
 void FenPrincipale::saisie()
 {
 
@@ -118,11 +120,17 @@ void FenPrincipale::saisie()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test); */
 
-    SaisieExpressionGraphe *saisieExpressionGraphique = 0;
-    saisieExpressionGraphique = new SaisieExpressionGraphe();
+   // cout << "\nAffichage 1"<< *_monExpression;
+
+    SaisieExpressionIHM *saisieExpressionGraphique = 0;
+    saisieExpressionGraphique = new SaisieExpressionIHM();
+    //saisieExpressionGraphique->_pointeurExpressionGlobal = &_monExpression;
+    saisieExpressionGraphique->_monExpression = _monExpression;
     saisieExpressionGraphique->show();
 
+    //delete saisieExpressionGraphique;
 
+   // cout << "\nAffichage 2"<< *_monExpression;
 
 
 #ifdef DEBUG
@@ -477,8 +485,12 @@ void FenPrincipale::affichageGraph()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);    */
 
+    cout << "\nAffichage graphe" << _monExpression;
+    cout << "\nAffichage graphe" << *_monExpression;
+
     SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
+    saisieGraphe->_monExpression = _monExpression;
     saisieGraphe->show();
 
 

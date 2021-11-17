@@ -21,7 +21,7 @@ SOURCES += \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
-    saisieexpressiongraphe.cpp \
+    saisieexpressionIHM.cpp \
     singletontestflorent.cpp \
     terminalmenu.cpp \
     main.cpp
@@ -40,14 +40,14 @@ HEADERS += \
     SaisieGraphe.h \
     Soustraction.h \
     graphe.h \
-    saisieexpressiongraphe.h \
+    saisieexpressionIHM.h \
     singletontestflorent.h \
     terminalmenu.h \
     Variable.h
 FORMS += \
     FenetreGraphe.ui \
     SaisieGraphe.ui \
-    saisieexpressiongraphe.ui
+    saisieexpressionIHM.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin

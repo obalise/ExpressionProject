@@ -35,19 +35,23 @@ namespace Ui {
 class SaisieExpressionGraphe;
 }
 
-class SaisieExpressionGraphe : public QMainWindow
+class SaisieExpressionIHM : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit SaisieExpressionGraphe(QWidget *parent = nullptr);
-    ~SaisieExpressionGraphe();
+    explicit SaisieExpressionIHM(QWidget *parent = nullptr);
+    ~SaisieExpressionIHM();
+    void setExpressionSaisie(Expression*);
+    Expression* retourExpression();
+    Expression* _monExpression;
+    Expression** _pointeurExpressionGlobal;
+
 
 private slots:
     void on_Bouton_Constante_clicked();
 
     void on_Bouton_Variable_clicked();
-
 
     void on_Bouton_Addition_clicked();
 
@@ -69,10 +73,13 @@ private slots:
 
     void on_SpinBox_Constante_valueChanged(double arg1);
 
+    void on_Bouton_Memoriser_clicked();
+
 private:
     Ui::SaisieExpressionGraphe *ui;
     std::stack<Expression*> pileExpression;
     double _nombreConstanteSaisie;
+    //Expression* _monExpression;
 
 };
 
