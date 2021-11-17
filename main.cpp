@@ -25,8 +25,7 @@
 
 using namespace std;
 
-SaisieGraphe *saisieGraphe = 0;
-SaisieExpressionGraphique *saisieExpressionGraphique = 0;
+
 
 int main(int argc, char *argv[])
 {

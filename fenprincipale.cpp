@@ -4,7 +4,7 @@
 #include <iostream>
 
 #include "SaisieGraphe.h"
-#include "SaisieExpressionGraphique.h"
+//#include "SaisieExpressionGraphique.h"
 
 
 #include "fenprincipale.h"
@@ -31,6 +31,8 @@
 SaisieGraphe *saisieGraphe = 0;
 SaisieExpressionGraphique *saisieExpressionGraphique = 0;
 */
+SaisieGraphe *saisieGraphe = 0;
+//SaisieExpressionGraphique *saisieExpressionGraphique = 0;
 
 using namespace std;
 
@@ -113,8 +115,8 @@ void FenPrincipale::saisie()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test); */
 
-    saisieExpressionGraphique = new SaisieExpressionGraphique();
-    saisieExpressionGraphique->show();
+    //saisieExpressionGraphique = new SaisieExpressionGraphique();
+    //saisieExpressionGraphique->show();
 
 
 #ifdef DEBUG
