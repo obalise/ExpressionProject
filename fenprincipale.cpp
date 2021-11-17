@@ -5,6 +5,7 @@
 
 #include "SaisieGraphe.h"
 //#include "SaisieExpressionGraphique.h"
+#include "saisieexpressiongraphe.h"
 
 
 #include "fenprincipale.h"
@@ -117,8 +118,11 @@ void FenPrincipale::saisie()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test); */
 
-    //saisieExpressionGraphique = new SaisieExpressionGraphique();
-    //saisieExpressionGraphique->show();
+    SaisieExpressionGraphe *saisieExpressionGraphique = 0;
+    saisieExpressionGraphique = new SaisieExpressionGraphe();
+    saisieExpressionGraphique->show();
+
+
 
 
 #ifdef DEBUG

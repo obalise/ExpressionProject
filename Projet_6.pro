@@ -7,7 +7,6 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 SOURCES += \
     Saisie.cpp \
-    SaisieExpressionGraphique.cpp \
     Simplifier.cpp \
     Singleton.cpp \
     fenetregraphe.cpp \
@@ -22,11 +21,11 @@ SOURCES += \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
+    saisieexpressiongraphe.cpp \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
     Saisie.h \
-    SaisieExpressionGraphique.h \
     Simplifier.h \
     Singleton.h \
     fenetregraphe.h \
@@ -40,12 +39,13 @@ HEADERS += \
     SaisieGraphe.h \
     Soustraction.h \
     graphe.h \
+    saisieexpressiongraphe.h \
     terminalmenu.h \
     Variable.h
 FORMS += \
     FenetreGraphe.ui \
-    SaisieExpressionGraphique.ui \
-    SaisieGraphe.ui
+    SaisieGraphe.ui \
+    saisieexpressiongraphe.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
