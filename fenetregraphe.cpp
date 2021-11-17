@@ -1,6 +1,6 @@
-#include "FenetreGraphe.h"
+#include "fenetregraphe.h"
 //#include "ui_newmainwindow.h"
-#include "ui_FenetreGraphe.h"
+#include "ui_fenetregraphe.h"
 
 NewMainWindow::NewMainWindow(QWidget *parent) :
     QMainWindow(parent),

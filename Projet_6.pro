@@ -9,6 +9,7 @@ SOURCES += \
     Saisie.cpp \
     Simplifier.cpp \
     Singleton.cpp \
+    fenetregraphe.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Constante.cpp \
@@ -21,12 +22,14 @@ SOURCES += \
     SaisieGraphe.cpp \
     Soustraction.cpp \
     Variable.cpp \
+    graphe.cpp \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
     Saisie.h \
     Simplifier.h \
     Singleton.h \
+    fenetregraphe.h \
     fenprincipale.h \
     Addition.h \
     Constante.h \
@@ -38,6 +41,7 @@ HEADERS += \
     Operateur.h \
     SaisieGraphe.h \
     Soustraction.h \
+    graphe.h \
     terminalmenu.h \
     Variable.h
 FORMS += \

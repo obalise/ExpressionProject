@@ -19,7 +19,7 @@
 #include <string>
 #include <stack>
 
-#include "Graphe.h"
+#include "graphe.h"
 #include "Expression.h"
 #include "Constante.h"
 #include "Multiplication.h"
@@ -29,7 +29,7 @@
 #include "Constante.h"
 #include "Variable.h"
 
-#include "FenetreGraphe.h"
+#include "fenetregraphe.h"
 
 
 QT_BEGIN_NAMESPACE
