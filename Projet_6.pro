@@ -15,8 +15,6 @@ SOURCES += \
     Constante.cpp \
     Division.cpp \
     Expression.cpp \
-    FenetreGraphe.cpp \
-    Graphe.cpp \
     Multiplication.cpp \
     Operateur.cpp \
     SaisieGraphe.cpp \
@@ -35,8 +33,6 @@ HEADERS += \
     Constante.h \
     Division.h \
     Expression.h \
-    FenetreGraphe.h \
-    Graphe.h \
     Multiplication.h \
     Operateur.h \
     SaisieGraphe.h \
