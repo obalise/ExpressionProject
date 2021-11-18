@@ -7,13 +7,13 @@ namespace Ui {
 class NewMainWindow;
 }
 
-class NewMainWindow : public QMainWindow
+class FenetreGraphe : public QMainWindow
 {
     Q_OBJECT
 
 public:
-    explicit NewMainWindow(QWidget *parent = nullptr);
-    ~NewMainWindow();
+    explicit FenetreGraphe(QWidget *parent = nullptr);
+    ~FenetreGraphe();
 
 private:
     Ui::NewMainWindow *ui;

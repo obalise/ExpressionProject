@@ -32,8 +32,8 @@ void SaisieGraphe::on_pushButton_7_clicked() //Tracer le graphe
 
     QChartView* chartViewGraphe = graphe.calculerTracerGraphe(_monExpression, qstr);
 
-    NewMainWindow *nouvelleFenetre = 0;
-    nouvelleFenetre = new NewMainWindow();
+    FenetreGraphe *nouvelleFenetre = 0;
+    nouvelleFenetre = new FenetreGraphe();
     nouvelleFenetre->setCentralWidget(chartViewGraphe);
     nouvelleFenetre->resize(400, 300);
     nouvelleFenetre->show();
