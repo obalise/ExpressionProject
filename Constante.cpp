@@ -32,6 +32,11 @@ float Constante::calculer()
     return _valeur;
 }
 
+Expression* Constante::simplifier()
+{
+
+}
+
 ostream &operator<<( ostream &os, const Constante& c1)
 {
     c1.afficher(os);

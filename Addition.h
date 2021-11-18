@@ -38,6 +38,7 @@ public:
     float calculer() override;
     void afficher(ostream &os) const override;
     void afficherNPI(ostream &os) const override;
+    Expression* simplifier() override;
 
     Expression* opG() const{
         return _operandeGauche;

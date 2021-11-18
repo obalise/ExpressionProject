@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>SaisieExpressionGraphe</class>
+ <widget class="QMainWindow" name="SaisieExpressionGraphe">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>320</width>
+    <height>419</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>320</width>
+    <height>419</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QLineEdit" name="AffichageNPI">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>10</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>240</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="AffichageNC">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>50</y>
+      <width>241</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>240</width>
+      <height>30</height>
+     </size>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Constante">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>110</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Constante</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Addition">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>180</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Addition</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Soustraction">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Soustraction</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Multiplication">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>180</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Multiplication</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Division">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>210</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Division</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Simplifier">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>320</y>
+      <width>141</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Simplifier Expression</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_ValAbs">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>240</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Valeur Absolu</string>
+    </property>
+   </widget>
+   <widget class="QDoubleSpinBox" name="SpinBox_Constante">
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>110</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="focusPolicy">
+     <enum>Qt::WheelFocus</enum>
+    </property>
+    <property name="acceptDrops">
+     <bool>false</bool>
+    </property>
+    <property name="wrapping">
+     <bool>false</bool>
+    </property>
+    <property name="frame">
+     <bool>true</bool>
+    </property>
+    <property name="readOnly">
+     <bool>false</bool>
+    </property>
+    <property name="buttonSymbols">
+     <enum>QAbstractSpinBox::PlusMinus</enum>
+    </property>
+    <property name="keyboardTracking">
+     <bool>true</bool>
+    </property>
+    <property name="minimum">
+     <double>-99999.000000000000000</double>
+    </property>
+    <property name="maximum">
+     <double>99999.000000000000000</double>
+    </property>
+    <property name="value">
+     <double>1.000000000000000</double>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Variable">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>140</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Variable</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Puissance">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>180</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Puissance</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Inverse">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>210</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Inverse</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Carre">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>240</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Carré</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Memoriser">
+    <property name="geometry">
+     <rect>
+      <x>90</x>
+      <y>350</y>
+      <width>141</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>Mémoriser Expression</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Log">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Log</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>280</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cosinus</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_2">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>280</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sinus</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_3">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>280</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Tan</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_4">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>110</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>	Π</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton_5">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>140</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>e</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>320</width>
+     <height>21</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuJ_aime_la_bi_re_au_beurre">
+    <property name="title">
+     <string>J'aime la bière au beurre</string>
+    </property>
+   </widget>
+   <addaction name="menuJ_aime_la_bi_re_au_beurre"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
