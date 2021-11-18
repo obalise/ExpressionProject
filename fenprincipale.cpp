@@ -131,7 +131,7 @@ void FenPrincipale::saisie()
     connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
     boucle.exec();
     /*/Une fois la fenêtre fermée on peut charger notre _monExpression "globale" avec l'expression saisie/*/
-    _monExpression = saisieExpressionGraphique->_monExpression;
+    this->setExpression(saisieExpressionGraphique->_monExpression);
 
 
 #ifdef DEBUG
@@ -486,12 +486,12 @@ void FenPrincipale::affichageGraph()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);    */
 
-   std::cout << "\nAffichage graphe" << _monExpression;
-   std::cout << "\nAffichage graphe" << *_monExpression;
+    std::cout << "\nAffichage graphe" << _monExpression;
+    std::cout << "\nAffichage graphe" << *_monExpression;
 
     SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
-    saisieGraphe->_monExpression = _monExpression;
+    saisieGraphe->_monExpression = this->getExpression();
     saisieGraphe->show();
 
 

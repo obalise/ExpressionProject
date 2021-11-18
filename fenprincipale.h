@@ -22,7 +22,7 @@ class FenPrincipale : public QMainWindow
     FenPrincipale(int x, int y);
     Expression* getExpression();
     void setExpression(Expression*);
-    Expression* _monExpression;
+    //Expression* _monExpression;
     SaisieExpressionIHM *saisieExpressionGraphique = 0;
 
     private:
@@ -32,7 +32,7 @@ class FenPrincipale : public QMainWindow
     QString texte;
     QString curFile;
     QLabel* imageLabel;
-    //Expression* _monExpression;
+    Expression* _monExpression;
 
     public slots:
     bool sauvegarder();
