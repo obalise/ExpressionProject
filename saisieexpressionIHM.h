@@ -79,7 +79,12 @@ private:
     Ui::SaisieExpressionGraphe *ui;
     std::stack<Expression*> pileExpression;
     double _nombreConstanteSaisie;
+    void closeEvent(QCloseEvent *bar);
     //Expression* _monExpression;
+
+signals :
+    void closed();
+
 
 };
 

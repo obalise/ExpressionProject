@@ -3,6 +3,8 @@
 #include <string>
 #include <iostream>
 
+#include <QEventLoop>
+
 #include "SaisieGraphe.h"
 #include "saisieexpressionIHM.h"
 
@@ -129,11 +131,23 @@ void FenPrincipale::saisie()
     //saisieExpressionGraphique->_monExpression = _monExpression;
     //_monExpression = saisieExpressionGraphique->_monExpression;
     saisieExpressionGraphique->show();
+    std::cout << "\nAffichage TRUE";
+    QEventLoop boucle;
+    connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
+    boucle.exec();
+    std::cout << "\nAffichage TRUE";
+    _monExpression = saisieExpressionGraphique->_monExpression;
 
+  /*  while(1){
+        if(saisieExpressionGraphique->isVisible() == true){
+            //On attend
+             std::cout << "\nAffichage TRUE";
+        }else{
+            std::cout << "\nAffichage FALSE";
+        }
+    }*/
+    //_monExpression = saisieExpressionGraphique->_monExpression;
     //delete saisieExpressionGraphique;
-
-    cout << "\nAffichage 2";
-
 
 #ifdef DEBUG
 
@@ -487,14 +501,16 @@ void FenPrincipale::affichageGraph()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);    */
 
-//    cout << "\nAffichage graphe" << _monExpression;
-//    cout << "\nAffichage graphe" << *_monExpression;
+   std::cout << "\nAffichage graphe" << _monExpression;
+   std::cout << "\nAffichage graphe" << *_monExpression;
 
-    _monExpression = saisieExpressionGraphique->_monExpression;
+    //_monExpression = saisieExpressionGraphique->_monExpression;
     SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
     saisieGraphe->_monExpression = _monExpression;
     saisieGraphe->show();
+
+
 
 
 #ifdef DEBUG

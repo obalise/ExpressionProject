@@ -261,3 +261,9 @@ void SaisieExpressionIHM::on_Bouton_Memoriser_clicked()
 
 }
 
+void SaisieExpressionIHM::closeEvent(QCloseEvent *bar){
+
+    emit closed();
+
+    bar->accept();
+}
