@@ -423,6 +423,19 @@ QPushButton:hover{
      <string>e</string>
     </property>
    </widget>
+   <widget class="QPushButton" name="Bouton_RacineCarree">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Racine Carrée</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">

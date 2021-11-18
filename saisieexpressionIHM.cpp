@@ -368,3 +368,33 @@ void SaisieExpressionIHM::on_Bouton_Cosinus_clicked()
     ui->AffichageNC->setText(valeurAjout2);
 }
 
+
+void SaisieExpressionIHM::on_Bouton_RacineCarree_clicked()
+{
+    Expression *pOperande = pileExpression.top();
+    pileExpression.pop();
+    Expression *pRacineCarree = new RacineCarree(pOperande);
+
+    pileExpression.push(pRacineCarree);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "sqrt";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + "." + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
+}
+

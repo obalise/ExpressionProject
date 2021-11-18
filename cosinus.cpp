@@ -31,7 +31,7 @@ void Cosinus::afficherNPI(ostream &os) const
 
 float Cosinus::calculer()
 {
-    return sin(_operandeUnique->calculer());
+    return cos(_operandeUnique->calculer());
 }
 
 Expression* Cosinus::simplifier()

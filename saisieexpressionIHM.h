@@ -33,6 +33,7 @@
 #include "Carre.h"
 #include "sinus.h"
 #include "cosinus.h"
+#include "racinecarree.h"
 
 #include "fenetregraphe.h"
 
@@ -83,6 +84,8 @@ private slots:
     void on_Bouton_Sinus_clicked();
 
     void on_Bouton_Cosinus_clicked();
+
+    void on_Bouton_RacineCarree_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;
