@@ -16,9 +16,11 @@ Addition::~Addition()
     //cout <<  "Destruction Addition" << endl;
 }
 
-Addition::Addition(const Addition& other)
+Addition::Addition(const Addition& other):Operateur(other)
 {
     //copy ctor
+    //this->_operandeDroite = other._operandeDroite;
+    //this->_operandeGauche = other._operandeGauche;
 }
 
 void Addition::afficher(ostream &os) const

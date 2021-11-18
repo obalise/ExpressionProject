@@ -12,7 +12,7 @@ Sinus::~Sinus()
    cout << endl << "Destructeur Sinus" << endl; //dtor
 }
 
-Sinus::Sinus (const Sinus& other)
+Sinus::Sinus (const Sinus& other):OperateurUnaire(other)
 {
     //copy ctor
 }
@@ -38,7 +38,7 @@ float Sinus::calculer()
 
 Expression* Sinus::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator << (ostream &os, const Sinus& op)

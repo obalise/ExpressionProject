@@ -14,7 +14,7 @@ OperateurUnaire::~OperateurUnaire()
     cout << "Destructeur Opunin" << endl; //dtor
 }
 
-OperateurUnaire::OperateurUnaire(const OperateurUnaire & other)
+OperateurUnaire::OperateurUnaire(const OperateurUnaire & other):Expression(other)
 {
     //copy ctor
 }

@@ -10,7 +10,7 @@ RacineCarree::~RacineCarree()
    cout << endl << "Destructeur RacineCarree" << endl; //dtor
 }
 
-RacineCarree::RacineCarree (const RacineCarree& other)
+RacineCarree::RacineCarree (const RacineCarree& other):OperateurUnaire(other)
 {
     //copy ctor
 }
@@ -36,7 +36,7 @@ float RacineCarree::calculer()
 
 Expression* RacineCarree::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator << (ostream &os, const RacineCarree& op)

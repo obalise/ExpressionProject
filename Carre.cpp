@@ -12,7 +12,7 @@ Carre::~Carre()
    cout << endl << "Destructeur Carré" << endl; //dtor
 }
 
-Carre::Carre (const Carre& other)
+Carre::Carre (const Carre& other):OperateurUnaire(other)
 {
     //copy ctor
 }
@@ -36,7 +36,7 @@ float Carre::calculer()
 
 Expression* Carre::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator << (ostream &os, const Carre& op)

@@ -25,7 +25,7 @@ Variable::~Variable()
     //cout << "Destruction Variable" << endl;
 }
 
-Variable::Variable(const Variable& other)
+Variable::Variable(const Variable& other):Expression(other)
 {
     //Constructeur de recopie
 }
@@ -48,7 +48,7 @@ void Variable::afficherNPI(ostream &os) const
 
 Expression* Variable::simplifier()
 {
-
+    return this;
 }
 
 float Variable::calculer()

@@ -10,7 +10,7 @@ Division::~Division()
     //cout << endl <<  "Destruction Division" << endl;
 }
 
-Division::Division(const Division& other)
+Division::Division(const Division& other):Operateur(other)
 {
     //copy ctor
 }

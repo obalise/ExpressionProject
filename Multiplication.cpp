@@ -10,7 +10,7 @@ Multiplication::~Multiplication()
     //cout << endl <<  "Destruction Multiplication" << endl;
 }
 
-Multiplication::Multiplication(const Multiplication& other)
+Multiplication::Multiplication(const Multiplication& other):Operateur(other)
 {
     //copy ctor
 }

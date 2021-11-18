@@ -10,7 +10,7 @@ Cosinus::~Cosinus()
    cout << endl << "Destructeur Cosinus" << endl; //dtor
 }
 
-Cosinus::Cosinus (const Cosinus& other)
+Cosinus::Cosinus (const Cosinus& other):OperateurUnaire(other)
 {
     //copy ctor
 }
@@ -36,7 +36,7 @@ float Cosinus::calculer()
 
 Expression* Cosinus::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator << (ostream &os, const Cosinus& op)

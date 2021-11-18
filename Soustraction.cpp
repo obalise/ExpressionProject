@@ -11,7 +11,7 @@ Soustraction::~Soustraction()
     //cout << endl <<  "Destruction Soustraction" << endl;
 }
 
-Soustraction::Soustraction(const Soustraction& other)
+Soustraction::Soustraction(const Soustraction& other):Operateur(other)
 {
     //copy ctor
 }
