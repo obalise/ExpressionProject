@@ -371,7 +371,7 @@ QPushButton:hover{
      <string>Cosinus</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_2">
+   <widget class="QPushButton" name="Bouton_Sinus">
     <property name="geometry">
      <rect>
       <x>120</x>

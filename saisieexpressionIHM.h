@@ -31,6 +31,7 @@
 
 //#include "OperateurUnaire.h"
 #include "Carre.h"
+#include "sinus.h"
 
 #include "fenetregraphe.h"
 
@@ -77,6 +78,8 @@ private slots:
     void on_SpinBox_Constante_valueChanged(double arg1);
 
     void on_Bouton_Memoriser_clicked();
+
+    void on_Bouton_Sinus_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;
