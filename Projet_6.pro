@@ -6,6 +6,8 @@ CONFIG += c++11
 # In order to do so, uncomment the following line.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 SOURCES += \
+    Carre.cpp \
+    OperateurUnaire.cpp \
     Saisie.cpp \
     Simplifier.cpp \
     Singleton.cpp \
@@ -26,6 +28,8 @@ SOURCES += \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
+    Carre.h \
+    OperateurUnaire.h \
     Saisie.h \
     Simplifier.h \
     Singleton.h \
