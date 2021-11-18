@@ -8,12 +8,12 @@
 
 Graphe::Graphe()
 {
-    //Constructor
+    //Constructeur du Graphe par défaut
 }
 
-Graphe::Graphe(float plageBasseX, float plageHauteX, float pas) //Constructeur prenant la plage des abscisses et le pas pour le calcul des points
+Graphe::Graphe(float plageBasseX, float plageHauteX, float pas)
 {
-    //Constructor
+    //Constructeur du Graphe permettant de prendre les différents paramètres
     _plageBasseX = plageBasseX;
     _plageHauteX = plageHauteX;
     _pas = pas;
@@ -21,9 +21,11 @@ Graphe::Graphe(float plageBasseX, float plageHauteX, float pas) //Constructeur p
 
 Graphe::~Graphe()
 {
-   //Destructor
+   //Destructeur du Graphe par défaut, pas d'allocation de mémoire donc pas de delete
 }
 
+
+/*/Setters des paramètres pour tracer le graphe/*/
 void Graphe::set_pas(float pas){
     _pas = pas;
 }
@@ -34,33 +36,9 @@ void Graphe::set_plageHauteX(float plageHauteX){
     _plageHauteX = plageHauteX;
 }
 
-void Graphe::calculerPointsGrapheDUR() // [FONCTION ITERATION 1]
-{
-
-    float i = _plageBasseX;
-    while (i <= _plageHauteX)
-    {
-      float y = 3 * i * i + 5;
-      _series->append(i, y);
-      i += _pas;
-    }
-}
 
 
-void Graphe::calculerPointsGraphe(Expression* expression) // [FONCTION ITERATION 1]
-{
-    vGlobValVar = _plageBasseX;
-    while (vGlobValVar <= _plageHauteX)
-    {
-        float y = expression->calculer();
-
-        _series->append(vGlobValVar, y);
-        vGlobValVar += _pas;
-    }
-}
-
-
-QChartView* Graphe::calculerTracerGraphe(Expression* expression, QString qstr) // [FONCTION ITERATION 2]
+QChartView* Graphe::calculerTracerGraphe(Expression* expression, QString qstr)
 /* A partir de notre équation (expression) et du titre du graphe (qstr, ce sera simplement notre équation en chaines de caractères)
  * La fonction retourne un pointeur vers un objet QChartView qui nous permettra par la suite de tracer le graphe
  * Note d'amélioration: il doit être possible de ne pas passer par vGlobValVar !
@@ -89,23 +67,3 @@ QChartView* Graphe::calculerTracerGraphe(Expression* expression, QString qstr) /
 
 }
 
-int Graphe::tracerGraphe(QString qstr, int argc, char *argv[]) // [FONCTION ITERATION 1] Recréer une QApplication qui doit être unique. A prohiber.
-{
-    QApplication a(argc, argv);
-    QChart *chart = new QChart();
-    chart->legend()->hide();
-    chart->addSeries(_series);
-    chart->createDefaultAxes();
-
-    chart->setTitle(qstr);
-
-    QChartView *chartView = new QChartView(chart);
-    chartView->setRenderHint(QPainter::Antialiasing);
-
-    QMainWindow windowchart;
-    windowchart.setCentralWidget(chartView);
-    windowchart.resize(400, 300);
-    windowchart.show();
-
-    return a.exec();
-}

@@ -255,15 +255,14 @@ void SaisieExpressionIHM::on_Bouton_Memoriser_clicked()
 {
 
     Expression* expression = pileExpression.top();
-    //setExpressionSaisie(expression);
     _monExpression = expression;
-    //_pointeurExpressionGlobal = &expression;
-
 }
 
-void SaisieExpressionIHM::closeEvent(QCloseEvent *bar){
-
+void SaisieExpressionIHM::closeEvent(QCloseEvent *bar)
+{
+/* Quand la fenêtre SaisieExpressionIHM est fermé
+ *
+ */
     emit closed();
-
     bar->accept();
 }

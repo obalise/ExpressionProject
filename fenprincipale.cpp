@@ -123,31 +123,16 @@ void FenPrincipale::saisie()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test); */
 
-   // cout << "\nAffichage 1"<< *_monExpression;
-
-    //SaisieExpressionIHM *saisieExpressionGraphique = 0;
     saisieExpressionGraphique = new SaisieExpressionIHM();
-    //saisieExpressionGraphique->_pointeurExpressionGlobal = &_monExpression;
-    //saisieExpressionGraphique->_monExpression = _monExpression;
-    //_monExpression = saisieExpressionGraphique->_monExpression;
     saisieExpressionGraphique->show();
-    std::cout << "\nAffichage TRUE";
+
+    /*/On attend que la fenêtre de saisie de l'expression soit fermée avec cette boucle/*/
     QEventLoop boucle;
     connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
     boucle.exec();
-    std::cout << "\nAffichage TRUE";
+    /*/Une fois la fenêtre fermée on peut charger notre _monExpression "globale" avec l'expression saisie/*/
     _monExpression = saisieExpressionGraphique->_monExpression;
 
-  /*  while(1){
-        if(saisieExpressionGraphique->isVisible() == true){
-            //On attend
-             std::cout << "\nAffichage TRUE";
-        }else{
-            std::cout << "\nAffichage FALSE";
-        }
-    }*/
-    //_monExpression = saisieExpressionGraphique->_monExpression;
-    //delete saisieExpressionGraphique;
 
 #ifdef DEBUG
 
@@ -504,7 +489,6 @@ void FenPrincipale::affichageGraph()
    std::cout << "\nAffichage graphe" << _monExpression;
    std::cout << "\nAffichage graphe" << *_monExpression;
 
-    //_monExpression = saisieExpressionGraphique->_monExpression;
     SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
     saisieGraphe->_monExpression = _monExpression;
