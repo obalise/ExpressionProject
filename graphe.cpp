@@ -24,7 +24,6 @@ Graphe::~Graphe()
    //Destructeur du Graphe par défaut, pas d'allocation de mémoire donc pas de delete
 }
 
-
 /*/Setters des paramètres pour tracer le graphe/*/
 void Graphe::set_pas(float pas){
     _pas = pas;

@@ -22,8 +22,7 @@ class FenPrincipale : public QMainWindow
     FenPrincipale(int x, int y);
     Expression* getExpression();
     void setExpression(Expression*);
-    //Expression* _monExpression;
-    SaisieExpressionIHM *saisieExpressionGraphique = 0;
+    SaisieExpressionIHM *saisieExpressionGraphique = 0; //Nous aurons besoin de ce pointeur pour créer notre fenêtre de Saisie de l'expression
 
     private:
     QString *fileName;
