@@ -239,9 +239,51 @@ void SaisieExpressionIHM::on_Bouton_Simplifier_clicked()
 }
 
 
+/*
+ *       |          | <- 3
+ *
+ *       |3         | <- 4
+ *
+ *       |3 4       | <- +
+ *
+ *       |          |  <- 3 + 4
+ *
+ *       |(3+4)     |  <- ²
+ *
+ *       |          |  <- (3+4)²
+ *
+ *       |(3+4)²    |  <-
+ *
+ */
+
+
 void SaisieExpressionIHM::on_Bouton_Carre_clicked()
 {
+    Expression *pOperande = pileExpression.top();
+    pileExpression.pop();
+    Expression *pCarre = new Carre(pOperande);
 
+    pileExpression.push(pCarre);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "²";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + " " + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
 }
 
 

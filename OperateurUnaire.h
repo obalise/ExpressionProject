@@ -7,14 +7,16 @@ using namespace std;
 
 class OperateurUnaire : public Expression
 {
-    public:
-        OperateurUnaire();
-        virtual ~OperateurUnaire();
-        OperateurUnaire(const OperateurUnaire& other);
+public:
+    OperateurUnaire();
+    virtual ~OperateurUnaire();
+    OperateurUnaire(const OperateurUnaire& other);
+    //Expression* _operandeUnique;
 
-    protected:
+protected:
 
-    private:
+private:
+
 };
 
 

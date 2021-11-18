@@ -15,6 +15,7 @@ class Carre : public OperateurUnaire
         float calculer () override;
         void afficher(ostream &os) const override;
         void afficherNPI(ostream &os) const override;
+        Expression* simplifier()override;
 
     protected:
 

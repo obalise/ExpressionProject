@@ -43,7 +43,8 @@ void Addition::afficherNPI(ostream &os) const
 
 float Addition::calculer()
 {
-   return _operandeGauche->calculer()+ _operandeDroite->calculer();
+   return _operandeGauche->calculer() + _operandeDroite->calculer();
+
 }
 
 

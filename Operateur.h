@@ -17,7 +17,6 @@ protected:
 
 
 private:
-
 };
 
 #endif // OPERATEUR_H

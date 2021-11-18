@@ -9,7 +9,7 @@ Carre::Carre(Expression* a) : _operandeUnique(a)
 
 Carre::~Carre()
 {
-   cout << endl << "Destructeur Mutiplication" << endl; //dtor
+   cout << endl << "Destructeur Carré" << endl; //dtor
 }
 
 Carre::Carre (const Carre& other)
@@ -19,10 +19,8 @@ Carre::Carre (const Carre& other)
 
 void Carre::afficher(ostream &os) const
 {
-    _operandeUnique->afficher (os);
+    _operandeUnique->afficher(os);
     os << "²";
-
-
 }
 
 void Carre::afficherNPI(ostream &os) const
@@ -33,7 +31,12 @@ void Carre::afficherNPI(ostream &os) const
 
 float Carre::calculer()
 {
-    return _operandeUnique->calculer();
+    return _operandeUnique->calculer() * _operandeUnique->calculer();
+}
+
+Expression* Carre::simplifier()
+{
+
 }
 
 ostream &operator << (ostream &os, const Carre& op)

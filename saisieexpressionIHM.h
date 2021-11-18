@@ -29,6 +29,9 @@
 #include "Constante.h"
 #include "Variable.h"
 
+//#include "OperateurUnaire.h"
+#include "Carre.h"
+
 #include "fenetregraphe.h"
 
 namespace Ui {
