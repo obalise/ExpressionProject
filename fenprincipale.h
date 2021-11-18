@@ -6,6 +6,7 @@
 #include <QList>
 
 #include "Expression.h"
+#include "saisieexpressionIHM.h"
 
 QT_BEGIN_NAMESPACE
 class QAction;
@@ -22,6 +23,7 @@ class FenPrincipale : public QMainWindow
     Expression* getExpression();
     void setExpression(Expression*);
     Expression* _monExpression;
+    SaisieExpressionIHM *saisieExpressionGraphique = 0;
 
     private:
     QString *fileName;

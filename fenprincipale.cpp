@@ -102,9 +102,10 @@ void FenPrincipale::saisie()
 {
 
     /* Le groupe 8 doit fournir à l’aide du « design pattern » singleton un accès simplifié à l’expression gérée par le programme. */
-    /* Utiliser et Appeler par ex. la sauvegarde de l'expression lorsque l'entrée du menu correspondante est sélectionnée.*/
+    /* Utiliser et Appeler par ex. la sauvegarde de l'expression lorsque l'entrée du menu correspondante est sélectionnée.
+    */
 
- /*
+    /*
     QString op, test;
     ostringstream out;
 
@@ -122,15 +123,16 @@ void FenPrincipale::saisie()
 
    // cout << "\nAffichage 1"<< *_monExpression;
 
-    SaisieExpressionIHM *saisieExpressionGraphique = 0;
+    //SaisieExpressionIHM *saisieExpressionGraphique = 0;
     saisieExpressionGraphique = new SaisieExpressionIHM();
     //saisieExpressionGraphique->_pointeurExpressionGlobal = &_monExpression;
-    saisieExpressionGraphique->_monExpression = _monExpression;
+    //saisieExpressionGraphique->_monExpression = _monExpression;
+    //_monExpression = saisieExpressionGraphique->_monExpression;
     saisieExpressionGraphique->show();
 
     //delete saisieExpressionGraphique;
 
-   // cout << "\nAffichage 2"<< *_monExpression;
+    cout << "\nAffichage 2";
 
 
 #ifdef DEBUG
@@ -485,9 +487,10 @@ void FenPrincipale::affichageGraph()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test);    */
 
-    cout << "\nAffichage graphe" << _monExpression;
-    cout << "\nAffichage graphe" << *_monExpression;
+//    cout << "\nAffichage graphe" << _monExpression;
+//    cout << "\nAffichage graphe" << *_monExpression;
 
+    _monExpression = saisieExpressionGraphique->_monExpression;
     SaisieGraphe *saisieGraphe = 0;
     saisieGraphe = new SaisieGraphe();
     saisieGraphe->_monExpression = _monExpression;
