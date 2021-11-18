@@ -315,6 +315,19 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
     <property name="text">
      <string>Carré</string>
     </property>
@@ -345,17 +358,17 @@ QPushButton:hover{
      <string>Mémoriser Expression</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Bouton_Log">
+   <widget class="QPushButton" name="Bouton_LogNeperien">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>240</y>
+      <x>30</x>
+      <y>150</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>Log</string>
+     <string>Ln</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Cosinus">
@@ -366,6 +379,19 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
     </property>
     <property name="text">
      <string>Cosinus</string>
@@ -379,6 +405,19 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
     </property>
     <property name="text">
      <string>Sinus</string>
@@ -410,7 +449,7 @@ QPushButton:hover{
      <string>	Π</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_5">
+   <widget class="QPushButton" name="Bouton_Euler">
     <property name="geometry">
      <rect>
       <x>210</x>
@@ -426,11 +465,24 @@ QPushButton:hover{
    <widget class="QPushButton" name="Bouton_RacineCarree">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>140</y>
+      <x>120</x>
+      <y>240</y>
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
     </property>
     <property name="text">
      <string>Racine Carrée</string>

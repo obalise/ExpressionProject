@@ -24,6 +24,7 @@ SOURCES += \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
+    logneperien.cpp \
     racinecarree.cpp \
     saisieexpressionIHM.cpp \
     singletontestflorent.cpp \
@@ -48,6 +49,7 @@ HEADERS += \
     SaisieGraphe.h \
     Soustraction.h \
     graphe.h \
+    logneperien.h \
     racinecarree.h \
     saisieexpressionIHM.h \
     singletontestflorent.h \

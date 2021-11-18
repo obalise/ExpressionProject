@@ -34,6 +34,7 @@
 #include "sinus.h"
 #include "cosinus.h"
 #include "racinecarree.h"
+#include "logneperien.h"
 
 #include "fenetregraphe.h"
 
@@ -86,6 +87,10 @@ private slots:
     void on_Bouton_Cosinus_clicked();
 
     void on_Bouton_RacineCarree_clicked();
+
+    void on_Bouton_Euler_clicked();
+
+    void on_Bouton_LogNeperien_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;
