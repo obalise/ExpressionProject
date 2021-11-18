@@ -10,7 +10,7 @@ LogNeperien::~LogNeperien()
    cout << endl << "Destructeur LogNeperien" << endl; //dtor
 }
 
-LogNeperien::LogNeperien (const LogNeperien& other)
+LogNeperien::LogNeperien (const LogNeperien& other):OperateurUnaire(other)
 {
     //copy ctor
 }
@@ -36,7 +36,7 @@ float LogNeperien::calculer()
 
 Expression* LogNeperien::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator << (ostream &os, const LogNeperien& op)

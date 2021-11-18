@@ -12,7 +12,7 @@ Constante::~Constante()
     //cout << "Destruction Constante" << endl;
 }
 
-Constante::Constante(const Constante& other)
+Constante::Constante(const Constante& other):Expression(other)
 {
     //copy ctor
 }
@@ -34,7 +34,7 @@ float Constante::calculer()
 
 Expression* Constante::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator<<( ostream &os, const Constante& c1)

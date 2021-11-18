@@ -12,7 +12,6 @@ class Expression
     public:
         Expression();
         virtual ~Expression();
-        Expression(const Expression& other);
 
         virtual float calculer() = 0;
         virtual Expression* simplifier() = 0;

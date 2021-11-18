@@ -14,11 +14,6 @@ Expression::~Expression()
     //cout << "Destruction Expression" << endl;
 }
 
-Expression::Expression(const Expression& other)
-{
-    //copy ctor
-}
-
 ostream &operator<<( ostream &os, const Expression& exp)
 {
     exp.afficher(os);
