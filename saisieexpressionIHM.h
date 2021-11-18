@@ -32,6 +32,7 @@
 //#include "OperateurUnaire.h"
 #include "Carre.h"
 #include "sinus.h"
+#include "cosinus.h"
 
 #include "fenetregraphe.h"
 
@@ -80,6 +81,8 @@ private slots:
     void on_Bouton_Memoriser_clicked();
 
     void on_Bouton_Sinus_clicked();
+
+    void on_Bouton_Cosinus_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;

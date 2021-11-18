@@ -358,7 +358,7 @@ QPushButton:hover{
      <string>Log</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="Bouton_Cosinus">
     <property name="geometry">
      <rect>
       <x>30</x>
@@ -384,7 +384,7 @@ QPushButton:hover{
      <string>Sinus</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="Bouton_Tangente">
     <property name="geometry">
      <rect>
       <x>210</x>
