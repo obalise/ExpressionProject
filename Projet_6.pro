@@ -29,6 +29,7 @@ SOURCES += \
     saisieexpressionIHM.cpp \
     singletontestflorent.cpp \
     sinus.cpp \
+    tan.cpp \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
@@ -54,6 +55,7 @@ HEADERS += \
     saisieexpressionIHM.h \
     singletontestflorent.h \
     sinus.h \
+    tan.h \
     terminalmenu.h \
     Variable.h
 FORMS += \

@@ -33,6 +33,7 @@
 #include "Carre.h"
 #include "sinus.h"
 #include "cosinus.h"
+#include "tan.h"
 #include "racinecarree.h"
 #include "logneperien.h"
 
@@ -90,6 +91,8 @@ private slots:
     void on_Bouton_Euler_clicked();
 
     void on_Bouton_LogNeperien_clicked();
+
+    void on_Bouton_Tangente_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;

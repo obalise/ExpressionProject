@@ -238,7 +238,7 @@ QPushButton:hover{
      <double>99999.000000000000000</double>
     </property>
     <property name="value">
-     <double>1.000000000000000</double>
+     <double>0.000000000000000</double>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Variable">
@@ -431,6 +431,19 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
     </property>
     <property name="text">
      <string>Tan</string>

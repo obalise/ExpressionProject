@@ -436,3 +436,33 @@ void SaisieExpressionIHM::on_Bouton_LogNeperien_clicked()
 }
 
 
+
+void SaisieExpressionIHM::on_Bouton_Tangente_clicked()
+{
+    Expression *pOperande = pileExpression.top();
+    pileExpression.pop();
+    Expression *pTan = new Tan(pOperande);
+
+    pileExpression.push(pTan);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "tan";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + "." + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
+}
+
