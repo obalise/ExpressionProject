@@ -9,7 +9,6 @@ SOURCES += \
     Carre.cpp \
     OperateurUnaire.cpp \
     Saisie.cpp \
-    Simplifier.cpp \
     Singleton.cpp \
     cosinus.cpp \
     fenetregraphe.cpp \
@@ -35,7 +34,6 @@ HEADERS += \
     Carre.h \
     OperateurUnaire.h \
     Saisie.h \
-    Simplifier.h \
     Singleton.h \
     cosinus.h \
     fenetregraphe.h \
