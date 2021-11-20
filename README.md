@@ -1,20 +1,27 @@
 # ExpressionProject
 
 
-***************************************************************************************************************
+****************************************************************************************************************
 Guide PROJET 6:
 
-Pas de signleton (design pattern) pour la partie saisie, affichage 2D et simplification.
+Fonction charger/sauvegarder (fichier) fonctionnelles depuis l'environnement Qt5.
+Fonction affichage NC /NPI & calculer fonctionnelles:
+pour une expression  2 opérande + 1 opérateur ou 3 opérande + 2 opérateur ou 4 opérande et 3 opérateur.
 
-Fonction charger/sauvegarder fonctionnelles depuis l'envirronement Qt5.
-Fonction affichage NC /NPI & calculer fonctionnelles (pour une expression simple) depuis l'environnement Qt5.
+Ex: ( 5 + 8 ) ou ( 5 + 8 ) - 3 ) ou (( 5 + 8 ) - 3 ) / 4 
 
-Pour tester il faut charger un fichier texte pour appeler les fonctions.
+Pour tester il faut soit charger un fichier texte soit utiliser le menu saisie expression.
+
+Dans l'ordre Saisie ou charger, sauvegarde l'expression puis affichage ou calcul
 
 format attendu ( 5 + 2 ) (respecter les espaces entre chaque caractère).
 
+Dernier point l'expression est disponible via un pointeur _monExpression
+
 Image background:
 Ajouter le dossier Image dans le reprtoire de debug (obtenu après la première compilation) 
+
+Code commenté.
 
 ***************************************************************************************************************
 
