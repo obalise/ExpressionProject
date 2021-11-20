@@ -12,7 +12,6 @@ class Expression
     public:
         Expression();
         virtual ~Expression();
-
         virtual float calculer() = 0;
         virtual Expression* simplifier() = 0;
         virtual void afficher(ostream &os) const = 0;

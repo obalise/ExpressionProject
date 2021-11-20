@@ -12,6 +12,7 @@ SOURCES += \
     Singleton.cpp \
     cosinus.cpp \
     fenetregraphe.cpp \
+    fenetresimplification.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Constante.cpp \
@@ -37,6 +38,7 @@ HEADERS += \
     Singleton.h \
     cosinus.h \
     fenetregraphe.h \
+    fenetresimplification.h \
     fenprincipale.h \
     Addition.h \
     Constante.h \
@@ -57,6 +59,7 @@ HEADERS += \
 FORMS += \
     FenetreGraphe.ui \
     SaisieGraphe.ui \
+    fenetresimplification.ui \
     saisieexpressionIHM.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

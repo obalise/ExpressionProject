@@ -7,6 +7,7 @@
 
 #include "SaisieGraphe.h"
 #include "saisieexpressionIHM.h"
+#include "fenetresimplification.h"
 
 
 #include "fenprincipale.h"
@@ -513,7 +514,7 @@ void FenPrincipale::affichageGraph()
 void FenPrincipale::affichageSimplification()
 {
 
-    QString op, test;
+ /*   QString op, test;
     ostringstream out;
 
     //zone centrale : SDI
@@ -526,7 +527,11 @@ void FenPrincipale::affichageSimplification()
     out << "Design pattern - singleton non disponible" << endl;
 
     test = QString::fromStdString(out.str());
-    textEdit->setPlainText(test);
+    textEdit->setPlainText(test); */
+
+    FenetreSimplification *fenSimplification = 0;
+    fenSimplification = new FenetreSimplification();
+    fenSimplification->show();
 
 
 #ifdef DEBUG
