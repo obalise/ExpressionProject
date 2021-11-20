@@ -12,17 +12,21 @@ Multiplication::~Multiplication()
 
 void Multiplication::afficher(ostream &os) const
 {
+    os << "( ";
      _operandeGauche->afficher(os);
-    os << "*";
+    os << " * ";
     _operandeDroite->afficher(os);
+    os << " )";
 }
 
 void Multiplication::afficherNPI(ostream &os) const
 {
+    os << "( ";
     _operandeGauche->afficherNPI(os);
+    os << " ";
     _operandeDroite->afficher(os);
-    os << "*";
-    //os << endl;
+    os << " * ";
+    os << " )";
 }
 
 float Multiplication::calculer()

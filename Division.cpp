@@ -13,20 +13,22 @@ Division::~Division()
 void Division::afficher(ostream &os) const
 {
 
-    os << "(";
+    os << " ( ";
     _operandeGauche->afficher(os);
-    os << "/";
+    os << " / ";
     _operandeDroite->afficher(os);
-    os << ")";
+    os << " ) ";
 
 }
 
 void Division::afficherNPI(ostream &os) const
 {
+    os << "( ";
     _operandeGauche->afficherNPI(os);
+    os << " ";
     _operandeDroite->afficher(os);
-    os << "/";
-    os << endl;
+    os << " / ";
+    os << " )";
 }
 
 float Division::calculer()
