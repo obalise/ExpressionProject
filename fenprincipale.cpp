@@ -61,7 +61,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     QAction *actionAffichageVal = new QAction("&Affichage de la valeur de l'expression", this);
     QAction *actionAffichageGraph = new QAction("&Affichage graphique en 2D ", this);
 
-    QAction *actionSimplification = new QAction("&Simplification de l'epxression", this);
+    QAction *actionSimplification = new QAction("&Simplification de l'expression", this);
 
      menuFichier->addAction(actionSauvegarder);
      menuFichier->addAction(actionCharger);
@@ -529,8 +529,13 @@ void FenPrincipale::affichageSimplification()
     test = QString::fromStdString(out.str());
     textEdit->setPlainText(test); */
 
+    std::cout << "\nAffichage graphe" << _monExpression;
+    std::cout << "\nAffichage graphe" << *_monExpression;
+
     FenetreSimplification *fenSimplification = 0;
     fenSimplification = new FenetreSimplification();
+    fenSimplification->_monExpression = this->getExpression();
+    fenSimplification->remplissageAffichages();
     fenSimplification->show();
 
 

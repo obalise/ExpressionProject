@@ -52,7 +52,6 @@ public:
     void setExpressionSaisie(Expression*);
     Expression* retourExpression();
     Expression* _monExpression;
-    Expression** _pointeurExpressionGlobal;
 
 
 private slots:

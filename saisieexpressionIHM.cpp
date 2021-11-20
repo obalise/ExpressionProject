@@ -1,6 +1,7 @@
 #include "saisieexpressionIHM.h"
 #include "ui_saisieexpressionIHM.h"
 
+#define PI 3.1415926535
 
 SaisieExpressionIHM::SaisieExpressionIHM(QWidget *parent) :
     QMainWindow(parent),
@@ -433,4 +434,5 @@ void SaisieExpressionIHM::on_Bouton_LogNeperien_clicked()
 
     ui->AffichageNC->setText(valeurAjout2);
 }
+
 
