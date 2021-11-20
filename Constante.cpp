@@ -34,7 +34,7 @@ float Constante::calculer()
 
 Expression* Constante::simplifier()
 {
-
+    return this;
 }
 
 ostream &operator<<( ostream &os, const Constante& c1)
