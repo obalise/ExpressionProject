@@ -217,7 +217,7 @@ QPushButton:hover{
    <widget class="QDoubleSpinBox" name="SpinBox_Constante">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>30</x>
       <y>110</y>
       <width>80</width>
       <height>22</height>
@@ -239,7 +239,7 @@ QPushButton:hover{
      <bool>false</bool>
     </property>
     <property name="buttonSymbols">
-     <enum>QAbstractSpinBox::PlusMinus</enum>
+     <enum>QAbstractSpinBox::NoButtons</enum>
     </property>
     <property name="keyboardTracking">
      <bool>true</bool>
@@ -258,7 +258,7 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>140</y>
+      <y>150</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -367,6 +367,19 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #FF4901
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
     <property name="text">
      <string>Ln</string>
     </property>
@@ -453,13 +466,13 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>140</y>
+      <y>150</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="text">
-     <string>e</string>
+     <string>Exponentielle</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_RacineCarree">

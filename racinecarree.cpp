@@ -17,14 +17,14 @@ RacineCarree::RacineCarree (const RacineCarree& other):OperateurUnaire(other)
 
 void RacineCarree::afficher(ostream &os) const
 {
-    os << "sqrt(";
+    os << "√(";
     _operandeUnique->afficher(os);
     os << ")";
 }
 
 void RacineCarree::afficherNPI(ostream &os) const
 {
-    os << "sqrt(";
+    os << "√(";
     _operandeUnique->afficherNPI(os);
     os << ")";
 }
