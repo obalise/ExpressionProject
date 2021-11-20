@@ -151,7 +151,33 @@ void SaisieExpressionIHM::on_Bouton_Multiplication_clicked()
 
 void SaisieExpressionIHM::on_Bouton_Puissance_clicked()
 {
+    Expression *pOperande2 = pileExpression.top();
+    pileExpression.pop();
+    Expression *pOperande1 = pileExpression.top();
+    pileExpression.pop();
+    Expression *pPuissance = new Puissance(pOperande1, pOperande2);
 
+    pileExpression.push(pPuissance);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "^";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + " " + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
 }
 
 
@@ -233,11 +259,6 @@ void SaisieExpressionIHM::on_Bouton_ValAbs_clicked()
 
 }
 
-
-void SaisieExpressionIHM::on_Bouton_Simplifier_clicked()
-{
-
-}
 
 
 /*

@@ -28,8 +28,8 @@
 #include "Division.h"
 #include "Constante.h"
 #include "Variable.h"
+#include "puissance.h"
 
-//#include "OperateurUnaire.h"
 #include "Carre.h"
 #include "sinus.h"
 #include "cosinus.h"
@@ -74,8 +74,6 @@ private slots:
 
     void on_Bouton_ValAbs_clicked();
 
-    void on_Bouton_Simplifier_clicked();
-
     void on_Bouton_Carre_clicked();
 
     void on_SpinBox_Constante_valueChanged(double arg1);
@@ -99,7 +97,6 @@ private:
     std::stack<Expression*> pileExpression;
     double _nombreConstanteSaisie;
     void closeEvent(QCloseEvent *bar);
-    //Expression* _monExpression;
 
 signals :
     void closed();
