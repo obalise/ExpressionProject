@@ -3,24 +3,29 @@
 
 #include <iostream>
 #include <cmath>
+#include <cstdlib>
 #include <OperateurUnaire.h>
 
 
-class Valeurabsolue : public OperateurUnaire
+class ValeurAbsolue : public OperateurUnaire
 {
     public:
-        Valeurabsolue();
-        virtual ~Valeurabsolue();
-        float calculer();
-        void afficher(ostream &os) const override;
-        void afficheNPI(ostream &os) const override
-        Expression* simplifier() override
+        ValeurAbsolue(Expression* a);
+        virtual ~ValeurAbsolue();
+        ValeurAbsolue (const ValeurAbsolue& other);
 
+        float calculer () override;
+        void afficher(ostream &os) const override;
+        void afficherNPI(ostream &os) const override;
+        Expression* simplifier()override;
 
     protected:
 
     private:
-        Expression* _operateurUnique;
+        Expression* _operandeUnique;
+
 };
- ostream &operator << (ostram &os, const Valeurabsolue& op);
+
+ostream &operator<<(ostream &os, const ValeurAbsolue & op);
+
  #endif  //VALEURABSOLUE_H

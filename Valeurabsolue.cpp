@@ -1,43 +1,48 @@
 #include<iostream>
 #include "Valeurabsolue.h"
 
-using namespace std;
-
-Valeurabsolue::Valeurabsolue()
+ValeurAbsolue::ValeurAbsolue(Expression* a) : _operandeUnique(a)
 {
-    //cout << "Valeur absolue" << endl; //ctor
+    /*cout << "ValeurAbsolue" << endl; //ctor*/
 }
 
-Valeurabsolue::~Valeurabsolue()
+ValeurAbsolue::~ValeurAbsolue()
 {
-    // cout "Destructeur Valeurabsolue" << endl; //dtor
-}
-void Valeurabsolue::afficher(ostream &os) const
-{
-    os << "Valeurabsulue |";
-    _operateurUnique->afficher(os);
-    os << "|"
+   cout << endl << "Destructeur ValeurAbsolue" << endl; //dtor
 }
 
-void Valeurabsolue::afficheNPI(ostream &os) const
+ValeurAbsolue::ValeurAbsolue (const ValeurAbsolue& other):OperateurUnaire(other)
 {
-    os << "Valeurabsolue |";
-    _operateurUnique->afficherNPI(os);
+    //copy ctor
+}
+
+void ValeurAbsolue::afficher(ostream &os) const
+{
     os << "|";
-    cout << endl;
+    _operandeUnique->afficher(os);
+    os << "|";
 }
-float Valeurabsolue::calculer()
+
+void ValeurAbsolue::afficherNPI(ostream &os) const
+{
+    os << "|";
+    _operandeUnique->afficherNPI(os);
+    os << "|";
+}
+
+float ValeurAbsolue::calculer()
 {
     return abs(_operandeUnique->calculer());
 }
 
-Expression* Valeurabsolue::simplifier()
+Expression* ValeurAbsolue::simplifier()
 {
     return this;
 }
 
-ostream &operator << (ostream &os, const Valeurabsolue& op)
+ostream &operator << (ostream &os, const ValeurAbsolue& op)
 {
     op.afficher(os);
     return os;
 }
+

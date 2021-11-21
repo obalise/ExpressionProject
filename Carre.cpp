@@ -7,39 +7,36 @@ Carre::Carre(Expression* a) : _operandeUnique(a)
     /*cout << "Carre" << endl; //ctor*/
 }
 
-
-Carre::Carre (const Carre& other)
-{
-    cout << "Constructeur carré" << endl;//copy ctor
-}
-
 Carre::~Carre()
 {
-   cout << endl << "Destructeur Carré" << endl; //dtor
+   cout << endl << "Destructeur CarrÃ©" << endl; //dtor
 }
 
-
-void Carre::affucher(ostream &os) const
+Carre::Carre (const Carre& other):OperateurUnaire(other)
 {
-    _operateurUnique->afficher(os);
-    _operandeUnique->afficher(os);
-    os << "²";
-    cout << endl;
+    //copy ctor
+}
 
+void Carre::afficher(ostream &os) const
+{
+    _operandeUnique->afficher(os);
+    os << "Â²";
 }
 
 void Carre::afficherNPI(ostream &os) const
 {
-    _operteurUniqe->afficherNPI(os);
     _operandeUnique->afficherNPI(os);
-      os << "²";
-    cout  << endl;
+    os << "Â²";
 }
 
 float Carre::calculer()
 {
-    return _operandeUnique->calculer();
-    return _operandeUnique->calculer()*_operateurUnique->calculer();
+    return _operandeUnique->calculer() * _operandeUnique->calculer();
+}
+
+Expression* Carre::simplifier()
+{
+    return this;
 }
 
 ostream &operator << (ostream &os, const Carre& op)

@@ -2,28 +2,27 @@
 #define INVERSE_H
 
 #include <iostream>
-
-#include "OperUnaire.h"
+#include <cmath>
+#include "OperateurUnaire.h"
 
 
 class Inverse : public OperateurUnaire
 {
     public:
-        Inverse(Expression * a);
-        Inverse(const Inverse& other);
+        Inverse(Expression* a);
         virtual ~Inverse();
+        Inverse (const Inverse& other);
 
-
-        float calculer();
+        float calculer () override;
         void afficher(ostream &os) const override;
         void afficherNPI(ostream &os) const override;
-        Expression* simplifier() override;
+        Expression* simplifier()override;
 
     protected:
 
     private:
-        Expression* _opernadeUnique;
+        Expression* _operandeUnique;
 
 };
-ostream &operator << (ostream &os, const Inverse& op);
+
 #endif // INVERSE_H

@@ -2,29 +2,28 @@
 #define CARRE_H
 
 #include <iostream>
-#include "Opunin.h"
+#include "OperateurUnaire.h"
 
-#define CARRE_H
-#define CARRE_H
 
-class Carre
+class Carre : public OperateurUnaire
 {
     public:
         Carre(Expression* a);
         virtual ~Carre();
         Carre (const Carre& other);
 
-        float calculer () ;
-        void afficher(ostream &os) const ;
-        void afficherNPI(ostream &os) const;
+        float calculer () override;
+        void afficher(ostream &os) const override;
+        void afficherNPI(ostream &os) const override;
+        Expression* simplifier()override;
 
     protected:
 
     private:
-        Expression* _operandeGauche;
-        Expression* _operandeDroite;
+        Expression* _operandeUnique;
 
-        ostream &operator << (ostream &os, const Carre& op);
 };
+
+ostream &operator<<(ostream &os, const Carre & op);
 
 #endif // CARRE_H
