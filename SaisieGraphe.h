@@ -19,7 +19,7 @@
 #include <string>
 #include <stack>
 
-#include "Graphe.h"
+#include "graphe.h"
 #include "Expression.h"
 #include "Constante.h"
 #include "Multiplication.h"
@@ -29,7 +29,7 @@
 #include "Constante.h"
 #include "Variable.h"
 
-#include "FenetreGraphe.h"
+#include "fenetregraphe.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -43,30 +43,20 @@ class SaisieGraphe : public QMainWindow
 public:
     SaisieGraphe(QWidget *parent = nullptr);
     ~SaisieGraphe();
-//    int _nombreConstanteSaisie;
+    Expression* _monExpression;
 
 private:
     Ui::MainWindow *ui;
     std::stack<Expression*> pileExpression;
-    double _nombreConstanteSaisie;
     double _nombrePasSaisie;
     double _nombrePlageBasseSaisie;
     double _nombrePlageHauteSaisie;
 
-
-
 private slots:
-    void on_pushButton_clicked();
-    void on_pushButton_6_clicked();
-    void on_pushButton_2_clicked();
-    void on_pushButton_4_clicked();
-    void on_pushButton_3_clicked();
-    void on_pushButton_5_clicked();
     void on_pushButton_7_clicked();
 
     void on_doubleSpinBox_valueChanged(double arg1);
     void on_doubleSpinBox_2_valueChanged(double arg1);
     void on_doubleSpinBox_3_valueChanged(double arg1);
-    void on_doubleSpinBox_4_valueChanged(double arg1);
 };
 #endif // SAISIEGRAPHE_H

@@ -57,13 +57,19 @@ int TerminalMenu::main_boucle()
 
             case 2:
             {
-
+                if(la_saisie.charger(cin, cout, "sauvegarde.txt") != FILE_OK);
+                {
+                    cout << "Erreur a l'ouverture de la sauvegarde" << endl;
+                }
                 break;
             }
 
             case 3:
             {
-
+                if(la_saisie.sauvegarder(cin, cout, "sauvegarde.txt", la_saisie.GetExpSaisie()) != FILE_OK);
+                {
+                    cout << "Erreur a l'ouverture de la sauvegarde" << endl;
+                }
                 break;
             }
 

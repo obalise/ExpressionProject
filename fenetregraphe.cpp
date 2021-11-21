@@ -1,15 +1,14 @@
-#include "FenetreGraphe.h"
-//#include "ui_newmainwindow.h"
+#include "fenetregraphe.h"
 #include "ui_FenetreGraphe.h"
 
-NewMainWindow::NewMainWindow(QWidget *parent) :
+FenetreGraphe::FenetreGraphe(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::NewMainWindow)
 {
     ui->setupUi(this);
 }
 
-NewMainWindow::~NewMainWindow()
+FenetreGraphe::~FenetreGraphe()
 {
     delete ui;
 }

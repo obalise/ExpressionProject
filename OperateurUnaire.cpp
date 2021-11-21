@@ -1,19 +1,20 @@
 #include <iostream>
+
 #include "OperateurUnaire.h"
 
 using namespace std;
 
 OperateurUnaire::OperateurUnaire()
 {
-    //cout << "Opearateur Uniare" << end; ctor
+    //cout << "Opunin" << endl;   ctor
 }
 
 OperateurUnaire::~OperateurUnaire()
 {
-   cout << "Destructeur Operateur Unaire" //dtor
+    cout << "Destructeur Opunin" << endl; //dtor
 }
 
-OperateurUnaire::OperateurUnaire(const OperateurUnaire& other)
+OperateurUnaire::OperateurUnaire(const OperateurUnaire & other):Expression(other)
 {
     //copy ctor
 }

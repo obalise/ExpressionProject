@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Addition.h"
 #include "Soustraction.h"
+#include "Singleton.h"
 #include "Multiplication.h"
 #include "Division.h"
 #include "Constante.h"
@@ -38,6 +39,7 @@ int main(int argc, char *argv[])
 
     if(mode == 1)
     {
+
         QApplication app(argc, argv);
 
         FenPrincipale fenetre(900, 450);
@@ -51,5 +53,7 @@ int main(int argc, char *argv[])
         TerminalMenu t_menu;
         t_menu.main_boucle();
     }
+
+    return 0;
 }
 

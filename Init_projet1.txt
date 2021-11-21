@@ -1,5 +1,0 @@
-Sujet 1 : Entrée de l’expression par l’opérateur dans un terminal
-
-Groupe :
--Anakin HUET : Astroce
--Remi FERRAND : Rems013

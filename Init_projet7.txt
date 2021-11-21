@@ -1,5 +1,0 @@
-Sujet 7 : Grapheur 2D
-
-Groupe:
--Arnaud SOUQUIERE: ArnaudIsen13
--Florent VILLENEUVE: Florent-Ville

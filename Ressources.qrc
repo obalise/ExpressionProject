@@ -1,0 +1,13 @@
+<RCC>
+    <qresource prefix="/images"/>
+    <qresource prefix="/">
+        <file>Images/icone.png</file>
+        <file>Images/mario face.jpg</file>
+        <file>Images/Pacha_Infobox.jpg</file>
+        <file>Images/HEYHEYHEYHEYHYE.jpg</file>
+        <file>Images/Fleur.jpg</file>
+        <file>Images/rayman.jpg</file>
+        <file>Images/Visage.jpg</file>
+        <file>Images/Eddy.jpg</file>
+    </qresource>
+</RCC>
