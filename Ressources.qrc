@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/images"/>
+    <qresource prefix="/">
+        <file>Images/icone.png</file>
+        <file>Images/mario face.jpg</file>
+        <file>Images/Pacha_Infobox.jpg</file>
+        <file>Images/HEYHEYHEYHEYHYE.jpg</file>
+    </qresource>
+</RCC>

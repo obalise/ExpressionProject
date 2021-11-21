@@ -22,8 +22,15 @@
     <height>419</height>
    </size>
   </property>
+  <property name="cursor">
+   <cursorShape>ArrowCursor</cursorShape>
+  </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Saisie Expression</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="Ressources.qrc">
+    <normaloff>:/Images/mario face.jpg</normaloff>:/Images/mario face.jpg</iconset>
   </property>
   <widget class="QWidget" name="centralwidget">
    <widget class="QLineEdit" name="AffichageNPI">
@@ -67,6 +74,9 @@
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: #87CEEB
@@ -94,7 +104,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -123,7 +140,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -154,9 +178,12 @@ QPushButton:hover{
     <property name="font">
      <font>
       <pointsize>12</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
+      <weight>75</weight>
+      <bold>true</bold>
      </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -185,7 +212,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -213,8 +247,18 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Valeur Absolue</string>
+     <string>|x|</string>
     </property>
    </widget>
    <widget class="QDoubleSpinBox" name="SpinBox_Constante">
@@ -266,6 +310,9 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: #87CEEB
@@ -293,7 +340,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -321,8 +375,18 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="text">
-     <string>Inverse</string>
+     <string>1/x</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Carre">
@@ -335,7 +399,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -363,6 +434,9 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: #BEBEBE
@@ -388,6 +462,9 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -415,6 +492,9 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: #FCE205
@@ -440,6 +520,9 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -467,6 +550,9 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
 	background-color: #FCE205
@@ -492,6 +578,9 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -520,7 +609,14 @@ QPushButton:hover{
      </rect>
     </property>
     <property name="font">
-     <font/>
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
@@ -586,6 +682,9 @@ QPushButton:hover{
       <width>80</width>
       <height>22</height>
      </rect>
+    </property>
+    <property name="cursor">
+     <cursorShape>PointingHandCursor</cursorShape>
     </property>
     <property name="text">
      <string>Log10</string>
@@ -655,13 +754,15 @@ QPushButton:hover{
    </property>
    <widget class="QMenu" name="menuJ_aime_la_bi_re_au_beurre">
     <property name="title">
-     <string>J'aime la bière au beurre</string>
+     <string>Saisie de l'expression</string>
     </property>
    </widget>
    <addaction name="menuJ_aime_la_bi_re_au_beurre"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
- <resources/>
+ <resources>
+  <include location="Ressources.qrc"/>
+ </resources>
  <connections/>
 </ui>

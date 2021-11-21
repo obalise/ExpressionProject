@@ -19,4 +19,3 @@ ostream &operator<<( ostream &os, const Expression& exp)
     exp.afficher(os);
     return os;
 }
-

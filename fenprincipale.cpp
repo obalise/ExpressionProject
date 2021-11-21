@@ -40,7 +40,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     fileName = new QString();
     textEdit = new QTextEdit(this);
 
-    QPixmap bkgnd("Images/icone.png");
+    QPixmap bkgnd(":/Images/HEYHEYHEYHEYHYE.jpg");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);

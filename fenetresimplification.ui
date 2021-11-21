@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>302</width>
-    <height>243</height>
+    <width>165</width>
+    <height>162</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,8 +17,8 @@
    <widget class="QLineEdit" name="AffichageSimplifieNC">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>100</y>
+      <x>30</x>
+      <y>90</y>
       <width>113</width>
       <height>21</height>
      </rect>
@@ -27,8 +27,8 @@
    <widget class="QLineEdit" name="AffichageAvantSimplificationNC">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>50</y>
+      <x>30</x>
+      <y>40</y>
       <width>113</width>
       <height>21</height>
      </rect>
@@ -37,8 +37,8 @@
    <widget class="QLabel" name="label">
     <property name="geometry">
      <rect>
-      <x>100</x>
-      <y>30</y>
+      <x>40</x>
+      <y>20</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -50,8 +50,8 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>90</x>
-      <y>80</y>
+      <x>30</x>
+      <y>70</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -66,7 +66,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>302</width>
+     <width>165</width>
      <height>21</height>
     </rect>
    </property>
