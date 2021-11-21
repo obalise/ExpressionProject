@@ -264,6 +264,19 @@ QPushButton:hover{
     <property name="cursor">
      <cursorShape>PointingHandCursor</cursorShape>
     </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #ED4D4D
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
     <property name="text">
      <string>|x|</string>
     </property>
