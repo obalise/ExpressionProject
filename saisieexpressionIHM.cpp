@@ -1,5 +1,7 @@
 #include "saisieexpressionIHM.h"
 #include "ui_saisieexpressionIHM.h"
+#include "fenprincipale.h"
+#include "Addition.h"
 
 #define PI 3.1415926535
 

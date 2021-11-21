@@ -1,8 +1,11 @@
 #ifndef EXPRESSION_H
 #define EXPRESSION_H
 
+#define ABSTRACT_CLASS
+
 #include <iostream>
 #include <string>
+#include "Singleton.h"
 
 using namespace std;
 
@@ -19,10 +22,12 @@ class Expression
 
     protected:
 
+
     private:
 
 };
 
 ostream &operator<<(ostream &os, const Expression& exp);
+
 
 #endif // EXPRESSION_H

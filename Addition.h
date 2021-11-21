@@ -22,6 +22,7 @@ public:
 
 protected:
 
+
 private:
 
     Expression* _operandeGauche;

@@ -18,3 +18,4 @@ Operateur::Operateur(const Operateur& other):Expression(other)
 {
     //copy ctor
 }
+
