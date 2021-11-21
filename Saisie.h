@@ -1,3 +1,8 @@
+/************************
+ * classe Saisie, par groupe 1 (Mathieu + Thomas)
+ * Methode saisie.sauvegarder et saisie.charger, par groupe 2 (Remi + Anakin)
+ * *********************/
+
 #ifndef SAISIE_H
 #define SAISIE_H
 #include <iostream>
@@ -17,26 +22,23 @@ typedef enum
     FILE_ERROR,
 }Fichier_Report;
 
-class Saisie
+class Saisie    //Classe qui garde en memoire l'expression Saisie par l'utilisateur. Permet de la saisir, l'enregistrer dans un fichier ou de la charger
 {
     public:
-        Saisie();
+        Saisie();	//Constructeur
         virtual ~Saisie();
 
-        int GetCounter() { return m_Counter; }
-        void SetCounter(int val) { m_Counter = val; }
-        Expression* GetExpSaisie() { return m_exp_saisi; }
+        Expression* GetExpSaisie() { return m_exp_saisi; } //Renvoie l'expression en memoire
 
-        void saisir(istream &is, ostream &os);
-        Fichier_Report sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save);
-        Fichier_Report charger(istream &is, ostream &os, std::string nom_de_fichier);
-        void vector_to_exp(std::vector<std::string> vector_str, ostream &os);
+        void saisir(istream &is, ostream &os); //Demande a l'utilisateur de saisir une expression, la stoque dans m_exp_saisi
+        Fichier_Report sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save); //Sauvegarde une expression sous forme texte (forme polonaise inversee) dans un fichier
+        Fichier_Report charger(istream &is, ostream &os, std::string nom_de_fichier); //Charge m_exp_saisi depuis un fichier texte (forme polonaise inversee) 
+        void vector_to_exp(std::vector<std::string> vector_str, ostream &os); //Prend en parametre un vector de string, le convertit en expression
 
     protected:
 
     private:
-        int m_Counter;
-		Expression *m_exp_saisi = NULL;
+		Expression *m_exp_saisi = NULL; //Pointeur sur l'Expression en memoire
 };
 
 #endif // SAISIE_H

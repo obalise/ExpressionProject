@@ -1,11 +1,19 @@
 #include "Saisie.h"
+/************************
+ * classe Saisie, par groupe 1 (Mathieu + Thomas)
+ * Methode saisie.sauvegarder et saisie.charger, par groupe 2 (Remi + Anakin)
+ * *********************/
 #include <iostream>
 #include <fstream>
 #include <string>
 
 using namespace std;
 
-//enum { "+", "-", "*", "/"};
+bool is_digits(const std::string &str) //outils, interne a saisie.cpp, permet de verifier si un string est un nombre
+{
+    return str.find_first_not_of("0123456789") == std::string::npos;
+}
+
 
 Saisie::Saisie()
 {
@@ -17,7 +25,7 @@ Saisie::~Saisie()
     //dtor
 }
 
-void Saisie::saisir(istream &is, ostream &os)
+void Saisie::saisir(istream &is, ostream &os) //Demande a l'utilisateur d'entree son expression, Constante par Constante, Operande par Operande en NPI, Les stoque dans un vector de string puis appelle vector_to_exp
 {
     string truc_saisie = "2";
     std::vector<std::string> exp_str;
@@ -37,66 +45,93 @@ void Saisie::saisir(istream &is, ostream &os)
 }
 
 
-void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)
+void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)  //Convertir un vector de string en expression
 {
     int i = 0;
+    stack<Expression *> pile; //On cree une pile d'expression
 
-    /*for(i = 0; i < vector_str.size(); i ++)
+
+    for(i = 0; i < vector_str.size()-1; i++)
     {
-        cout << "   l'element : "<< i <<" est : "<<vector_str[i]<<endl;
-    }*/
-    for(i = 0; i < vector_str.size(); i ++)
-    {
-        if ((vector_str[i] == "+") || (vector_str[i] == "-"))
+        if(is_digits(vector_str[i])) //si le string est un nombre
         {
-            break;
+            pile.push(new Constante(stof(vector_str[i]))); //ajoute dans la pile une constante
         }
-        if ((vector_str[i] == "*") || (vector_str[i] == "/"))
+        else if(vector_str[i] == "+") //si le string est un "+"
         {
-            break;
+            if(pile.size()<2) //On verifie qu'il y ai au moins deux constante/variable/expression deja dans la pile
+            {
+                os << "Vous avez mal saisi votre expression" << endl;
+            }
+            else
+            {
+                Expression* moins_un = pile.top();
+                pile.pop();
+                Expression* moins_deux = pile.top();
+                pile.pop(); //on supprime les deux expression precedante de la pile
+                pile.push(new Addition(moins_deux, moins_un)); //on les remplace par une operation entre ces deux expression
+            }
+        }
+        else if(vector_str[i] == "-")
+        {
+            if(pile.size()<2)
+            {
+                os << "Vous avez mal saisi votre expression" << endl;
+            }
+            else
+            {
+                Expression* moins_un = pile.top();
+                pile.pop();
+                Expression* moins_deux = pile.top();
+                pile.pop();
+                pile.push(new Soustraction(moins_deux, moins_un));
+            }
+        }
+        else if(vector_str[i] == "*")
+        {
+            if(pile.size()<2)
+            {
+                os << "Vous avez mal saisi votre expression" << endl;
+            }
+            else
+            {
+                Expression* moins_un = pile.top();
+                pile.pop();
+                Expression* moins_deux = pile.top();
+                pile.pop();
+                pile.push(new Multiplication(moins_deux, moins_un));
+            }
+        }
+        else if(vector_str[i] == "/")
+        {
+            if(pile.size()<2)
+            {
+                os << "Vous avez mal saisi votre expression" << endl;
+            }
+            else
+            {
+                Expression* moins_un = pile.top();
+                pile.pop();
+                Expression* moins_deux = pile.top();
+                pile.pop();
+                pile.push(new Division(moins_deux, moins_un));
+            }
+        }
+        else //Si le caractere saisie n'est ni un nombre ni un operateur, c'est une variable
+        {
+            pile.push(new Variable(vector_str[i][0]));
         }
     }
-    os << endl << "le nombre de chiffre dans ton expression est : " << i << " le dernier chiffre est : " << vector_str[i-1]<< endl;
-
-    int taille_exp = vector_str.size();
-    if((taille_exp-i != taille_exp/2) || (taille_exp%2 != 0))
-    {
-        cout << "Erreur dans l'expression, nombre d'operande ne correspond pas au nombre de constante" << endl;
-    }
-
-    int deb_operande = i;
-
-    this->m_exp_saisi = new Constante(stof(vector_str[0]));
-    //new Constante(4.4);
-
-    for(i = deb_operande; i < taille_exp-1; i ++)
-    {
-        if (vector_str[i] == "+")
-        {
-            this->m_exp_saisi = new Addition(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
-        }
-        if (vector_str[i] == "-")
-        {
-            this->m_exp_saisi = new Soustraction(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
-        }
-        if (vector_str[i] == "*")
-        {
-            this->m_exp_saisi = new Multiplication(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
-        }
-        if (vector_str[i] == "/")
-        {
-            this->m_exp_saisi = new Division(this->m_exp_saisi, new Constante(stof(vector_str[i-(taille_exp/2)+1])));
-        }
-    }
+    this->m_exp_saisi = pile.top(); //Lorsque il ne reste plus qu'une expression sur la pile, on place celle ci dans m_exp_saisi
 }
 
-Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save)
+Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_fichier, Expression* exp_to_save) //Sauvegarde une expression sous forme texte (forme polonaise inversee) dans un fichier
 {
-	ofstream flux_fichier(nom_de_fichier.c_str());
+	ofstream flux_fichier(nom_de_fichier.c_str()); //ouvre un fichier
 
 	if(flux_fichier)
 	{
-		exp_to_save->afficherNPI(flux_fichier);
+		exp_to_save->afficherNPI(flux_fichier); //imprime dans celui ci m_exp_saisi en notation polonaise inversee
 		exp_to_save->afficherNPI(os);
 
 		flux_fichier.close();
@@ -110,13 +145,14 @@ Fichier_Report Saisie::sauvegarder(istream &is, ostream &os, std::string nom_de_
 	}
 }
 
-Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fichier)
+
+Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fichier) //Charge m_exp_saisi depuis un fichier texte (forme polonaise inversee)
 {
-	ifstream flux_fichier(nom_de_fichier.c_str());
+	ifstream flux_fichier(nom_de_fichier.c_str()); //ouvre un fichier
 
 	string buffer;
 
-	vector <string> gollum;
+	vector <string> gollum; //on cree un vector de string pour y enregistrer ce qu'on lit depuis le fichier
 
 	gollum.push_back("");
 
@@ -126,21 +162,20 @@ Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fich
 
 	if(flux_fichier)
 	{
-		getline(flux_fichier, buffer);
+		getline(flux_fichier, buffer); //on imprime flux fichier dans buffer
 
-		for(i = 0; i < buffer.length(); i++)
+		for(i = 0; i < buffer.length(); i++) //on parcour buffer
 		{
-			//character = buffer.at(i);
 
 			character = buffer[i];
 
-			if(character == ' ')
+			if(character == ' ') //pour chaque espace dans le fichier, on passe a un autre string dans le vector de string
 			{
 				gollum.push_back("");
 				j++;
 			}
 
-			else
+			else //on enregistre caractere par caractere le contenu du fichier dans le vector de string
 			{
 				gollum[j].push_back(character);
 			}
@@ -148,7 +183,7 @@ Fichier_Report Saisie::charger(istream &is, ostream &os, std::string nom_de_fich
 
 		flux_fichier.close();
 
-		this->vector_to_exp(gollum, os);
+		this->vector_to_exp(gollum, os); //on appelle vector_to_exp en lui passant en parametre gollum
 
 		return FILE_OK;
 	}
