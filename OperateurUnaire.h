@@ -1,24 +1,21 @@
-#ifndef OPUNIN_H
-#define OPUNIN_H
+#ifndef OPERATEURUNAIRE_H
+#define OPERATEURUNAIRE_H
 
 #include "Expression.h"
 
 using namespace std;
 
+
 class OperateurUnaire : public Expression
 {
-public:
-    OperateurUnaire();
-    virtual ~OperateurUnaire();
-    OperateurUnaire(const OperateurUnaire& other);
-    //Expression* _operandeUnique;
+    public:
+        OperateurUnaire();
+        virtual ~OperateurUnaire();
+        OperateurUnaire(const OperateurUnaire& other);
 
-protected:
+    protected:
 
-private:
-
+    private:
 };
 
-
-
-#endif // OPUNIN_H
+#endif // OPERATEURUNAIRE_H

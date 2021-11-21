@@ -18,20 +18,22 @@ Division::Division(const Division& other):Operateur(other)
 void Division::afficher(ostream &os) const
 {
 
-    os << "(";
+    os << " ( ";
     _operandeGauche->afficher(os);
-    os << "/";
+    os << " / ";
     _operandeDroite->afficher(os);
-    os << ")";
+    os << " ) ";
 
 }
 
 void Division::afficherNPI(ostream &os) const
 {
+    os << "( ";
     _operandeGauche->afficherNPI(os);
+    os << " ";
     _operandeDroite->afficher(os);
-    os << "/";
-    os << endl;
+    os << " / ";
+    os << " )";
 }
 
 float Division::calculer()
@@ -60,7 +62,7 @@ Expression* Division::simplifier()
                     }
                 else // cas de l'operande_Droite = Expression
                 {
-                    _operandeDroite=_operandeDroite->simplifier(); // Simplification de l'opérande droite dans le cas d'une expression
+                    _operandeDroite=_operandeDroite->simplifier(); // Simplification de l'opï¿½rande droite dans le cas d'une expression
                     Division div_res(_operandeGauche,_operandeDroite); // Recreation d'une nouvelle addition avec operande droite simplifiee
                     New_exp=new Division(div_res); // Affectation au pointeur de la nouvelle expression pour recuperation par le main
                     //cout << "var & exp "<< *New_exp<< endl; // Pour debug

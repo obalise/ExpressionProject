@@ -1,5 +1,6 @@
-#ifndef ADDITION_H
-#define ADDITION_H
+#ifndef PUISSANCE_H
+#define PUISSANCE_H
+
 
 #include <iostream>
 
@@ -7,12 +8,12 @@
 
 using namespace std;
 
-class Addition : public Operateur
+class Puissance : public Operateur
 {
 public:
-    Addition(Expression* a, Expression* b);
-    virtual ~Addition();
-    Addition(const Addition& other);
+    Puissance(Expression* a, Expression* b);
+    virtual ~Puissance();
+    Puissance(const Puissance& other);
 
     float calculer() override;
     void afficher(ostream &os) const override;
@@ -22,7 +23,6 @@ public:
 
 protected:
 
-
 private:
 
     Expression* _operandeGauche;
@@ -30,6 +30,6 @@ private:
 
 };
 
-ostream &operator<<(ostream &os, const Addition& op);
+ostream &operator<<(ostream &os, const Puissance& op);
 
-#endif // ADDITION_H
+#endif // PUISSANCE_H

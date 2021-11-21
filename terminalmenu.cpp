@@ -1,3 +1,8 @@
+/************************
+ * classe TerminalMenu, par groupe 1 (Mathieu + Thomas)
+ * Permet d'executer les principale fonction du projet dans un terminal
+ * *********************/
+
 #include "terminalmenu.h"
 
 TerminalMenu::TerminalMenu()
@@ -47,7 +52,7 @@ int TerminalMenu::main_boucle()
 
         //while (getchar () != '\n');
 
-        switch(choix2)
+        switch(choix2) //choix de l'utilisateur
         {
             case 1:
             {

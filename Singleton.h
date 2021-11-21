@@ -1,28 +1,22 @@
 #ifndef SINGLETON_H
 #define SINGLETON_H
 
-template <class T> class Singleton
-{
-public:
-        static T* GetInstance();
-        static void Kill();
-protected:
-        static T* m_i;
-        private:
-        T& operator= (const T&){}
-};
-
-class Variable :public Singleton<Variable>
-{
-        friend Variable* Singleton<Variable>::GetInstance();
-        friend void Singleton<Variable>::Kill();
-
+template <typename T> class Singleton {
+    public:
+        static T& Instance() {
+            if (_instance == nullptr) _instance = new T();
+            return *_instance;
+        }
+    protected:
+        virtual ~Singleton() {
+            if (_instance != nullptr) delete _instance;
+            _instance = nullptr;
+    }
 private:
-       Variable (const Variable&){}
-
-        Variable();
-       ~Variable();
+    static T* _instance;
 };
+template<typename T> T* Singleton<T>::_instance = nullptr;
+
 
 #endif
 

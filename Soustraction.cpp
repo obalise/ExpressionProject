@@ -19,20 +19,22 @@ Soustraction::Soustraction(const Soustraction& other):Operateur(other)
 void Soustraction::afficher(ostream &os) const
 {
 
-    os << "(";
+    os << "( ";
     _operandeGauche->afficher(os);
-    os << "-";
+    os << " - ";
     _operandeDroite->afficher(os);
-    os << ")"<<endl;
+    os << " )"<<endl;
 
 }
 
 void Soustraction::afficherNPI(ostream &os) const
 {
+    os << "( ";
     _operandeGauche->afficherNPI(os);
+    os << " ";
     _operandeDroite->afficher(os);
-    os << "-";
-    //os << endl;
+    os << " - ";
+    os << " )";
 }
 
 float Soustraction::calculer()
@@ -60,7 +62,7 @@ Expression* Soustraction::simplifier()
                     }
                 else // cas de l'operande_Droite = Expression
                 {
-                    _operandeDroite=_operandeDroite->simplifier(); // Simplification de l'opérande droite dans le cas d'une expression
+                    _operandeDroite=_operandeDroite->simplifier(); // Simplification de l'opï¿½rande droite dans le cas d'une expression
                     Soustraction sous_res(_operandeGauche,_operandeDroite); // Recreation d'une nouvelle addition avec operande droite simplifiee
                     New_exp=new Soustraction(sous_res); // Affectation au pointeur de la nouvelle expression pour recuperation par le main
                     //cout << "var & exp "<< *New_exp<< endl; // Pour debug

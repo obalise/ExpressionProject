@@ -10,8 +10,11 @@ SOURCES += \
     OperateurUnaire.cpp \
     Saisie.cpp \
     Singleton.cpp \
+    Valeurabsolue.cpp \
     cosinus.cpp \
+    exponentielle.cpp \
     fenetregraphe.cpp \
+    fenetresimplification.cpp \
     fenprincipale.cpp \
     Addition.cpp \
     Constante.cpp \
@@ -23,11 +26,14 @@ SOURCES += \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
+    inverse.cpp \
+    log10.cpp \
     logneperien.cpp \
+    puissance.cpp \
     racinecarree.cpp \
     saisieexpressionIHM.cpp \
-    singletontestflorent.cpp \
     sinus.cpp \
+    tan.cpp \
     terminalmenu.cpp \
     main.cpp
 HEADERS += \
@@ -35,8 +41,11 @@ HEADERS += \
     OperateurUnaire.h \
     Saisie.h \
     Singleton.h \
+    Valeurabsolue.h \
     cosinus.h \
+    exponentielle.h \
     fenetregraphe.h \
+    fenetresimplification.h \
     fenprincipale.h \
     Addition.h \
     Constante.h \
@@ -47,18 +56,25 @@ HEADERS += \
     SaisieGraphe.h \
     Soustraction.h \
     graphe.h \
+    inverse.h \
+    log10.h \
     logneperien.h \
+    puissance.h \
     racinecarree.h \
     saisieexpressionIHM.h \
-    singletontestflorent.h \
     sinus.h \
+    tan.h \
     terminalmenu.h \
     Variable.h
 FORMS += \
     FenetreGraphe.ui \
     SaisieGraphe.ui \
+    fenetresimplification.ui \
     saisieexpressionIHM.ui
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
-else: unix:!android: target.path = /opt/$${TARGET}/bin
+#else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    Ressources.qrc

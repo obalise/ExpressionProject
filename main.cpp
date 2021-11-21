@@ -11,6 +11,7 @@
 #include <iostream>
 #include "Addition.h"
 #include "Soustraction.h"
+#include "Singleton.h"
 #include "Multiplication.h"
 #include "Division.h"
 #include "Constante.h"
@@ -22,10 +23,14 @@
 #include "terminalmenu.h"
 #include <sstream>
 #include <string>
+#include "Valeurabsolue.h"
+#include "Opunin.h"
+#include "logneperien.h"
+#include "inverse.h"
+#include "Carre.h"
+
 
 using namespace std;
-
-
 
 int main(int argc, char *argv[])
 {
@@ -34,6 +39,7 @@ int main(int argc, char *argv[])
 
     if(mode == 1)
     {
+
         QApplication app(argc, argv);
 
         FenPrincipale fenetre(900, 450);

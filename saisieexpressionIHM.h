@@ -28,13 +28,18 @@
 #include "Division.h"
 #include "Constante.h"
 #include "Variable.h"
+#include "puissance.h"
 
-//#include "OperateurUnaire.h"
 #include "Carre.h"
 #include "sinus.h"
 #include "cosinus.h"
+#include "tan.h"
 #include "racinecarree.h"
 #include "logneperien.h"
+#include "exponentielle.h"
+#include "log10.h"
+#include "inverse.h"
+#include "Valeurabsolue.h"
 
 #include "fenetregraphe.h"
 
@@ -52,7 +57,6 @@ public:
     void setExpressionSaisie(Expression*);
     Expression* retourExpression();
     Expression* _monExpression;
-    Expression** _pointeurExpressionGlobal;
 
 
 private slots:
@@ -74,8 +78,6 @@ private slots:
 
     void on_Bouton_ValAbs_clicked();
 
-    void on_Bouton_Simplifier_clicked();
-
     void on_Bouton_Carre_clicked();
 
     void on_SpinBox_Constante_valueChanged(double arg1);
@@ -92,12 +94,16 @@ private slots:
 
     void on_Bouton_LogNeperien_clicked();
 
+    void on_Bouton_Tangente_clicked();
+
+
+    void on_Bouton_Log10_clicked();
+
 private:
     Ui::SaisieExpressionGraphe *ui;
     std::stack<Expression*> pileExpression;
     double _nombreConstanteSaisie;
     void closeEvent(QCloseEvent *bar);
-    //Expression* _monExpression;
 
 signals :
     void closed();
