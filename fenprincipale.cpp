@@ -40,7 +40,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     fileName = new QString();
     textEdit = new QTextEdit(this);
 
-    QPixmap bkgnd(":/Images/Eddy.jpg");
+    QPixmap bkgnd(":/Images/icone.png");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
@@ -66,6 +66,8 @@ FenPrincipale::FenPrincipale(int x, int y)
 
     QAction *actionSaisie = new QAction("&Saisie de l'expression", this);
     actionSaisie->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
+    QAction *actionSaisieGraphique = new QAction("&Saisie de l'expression graphiquement", this);
+    actionSaisieGraphique->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionSauvegarderExpression = new QAction("&Sauvegarder expression", this);
     actionSauvegarderExpression->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
     QAction *actionAffichageNC = new QAction("&Affichage de l'expression en NC", this);
@@ -85,6 +87,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     menuFichier->addAction(actionQuitter);
 
     menuEdition->addAction(actionSaisie);
+    menuEdition->addAction(actionSaisieGraphique);
     menuEdition->addAction(actionSauvegarderExpression);
     menuEdition->addAction(actionAffichageNC);
     menuEdition->addAction(actionAffichageNPI);
@@ -99,6 +102,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     connect(actionQuitter, SIGNAL(triggered()), qApp, SLOT(quit()));
 
     connect(actionSaisie, SIGNAL(triggered()), this, SLOT(saisie()));
+    connect(actionSaisieGraphique, SIGNAL(triggered()), this, SLOT(saisieGraphique()));
     connect(actionSauvegarderExpression, SIGNAL(triggered()), this, SLOT(sauvegarderExpression()));
     connect(actionAffichageNC, SIGNAL(triggered()), this, SLOT(affichageNC()));
     connect(actionAffichageNPI, SIGNAL(triggered()), this, SLOT(affichageNPI()));
@@ -106,6 +110,20 @@ FenPrincipale::FenPrincipale(int x, int y)
     connect(actionAffichageGraph, SIGNAL(triggered()), this, SLOT(affichageGraph()));
 
     connect(actionSimplification, SIGNAL(triggered()), this, SLOT(affichageSimplification()));
+
+}
+
+void FenPrincipale::saisieGraphique()
+{
+    saisieExpressionGraphique = new SaisieExpressionIHM();
+    saisieExpressionGraphique->show();
+
+    /*/On attend que la fenêtre de saisie de l'expression soit fermée avec cette boucle/*/
+    QEventLoop boucle;
+    connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
+    boucle.exec();
+    /*/Une fois la fenêtre fermée on peut charger notre _monExpression "globale" avec l'expression saisie/*/
+    this->setExpression(saisieExpressionGraphique->_monExpression);
 
 }
 
@@ -124,16 +142,14 @@ void FenPrincipale::setExpression(Expression* expression)
 void FenPrincipale::saisie()
 {
 
+    //zone centrale : SDI edition texte
+    QWidget *zoneCentrale = new QWidget;
+    setCentralWidget(zoneCentrale);
+    QHBoxLayout *layout = new QHBoxLayout;
+    layout->addWidget(textEdit);
+    zoneCentrale->setLayout(layout);
 
-    saisieExpressionGraphique = new SaisieExpressionIHM();
-    saisieExpressionGraphique->show();
-
-    /*/On attend que la fenêtre de saisie de l'expression soit fermée avec cette boucle/*/
-    QEventLoop boucle;
-    connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
-    boucle.exec();
-    /*/Une fois la fenêtre fermée on peut charger notre _monExpression "globale" avec l'expression saisie/*/
-    this->setExpression(saisieExpressionGraphique->_monExpression);
+    textEdit->clear();
 
 }
 

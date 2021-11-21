@@ -47,6 +47,7 @@ class FenPrincipale : public QMainWindow
     void charger();
     bool sauvegarderExpression();
     void saisie();
+    void saisieGraphique();
     void affichageNC();
     void affichageNPI();
     void affichageVal();
