@@ -22,6 +22,12 @@
 #include "terminalmenu.h"
 #include <sstream>
 #include <string>
+#include "Valabs.h"
+#include "Opunin.h"
+#include "Log.h"
+#include "Inv.h"
+#include "Carre.h"
+
 
 using namespace std;
 
