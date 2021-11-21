@@ -48,20 +48,34 @@ FenPrincipale::FenPrincipale(int x, int y)
 
 
     QMenu *menuFichier = menuBar()->addMenu("&Fichier");
+    //menuFichier->setIcon(this->style()->standardIcon(QStyle::SP_DialogOpenButton));
     QMenu *menuEdition = menuBar()->addMenu("&Edition");
+    //menuEdition->setIcon(this->style()->standardIcon(QStyle::SP_TitleBarMenuButton));
     QMenu *menuOutils = menuBar()->addMenu("&Outils");
+    //menuOutils->setIcon(this->style()->standardIcon(QStyle::SP_ToolBarHorizontalExtensionButton));
 
     QAction *actionSauvegarder = new QAction("&Sauvegarder", this);
+    actionSauvegarder->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
     QAction *actionCharger = new QAction("&Charger", this);
+    actionCharger->setIcon(this->style()->standardIcon(QStyle::SP_DialogOpenButton));
     QAction *actionQuitter = new QAction("&Quitter", this);
+    actionQuitter->setIcon(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton));
+
+
 
     QAction *actionSaisie = new QAction("&Saisie de l'expression", this);
+    actionSaisie->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionAffichageNC = new QAction("&Affichage de l'expression en NC", this);
+    actionAffichageNC->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionAffichageNPI = new QAction("&Affichage de l'expression en NPI", this);
+    actionAffichageNPI->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionAffichageVal = new QAction("&Affichage de la valeur de l'expression", this);
+    actionAffichageVal->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionAffichageGraph = new QAction("&Affichage graphique en 2D ", this);
+    actionAffichageGraph->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
 
     QAction *actionSimplification = new QAction("&Simplification de l'expression", this);
+    actionSimplification->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
 
      menuFichier->addAction(actionSauvegarder);
      menuFichier->addAction(actionCharger);
