@@ -257,14 +257,11 @@ bool FenPrincipale::sauvegarderExpression()
                 sous1 = new Soustraction(&tab[0], &tab[1]);
 
                 sous1->afficher(out1 << "Affichage NC soustraction" << endl);
-                _affichageNC = QString::fromStdString(out1.str());
 
                 sous1->afficherNPI(out2 <<"Affichage NPI soustraction"<< endl);
-                _affichageNPI = QString::fromStdString(out2.str());
 
                 resultat = sous1->calculer();
                 out3 << "Affichage du résultat =" << resultat << endl;
-                _affichageCalcul = QString::fromStdString(out3.str());
 
                 this->setExpression(sous1);
 
@@ -275,14 +272,11 @@ bool FenPrincipale::sauvegarderExpression()
                 mux1 = new Multiplication(&tab[0], &tab[1]);
 
                 mux1->afficher(out1 << "Affichage NC multiplication" << endl);
-                _affichageNC = QString::fromStdString(out1.str());
 
                 mux1->afficherNPI(out2 <<"Affichage NPI multiplication"<< endl);
-                _affichageNPI = QString::fromStdString(out2.str());
 
                 resultat = mux1->calculer();
                 out3 << "Affichage du résultat =" << resultat << endl;
-                _affichageCalcul = QString::fromStdString(out3.str());
 
                 this->setExpression(mux1);
 
@@ -293,14 +287,11 @@ bool FenPrincipale::sauvegarderExpression()
                 div1 = new Division(&tab[0], &tab[1]);
 
                 div1->afficher(out1 << "Affichage NC division" << endl);
-                _affichageNC = QString::fromStdString(out1.str());
 
                 div1->afficherNPI(out2 <<"Affichage NPI division"<< endl);
-                _affichageNPI = QString::fromStdString(out2.str());
 
                 resultat = div1->calculer();
                 out3 << "Affichage du résultat =" << resultat << endl;
-                _affichageCalcul = QString::fromStdString(out3.str());
 
                 this->setExpression(div1);
 
