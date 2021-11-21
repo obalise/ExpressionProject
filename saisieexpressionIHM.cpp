@@ -526,3 +526,35 @@ void SaisieExpressionIHM::on_Bouton_Tangente_clicked()
     ui->AffichageNC->setText(valeurAjout2);
 }
 
+
+
+
+void SaisieExpressionIHM::on_Bouton_Log10_clicked()
+{
+    Expression *pOperande = pileExpression.top();
+    pileExpression.pop();
+    Expression *pLog10 = new Log10(pOperande);
+
+    pileExpression.push(pLog10);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "log10";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + "." + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
+}
+

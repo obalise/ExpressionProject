@@ -37,6 +37,7 @@
 #include "racinecarree.h"
 #include "logneperien.h"
 #include "exponentielle.h"
+#include "log10.h"
 
 #include "fenetregraphe.h"
 
@@ -92,6 +93,9 @@ private slots:
     void on_Bouton_LogNeperien_clicked();
 
     void on_Bouton_Tangente_clicked();
+
+
+    void on_Bouton_Log10_clicked();
 
 private:
     Ui::SaisieExpressionGraphe *ui;
