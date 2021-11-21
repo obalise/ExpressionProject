@@ -24,7 +24,6 @@
 #include <sstream>
 #include <string>
 #include "Valeurabsolue.h"
-#include "Opunin.h"
 #include "logneperien.h"
 #include "inverse.h"
 #include "Carre.h"
