@@ -3,6 +3,40 @@
 
 #define PI 3.1415926535
 
+/*/Cette Saisie de l'expression n'est pas basée sur les travaux du Groupe 1/*/
+
+/* Nous allons implémenter la saisie de l'expression à l'aide d'une structure de données pile qui se prêtent parfaitement à notre application
+ * Nous utiliserons l'implémentation "stack" de la STL afin de ne pas perdre trop de temps à redévelopper notre structure de données
+ */
+
+//Schéma Explicatif du principe de l'utilisation de la pile
+/*
+ *       |          | <- 3
+ *
+ *       |3         | <- 4
+ *
+ *       |3 4       | <- +
+ *
+ *       |          |  <- 3 + 4
+ *
+ *       |(3+4)     |  <- ²
+ *
+ *       |          |  <- (3+4)²
+ *
+ *       |(3+4)²    |  <-
+ *
+ */
+
+/* Explication:
+ * Les constantes et variables s'empilent les unes sur les autres sans affecter le reste des expressions présentes
+ * Cependant les opérateurs vont dépiler les opérandes dont ils ont besoin pour se construire
+ * Ainsi un opérateur classique dépilera deux expressions et un opérateur unaire n'en dépilera qu'une seule
+ * Une fois que l'opérateur à généré son expression, il la rajoute en haut de la pile
+ * Le processus peut être répéter jusqu'à avoir une expression très complexe
+ * A la fin il ne doit rester plus qu'une seule expression dans la pile
+ */
+
+
 SaisieExpressionIHM::SaisieExpressionIHM(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::SaisieExpressionGraphe)
@@ -258,25 +292,6 @@ void SaisieExpressionIHM::on_Bouton_ValAbs_clicked()
 {
 
 }
-
-
-
-/*
- *       |          | <- 3
- *
- *       |3         | <- 4
- *
- *       |3 4       | <- +
- *
- *       |          |  <- 3 + 4
- *
- *       |(3+4)     |  <- ²
- *
- *       |          |  <- (3+4)²
- *
- *       |(3+4)²    |  <-
- *
- */
 
 
 void SaisieExpressionIHM::on_Bouton_Carre_clicked()

@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>320</width>
-    <height>419</height>
+    <width>322</width>
+    <height>522</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -69,7 +69,7 @@
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #87CEEB
 }
 
 QPushButton:pressed{
@@ -93,9 +93,12 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font/>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #ED4D4D
 }
 
 QPushButton:pressed{
@@ -107,36 +110,10 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>Addition</string>
+     <string>+</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Soustraction">
-    <property name="geometry">
-     <rect>
-      <x>30</x>
-      <y>210</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QPushButton{
-	background-color: #FF4901
-}
-
-QPushButton:pressed{
-	background-color: #FFA500
-}
-
-QPushButton:hover{
-	background-color: #63C5DA
-}</string>
-    </property>
-    <property name="text">
-     <string>Soustraction</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Bouton_Multiplication">
     <property name="geometry">
      <rect>
       <x>120</x>
@@ -145,9 +122,12 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font/>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #ED4D4D
 }
 
 QPushButton:pressed{
@@ -159,7 +139,40 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>Multiplication</string>
+     <string>-</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_Multiplication">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>210</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #ED4D4D
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>*</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Division">
@@ -171,9 +184,12 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font/>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #ED4D4D
 }
 
 QPushButton:pressed{
@@ -185,13 +201,13 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>Division</string>
+     <string>/</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_ValAbs">
     <property name="geometry">
      <rect>
-      <x>30</x>
+      <x>210</x>
       <y>240</y>
       <width>80</width>
       <height>22</height>
@@ -244,15 +260,15 @@ QPushButton:hover{
    <widget class="QPushButton" name="Bouton_Variable">
     <property name="geometry">
      <rect>
-      <x>120</x>
-      <y>150</y>
+      <x>210</x>
+      <y>110</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #87CEEB
 }
 
 QPushButton:pressed{
@@ -276,8 +292,24 @@ QPushButton:hover{
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #ED4D4D
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
     <property name="text">
-     <string>Puissance</string>
+     <string>^</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Inverse">
@@ -296,15 +328,18 @@ QPushButton:hover{
    <widget class="QPushButton" name="Bouton_Carre">
     <property name="geometry">
      <rect>
-      <x>210</x>
+      <x>30</x>
       <y>240</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
+    <property name="font">
+     <font/>
+    </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #ED4D4D
 }
 
 QPushButton:pressed{
@@ -316,21 +351,21 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>Carré</string>
+     <string>²</string>
     </property>
    </widget>
    <widget class="QPushButton" name="Bouton_Memoriser">
     <property name="geometry">
      <rect>
       <x>90</x>
-      <y>330</y>
+      <y>440</y>
       <width>141</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #BEBEBE
 }
 
 QPushButton:pressed{
@@ -349,7 +384,7 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>150</y>
+      <y>310</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -375,14 +410,14 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>280</y>
+      <y>380</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #FCE205
 }
 
 QPushButton:pressed{
@@ -401,14 +436,14 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>120</x>
-      <y>280</y>
+      <y>380</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #FCE205
 }
 
 QPushButton:pressed{
@@ -427,14 +462,14 @@ QPushButton:hover{
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>280</y>
+      <y>380</y>
       <width>80</width>
       <height>22</height>
      </rect>
     </property>
     <property name="styleSheet">
      <string notr="true">QPushButton{
-	background-color: #FF4901
+	background-color: #FCE205
 }
 
 QPushButton:pressed{
@@ -452,21 +487,8 @@ QPushButton:hover{
    <widget class="QPushButton" name="Bouton_Euler">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>150</y>
-      <width>80</width>
-      <height>22</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exponentielle</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Bouton_RacineCarree">
-    <property name="geometry">
-     <rect>
       <x>120</x>
-      <y>240</y>
+      <y>310</y>
       <width>80</width>
       <height>22</height>
      </rect>
@@ -485,7 +507,140 @@ QPushButton:hover{
 }</string>
     </property>
     <property name="text">
-     <string>Racine Carrée</string>
+     <string>e</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="Bouton_RacineCarree">
+    <property name="geometry">
+     <rect>
+      <x>120</x>
+      <y>240</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font/>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QPushButton{
+	background-color: #ED4D4D
+}
+
+QPushButton:pressed{
+	background-color: #FFA500
+}
+
+QPushButton:hover{
+	background-color: #63C5DA
+}</string>
+    </property>
+    <property name="text">
+     <string>√</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>360</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Fonctions Trigonométriques</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>290</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Logarithmes</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>160</y>
+      <width>131</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Opérateurs classiques</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>310</y>
+      <width>80</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Log10</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>140</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>270</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_3">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>340</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
+    </property>
+   </widget>
+   <widget class="Line" name="line_4">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>410</y>
+      <width>261</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Horizontal</enum>
     </property>
    </widget>
   </widget>
@@ -494,7 +649,7 @@ QPushButton:hover{
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>320</width>
+     <width>322</width>
      <height>21</height>
     </rect>
    </property>
