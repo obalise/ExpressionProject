@@ -10,6 +10,8 @@ pour une expression  2 opérande + 1 opérateur ou 3 opérande + 2 opérateur ou
 
 Ex: ( 5 + 8 ) ou ( 5 + 8 ) - 3 ) ou (( 5 + 8 ) - 3 ) / 4 
 
+* Gestion des parenthèses à améliorer ==> ( 5 + 8 ) - ( 3 / 4) ne fonctionne pas
+
 Pour tester il faut soit charger un fichier texte soit utiliser le menu saisie expression.
 
 Dans l'ordre Saisie ou charger, sauvegarde l'expression puis affichage ou calcul
