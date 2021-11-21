@@ -40,7 +40,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     fileName = new QString();
     textEdit = new QTextEdit(this);
 
-    QPixmap bkgnd(":/Images/HEYHEYHEYHEYHYE.jpg");
+    QPixmap bkgnd(":/Images/Eddy.jpg");
     bkgnd = bkgnd.scaled(this->size(), Qt::IgnoreAspectRatio);
     QPalette palette;
     palette.setBrush(QPalette::Background, bkgnd);
@@ -56,8 +56,8 @@ FenPrincipale::FenPrincipale(int x, int y)
 
     //Création d'actions pour les menus
     QAction *actionSauvegarderFichier = new QAction("&Sauvegarder fichier", this);
-    QAction *actionCharger = new QAction("&Charger Fichier", this);
     actionSauvegarderFichier->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
+    QAction *actionCharger = new QAction("&Charger Fichier", this);
     actionCharger->setIcon(this->style()->standardIcon(QStyle::SP_DialogOpenButton));
     QAction *actionQuitter = new QAction("&Quitter", this);
     actionQuitter->setIcon(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton));
@@ -65,8 +65,9 @@ FenPrincipale::FenPrincipale(int x, int y)
 
 
     QAction *actionSaisie = new QAction("&Saisie de l'expression", this);
-    QAction *actionSauvegarderExpression = new QAction("&Sauvegarder expression", this);
     actionSaisie->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
+    QAction *actionSauvegarderExpression = new QAction("&Sauvegarder expression", this);
+    actionSauvegarderExpression->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
     QAction *actionAffichageNC = new QAction("&Affichage de l'expression en NC", this);
     actionAffichageNC->setIcon(this->style()->standardIcon(QStyle::SP_ArrowRight));
     QAction *actionAffichageNPI = new QAction("&Affichage de l'expression en NPI", this);
@@ -123,14 +124,16 @@ void FenPrincipale::setExpression(Expression* expression)
 void FenPrincipale::saisie()
 {
 
-    //zone centrale : SDI edition texte
-    QWidget *zoneCentrale = new QWidget;
-    setCentralWidget(zoneCentrale);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(textEdit);
-    zoneCentrale->setLayout(layout);
 
-    textEdit->clear();
+    saisieExpressionGraphique = new SaisieExpressionIHM();
+    saisieExpressionGraphique->show();
+
+    /*/On attend que la fenêtre de saisie de l'expression soit fermée avec cette boucle/*/
+    QEventLoop boucle;
+    connect(saisieExpressionGraphique, SIGNAL(closed()), &boucle, SLOT(quit()));
+    boucle.exec();
+    /*/Une fois la fenêtre fermée on peut charger notre _monExpression "globale" avec l'expression saisie/*/
+    this->setExpression(saisieExpressionGraphique->_monExpression);
 
 }
 
@@ -529,21 +532,22 @@ void FenPrincipale::affichageVal()
 void FenPrincipale::affichageGraph()
 {
 
-    std::cout << "\nAffichage graphe" << _monExpression;
-    std::cout << "\nAffichage graphe" << *_monExpression;
+    SaisieGraphe *saisieGraphe = 0;
+    saisieGraphe = new SaisieGraphe();
+    saisieGraphe->_monExpression = this->getExpression();
+    saisieGraphe->show();
+
+ }
+
+
+
+void FenPrincipale::affichageSimplification()
+{
 
     FenetreSimplification *fenSimplification = 0;
     fenSimplification = new FenetreSimplification();
     fenSimplification->_monExpression = this->getExpression();
     fenSimplification->remplissageAffichages();
     fenSimplification->show();
-
- }
-
-#ifdef DEBUG
-
-void FenPrincipale::affichageSimplification()
-{
-
 
 }

@@ -31,7 +31,6 @@ SOURCES += \
     puissance.cpp \
     racinecarree.cpp \
     saisieexpressionIHM.cpp \
-    singletontestflorent.cpp \
     sinus.cpp \
     tan.cpp \
     terminalmenu.cpp \
@@ -61,7 +60,6 @@ HEADERS += \
     puissance.h \
     racinecarree.h \
     saisieexpressionIHM.h \
-    singletontestflorent.h \
     sinus.h \
     tan.h \
     terminalmenu.h \

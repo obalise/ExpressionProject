@@ -14,6 +14,8 @@ Addition::Addition(Expression* a, Expression* b) : _operandeGauche(a), _operande
 Addition::~Addition()
 {
 
+}
+
 Addition::Addition(const Addition& other):Operateur(other)
 {
     //copy ctor

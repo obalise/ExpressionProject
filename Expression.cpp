@@ -12,6 +12,8 @@ Expression::Expression()
 Expression::~Expression()
 {
 
+}
+
 ostream &operator<<( ostream &os, const Expression& exp)
 {
     exp.afficher(os);
