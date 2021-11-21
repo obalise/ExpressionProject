@@ -57,7 +57,7 @@ FenPrincipale::FenPrincipale(int x, int y)
     //Création d'actions pour les menus
     QAction *actionSauvegarderFichier = new QAction("&Sauvegarder fichier", this);
     QAction *actionCharger = new QAction("&Charger Fichier", this);
-    actionSauvegarder->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
+    actionSauvegarderFichier->setIcon(this->style()->standardIcon(QStyle::SP_DialogSaveButton));
     actionCharger->setIcon(this->style()->standardIcon(QStyle::SP_DialogOpenButton));
     QAction *actionQuitter = new QAction("&Quitter", this);
     actionQuitter->setIcon(this->style()->standardIcon(QStyle::SP_TitleBarCloseButton));
@@ -529,24 +529,8 @@ void FenPrincipale::affichageVal()
 void FenPrincipale::affichageGraph()
 {
 
- /*   QString op, test;
-    ostringstream out;
-
-    //zone centrale : SDI
-    QWidget *zoneCentrale = new QWidget;
-    setCentralWidget(zoneCentrale);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(textEdit);
-    zoneCentrale->setLayout(layout);
-
-    out << "Voir code projet 7" << endl;
-
-    test = QString::fromStdString(out.str());
-    textEdit->setPlainText(test); */
-
     std::cout << "\nAffichage graphe" << _monExpression;
     std::cout << "\nAffichage graphe" << *_monExpression;
-}
 
     FenetreSimplification *fenSimplification = 0;
     fenSimplification = new FenetreSimplification();
@@ -554,24 +538,12 @@ void FenPrincipale::affichageGraph()
     fenSimplification->remplissageAffichages();
     fenSimplification->show();
 
+ }
 
 #ifdef DEBUG
+
 void FenPrincipale::affichageSimplification()
 {
 
-    QString test;
-    ostringstream out;
-
-    //zone centrale : SDI
-    QWidget *zoneCentrale = new QWidget;
-    setCentralWidget(zoneCentrale);
-    QHBoxLayout *layout = new QHBoxLayout;
-    layout->addWidget(textEdit);
-    zoneCentrale->setLayout(layout);
-
-    out << "Voir code projet 7" << endl;
-
-    test = QString::fromStdString(out.str());
-    textEdit->setPlainText(test);
 
 }
