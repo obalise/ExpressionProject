@@ -23,10 +23,10 @@
 #include "terminalmenu.h"
 #include <sstream>
 #include <string>
-#include "Valabs.h"
+#include "Valeurabsolue.h"
 #include "Opunin.h"
-#include "Log.h"
-#include "Inv.h"
+#include "logneperien.h"
+#include "inverse.h"
 #include "Carre.h"
 
 

@@ -39,6 +39,7 @@
 #include "exponentielle.h"
 #include "log10.h"
 #include "inverse.h"
+#include "Valeurabsolue.h"
 
 #include "fenetregraphe.h"
 

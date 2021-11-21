@@ -7,14 +7,7 @@ FenetreSimplification::FenetreSimplification(QWidget *parent) :
     ui(new Ui::FenetreSimplification)
 {
     ui->setupUi(this);
-//    ui->AffichageAvantSimplificationNC->setText("Rien du tout!");
 
- /* std::stringstream chaine;
-    chaine << *_monExpression;
-    std::string s = chaine.str();
-    QString qstr = QString::fromStdString(s);
-
-    ui->AffichageAvantSimplificationNC->setText(qstr);*/
 }
 
 FenetreSimplification::~FenetreSimplification()
