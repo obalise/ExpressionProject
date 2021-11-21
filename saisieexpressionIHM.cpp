@@ -250,7 +250,31 @@ void SaisieExpressionIHM::on_Bouton_Soustraction_clicked()
 
 void SaisieExpressionIHM::on_Bouton_Inverse_clicked()
 {
+    Expression *pOperande = pileExpression.top();
+    pileExpression.pop();
+    Expression *pInverse = new Inverse(pOperande);
 
+    pileExpression.push(pInverse);
+
+    QString valeurEcran = ui->AffichageNPI->text();
+    QString valeurAjout = "inv";
+
+    if((valeurEcran == "Ici s'affichera l'expression en NPI")){
+       ui->AffichageNPI->setText(valeurAjout);
+    } else{
+       ui->AffichageNPI->setText(valeurEcran + "." + valeurAjout);
+    }
+
+    Expression* expression = pileExpression.top();
+
+    std::stringstream chaine;
+    chaine << *expression;
+    std::string s = chaine.str();
+    QString qstr = QString::fromStdString(s);
+
+    QString valeurAjout2 = qstr;
+
+    ui->AffichageNC->setText(valeurAjout2);
 }
 
 

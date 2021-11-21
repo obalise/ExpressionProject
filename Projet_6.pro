@@ -25,6 +25,7 @@ SOURCES += \
     Soustraction.cpp \
     Variable.cpp \
     graphe.cpp \
+    inverse.cpp \
     log10.cpp \
     logneperien.cpp \
     puissance.cpp \
@@ -54,6 +55,7 @@ HEADERS += \
     SaisieGraphe.h \
     Soustraction.h \
     graphe.h \
+    inverse.h \
     log10.h \
     logneperien.h \
     puissance.h \

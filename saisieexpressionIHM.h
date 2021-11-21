@@ -38,6 +38,7 @@
 #include "logneperien.h"
 #include "exponentielle.h"
 #include "log10.h"
+#include "inverse.h"
 
 #include "fenetregraphe.h"
 
