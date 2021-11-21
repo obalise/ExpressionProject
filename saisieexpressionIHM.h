@@ -36,6 +36,7 @@
 #include "tan.h"
 #include "racinecarree.h"
 #include "logneperien.h"
+#include "exponentielle.h"
 
 #include "fenetregraphe.h"
 

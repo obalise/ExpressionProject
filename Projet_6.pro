@@ -11,6 +11,7 @@ SOURCES += \
     Saisie.cpp \
     Singleton.cpp \
     cosinus.cpp \
+    exponentielle.cpp \
     fenetregraphe.cpp \
     fenetresimplification.cpp \
     fenprincipale.cpp \
@@ -39,6 +40,7 @@ HEADERS += \
     Saisie.h \
     Singleton.h \
     cosinus.h \
+    exponentielle.h \
     fenetregraphe.h \
     fenetresimplification.h \
     fenprincipale.h \
