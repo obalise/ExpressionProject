@@ -1,11 +1,13 @@
-#include "Saisie.h"
+
 /************************
  * classe Saisie, par groupe 1 (Mathieu + Thomas)
  * Methode saisie.sauvegarder et saisie.charger, par groupe 2 (Remi + Anakin)
  * *********************/
+#include "Saisie.h"
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <stack>
 
 using namespace std;
 
@@ -49,7 +51,6 @@ void Saisie::vector_to_exp(vector<string> vector_str, ostream &os)  //Convertir 
 {
     int i = 0;
     stack<Expression *> pile; //On cree une pile d'expression
-
 
     for(i = 0; i < vector_str.size()-1; i++)
     {
