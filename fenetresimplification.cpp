@@ -31,9 +31,9 @@ void FenetreSimplification::remplissageAffichages()
 
     ui->AffichageAvantSimplificationNC->setText(qstr);
 
-    _monExpression->simplifier();
+    Expression* expressionSimplifiee = _monExpression->simplifier();
     std::stringstream chaine2;
-    chaine2 << *_monExpression;
+    chaine2 << *expressionSimplifiee;
     std::string s2 = chaine2.str();
     QString qstr2 = QString::fromStdString(s2);
     ui->AffichageSimplifieNC->setText(qstr2);
